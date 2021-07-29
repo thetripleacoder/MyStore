@@ -79,6 +79,7 @@ let productRows = allProducts.map(product=>{
 			<tr key={product._id}>
 					<td>{product._id}</td>
 					<td>{product.name}</td>
+					<td>{product.price}</td>
 					<td className={product.isActive ? "text-success" : "text-danger"}>{product.isActive ? "Active" : "Inactive"}</td>
 					<td>
 					{
@@ -115,6 +116,7 @@ let bannerContent =
 								<tr>
 									<th>ID</th>
 									<th>Name</th>
+									<th>Price</th>
 									<th>Status</th>
 									<th>Actions</th>
 								</tr>

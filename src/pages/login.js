@@ -23,7 +23,7 @@ export default function Login(){
 	function loginUser(e){
 
 		e.preventDefault()
-		console.log("The page will no longer refresh because of submit.")
+		// console.log("The page will no longer refresh because of submit.")
 	
 	fetch('https://cryptic-crag-81593.herokuapp.com/api/login', {
 		method: "POST",
@@ -40,7 +40,7 @@ export default function Login(){
 	.then(response => response.json()) 
 	.then(data => {
 		
-		// console.log(data)
+		console.log(data)
 		if(data.message){
 			Swal.fire({
 				icon: "error",
@@ -48,7 +48,7 @@ export default function Login(){
 				text: data.message
 			})
 		} else {
-			console.log(data)
+			// console.log(data)
 
 			localStorage.setItem('token', data.accessToken)
 			
@@ -59,7 +59,7 @@ export default function Login(){
 			})
 			.then(res => res.json())
 			.then(data => {
-				console.log(data)
+				// console.log(data)
 
 				localStorage.setItem('email', data.email) 
 				localStorage.setItem('isAdmin', data.isAdmin) 
@@ -93,14 +93,14 @@ export default function Login(){
 			<Form.Group>
 				<Form.Label>Email:</Form.Label>
 				<Form.Control type="text" placeholder="Enter Email" value={email} onChange={event=>{
-					console.log(event.target)
+					// console.log(event.target)
 					setEmail(event.target.value)}} required/>
 			</Form.Group>
 	
 			<Form.Group>
 				<Form.Label>Password:</Form.Label>
 				<Form.Control type="text" placeholder="Enter Password" value={password} onChange={event=>{
-					console.log(event.target)
+					// console.log(event.target)
 					setPassword(event.target.value)}} required/>
 			</Form.Group>
 	

@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import{Jumbotron, Button, Row, Col} from 'react-bootstrap'
+import{Jumbotron, Row, Col} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import UserContext from '../userContext'
 

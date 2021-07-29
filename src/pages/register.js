@@ -1,10 +1,12 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState,useEffect, useContext} from 'react'
 import {Form,Button} from 'react-bootstrap'
 import Swal from 'sweetalert2'
 import{Redirect} from 'react-router-dom'
+import UserContext from '../userContext'
 
 export default function Register(){
 
+	const {user} = useContext(UserContext)
 	const [firstName, setFirstName] = useState("")
 	const [lastName, setLastName] = useState("")
 	const [address, setAddress] = useState("")
@@ -35,7 +37,7 @@ export default function Register(){
 
 	function registerUser(e){
 		e.preventDefault()
-		console.log("The page will no longer refresh because of submit.")
+		// console.log("The page will no longer refresh because of submit.")
 	
 	fetch('https://cryptic-crag-81593.herokuapp.com/api/register', {
 		method: "POST",
@@ -55,7 +57,7 @@ export default function Register(){
 	})
 	.then(response => response.json()) 
 	.then(data => {
-		console.log(data)
+		// console.log(data)
 		if(data.message){
 			Swal.fire({
 				icon: "error",
@@ -84,7 +86,7 @@ export default function Register(){
 	}
 	return (
 
-		willRedirect
+		user.email || willRedirect
 		?
 		<Redirect to="/login" />
 		:
@@ -92,43 +94,43 @@ export default function Register(){
 			<Form.Group>
 				<Form.Label>First Name:</Form.Label>
 				<Form.Control type="text" placeholder="Enter First Name" value={firstName} onChange={event=>{
-					console.log(event.target)
+					// console.log(event.target)
 					setFirstName(event.target.value)}} required/>
 			</Form.Group>
 			<Form.Group>
 				<Form.Label>Last Name:</Form.Label>
 				<Form.Control type="text" placeholder="Enter Last Name" value={lastName} onChange={event=>{
-					console.log(event.target)
+					// console.log(event.target)
 					setLastName(event.target.value)}} required/>
 			</Form.Group>
 			<Form.Group>
 				<Form.Label>Address:</Form.Label>
 				<Form.Control type="text" placeholder="Enter Address" value={address} onChange={event=>{
-					console.log(event.target)
+					// console.log(event.target)
 					setAddress(event.target.value)}} required/>
 			</Form.Group>
 			<Form.Group>
 				<Form.Label>Email:</Form.Label>
 				<Form.Control type="text" placeholder="Enter Email" value={email} onChange={event=>{
-					console.log(event.target)
+					// console.log(event.target)
 					setEmail(event.target.value)}} required/>
 			</Form.Group>
 			<Form.Group>
 				<Form.Label>Mobile No:</Form.Label>
 				<Form.Control type="text" placeholder="Enter 11-Digit Mobile No" value={mobileNo} onChange={event=>{
-					console.log(event.target)
+					// console.log(event.target)
 					setMobileNo(event.target.value)}} required/>
 			</Form.Group>
 			<Form.Group>
 				<Form.Label>Password:</Form.Label>
 				<Form.Control type="text" placeholder="Enter Password" value={password} onChange={event=>{
-					console.log(event.target)
+					// console.log(event.target)
 					setPassword(event.target.value)}} required/>
 			</Form.Group>
 			<Form.Group>
 				<Form.Label>Confirm Password:</Form.Label>
 				<Form.Control type="text" placeholder="Confirm Password" value={confirmPassword} onChange={event=>{
-					console.log(event.target)
+					// console.log(event.target)
 					setConfirmPassword(event.target.value)}} required/>
 			</Form.Group>
 			{

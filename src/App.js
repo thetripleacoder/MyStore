@@ -11,7 +11,7 @@ import {UserProvider} from './userContext'
 /*import components here*/
 import Home from './pages/home'
 import NavBar from './components/NavBar'
-import Product from './components/Product'
+// import Product from './components/Product'
 import NotFound from './components/notFound'
 
 /*import pages here*/
@@ -44,7 +44,7 @@ function App(){
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/products" component={Products} />
-             {/* <Route exact path="/addProduct" component={AddProduct} />*/}
+              <Route exact path="/addProduct" component={AddProduct} />
               <Route component={NotFound} />
             </Switch>
           </Container>
