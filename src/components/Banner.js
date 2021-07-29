@@ -3,7 +3,6 @@ import{Jumbotron, Button, Row, Col} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
 export default function Banner({bannerProp}) {
-	// console.log (bannerProp)
 	return(
 
 			<Row>

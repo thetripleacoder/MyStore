@@ -4,7 +4,7 @@ import React from 'react'
 import{Row, Col, Card} from 'react-bootstrap'
 
 export default function Highlights(object){
-	console.log(object)
+	// console.log(object)
 	return(
 		<Row>
 			<Col xs ={12} md = {4}>
