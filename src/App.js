@@ -8,12 +8,18 @@ import {UserProvider} from './userContext'
 
 
 
-/*import our components here*/
+/*import components here*/
 import Home from './pages/home'
 import NavBar from './components/NavBar'
+import Product from './components/Product'
+import NotFound from './components/notFound'
+
+/*import pages here*/
 import Register from './pages/register'
 import Login from './pages/login'
-import NotFound from './components/notFound'
+import Products from './pages/products'
+import AddProduct from './pages/addProduct'
+
 
 function App(){
 
@@ -37,8 +43,8 @@ function App(){
               <Route exact path="/" component={Home} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
-         {/*     <Route exact path="/courses" component={Courses} />*/}
-             {/* <Route exact path="/addCourse" component={AddCourse} />*/}
+              <Route exact path="/products" component={Products} />
+             {/* <Route exact path="/addProduct" component={AddProduct} />*/}
               <Route component={NotFound} />
             </Switch>
           </Container>

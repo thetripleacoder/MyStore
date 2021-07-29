@@ -1,43 +1,45 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {Table, Button} from 'react-bootstrap'
-import Banner from '../components/Banner'
-import Course from '../components/Course'
 import UserContext from '../userContext'
 
-export default function Courses(){
+/*import components here*/
+import Banner from '../components/Banner'
+import Product from '../components/Product'
 
-	const [allCourses, setAllCourses] = useState([])
-	const [activeCourses, setActiveCourses] = useState([])
+export default function Products(){
+
+	const [allProducts, setAllProducts] = useState([])
+	const [activeProducts, setActiveProducts] = useState([])
 	const {user} = useContext(UserContext)
 	const [update,setUpdate] = useState(0)
 
 	useEffect(()=>{
 	
-		fetch('http://localhost:4000/api/courses')
+		fetch('https://cryptic-crag-81593.herokuapp.com/api/products')
 		.then(res => res.json())
 		.then(data => {
-			console.log(data)
-			setAllCourses(data.data)
-			let coursesTemp = data.data
+			// console.log(data)
+			setAllProducts(data.data)
+			let productsTemp = data.data
 			/*temporary array to hold filtered items. only active courses*/
-			let tempArray = coursesTemp.filter(course => {
-				return course.isActive === true
+			let tempArray = productsTemp.filter(product => {
+				return product.isActive === true
 			})
 
-			setActiveCourses(tempArray)
+			setActiveProducts(tempArray)
 		})
 	},[update])
 
-	let courseComponents = activeCourses.map((course)=>{
-		console.log(course)
+	let productComponents = activeProducts.map((product)=>{
+		// console.log(product)
 
 	  return (
-	      <Course key = {course._id} courseProp={course}/>
+	      <Product key = {product._id} productProp={product}/>
 	     
 	    )
 	})
-	function archive(courseId){
-		fetch(`http://localhost:4000/api/courses/archive/${courseId}`, {
+	function archive(productId){
+		fetch(`https://cryptic-crag-81593.herokuapp.com/api/products/archive/${productId}`, {
 			method: 'PUT',
 			headers: {
 				'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -52,8 +54,8 @@ export default function Courses(){
 		})
 	}
 
-	function activate(courseId){
-		fetch(`http://localhost:4000/api/courses/activate/${courseId}`, {
+	function activate(productId){
+		fetch(`https://cryptic-crag-81593.herokuapp.com/api/products/activate/${productId}`, {
 				method: 'PUT',
 				headers: {
 				'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -67,22 +69,24 @@ export default function Courses(){
 		})
 }
 
-console.log(typeof null)
+// console.log(typeof null)
 
-let courseRows = allCourses.map(course=>{
+let productRows = allProducts.map(product=>{
+
+	// console.log(product)
 	
 	return (
-			<tr key={course._id}>
-					<td>{course._id}</td>
-					<td>{course.name}</td>
-					<td className={course.isActive ? "text-success" : "text-danger"}>{course.isActive ? "Active" : "Inactive"}</td>
+			<tr key={product._id}>
+					<td>{product._id}</td>
+					<td>{product.name}</td>
+					<td className={product.isActive ? "text-success" : "text-danger"}>{product.isActive ? "Active" : "Inactive"}</td>
 					<td>
 					{
-						course.isActive
+						product.isActive
 						?
-						<Button variant="danger" className="mx-2" onClick={()=>archive(course._id)}>Archive</Button>
+						<Button variant="danger" className="mx-2" onClick={()=>archive(product._id)}>Archive</Button>
 						:
-						<Button variant="success" className="mx-2" onClick={()=>activate(course._id)}>Activate</Button>
+						<Button variant="success" className="mx-2" onClick={()=>activate(product._id)}>Activate</Button>
 					}
 
 					</td>
@@ -94,9 +98,9 @@ let courseRows = allCourses.map(course=>{
 
 let bannerContent = 
 {
-  title: "Welcome to Courses Page",
-  description: "Affordable courses for everyone",
-  label: "Login to Enroll",
+  title: "Welcome to products page",
+  description: "Affordable products for everybody",
+  label: "Login to Buy",
   destination: "/login"
 }
 
@@ -116,14 +120,14 @@ let bannerContent =
 								</tr>
 							</thead>
 							<tbody>
-								{courseRows}
+								{productRows}
 							</tbody>
 						</Table>
 				</>
 				: 
 					<>
 						<Banner bannerProp={bannerContent} />
-						{courseComponents}
+						{productComponents}
 					</>
 			
 		

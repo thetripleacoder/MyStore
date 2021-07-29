@@ -1,13 +1,16 @@
 import React from 'react'
+
+/*import components here*/
 import Banner from '../components/Banner'
 import Highlights from '../components/Highlights'
+
 export default function Home() {
 	  let bannerContent = 
     {
       title: "Welcome to My Store",
       description: "Buy Now! Die Later!",
       label: "Shop with us!",
-      // destination: "/register"
+      destination: "/register"
     }
 	return (
 		<>

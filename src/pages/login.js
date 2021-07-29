@@ -1,8 +1,8 @@
 import React, {useState,useEffect, useContext} from 'react'
 import {Form,Button} from 'react-bootstrap'
 import Swal from 'sweetalert2'
-import UserContext from '../userContext'
 import{Redirect} from 'react-router-dom'
+import UserContext from '../userContext'
 
 export default function Login(){
 
@@ -85,7 +85,7 @@ export default function Login(){
 
 		user.email || willRedirect
 		?
-		<Redirect to='/courses'/>
+		<Redirect to='/products'/>
 		:
 
 		<Form onSubmit={e=>loginUser(e)}>

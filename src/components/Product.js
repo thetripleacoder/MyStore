@@ -1,69 +1,44 @@
-import React, {useState, useEffect} from 'react'
-import{Card, Button} from 'react-bootstrap'
+import React, {useState, useEffect, useContext} from 'react'
+import {Card, Button} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
+import UserContext from '../userContext'
+import '../App.css'
 
-export default function Course({courseProp}){
+export default function Product({productProp}){
 
-	const[count, setCount] = useState(0)
-	const[seats, setSeats] = useState(30)
+	const {user} = useContext(UserContext)
+
+	// const[count, setCount] = useState(0)
+	// const[seats, setSeats] = useState(30)
 	const [isActive,setIsActive] = useState(true)
 
-	useEffect(()=>{
+	// useEffect(()=>{
 
-		if(seats === 0){
-			setIsActive(false)
-		}
+	// 	if(seats === 0){
+	// 		setIsActive(false)
+	// 	}
 
-	},[seats])
+	// },[seats])
 
-	function enroll() {
-		setCount (count+1)
-		setSeats (seats-1)
-	}
+	// function addToCart() {
+	// 	setCount (count+1)
+	// 	setSeats (seats-1)
+	// }
 
 	return(
-		<Card>
+		<Card className = "cardProduct">
 					<Card.Body>
 						<Card.Title>
-						<h2>{courseProp.name}</h2>
+						<h2>{productProp.name}</h2>
 						</Card.Title>
 						<Card.Text>
-							{courseProp.description}
-						</Card.Text>
-						{/*<Card.Text>
-							Price: {courseProp.price} PHP
-						</Card.Text>*/}
-						<Card.Text>
-							Enrollees: {
-								count === 0 
-
-								? <span className = "text-danger">"No Enrollees Yet."</span>
-
-								: <span className
-								="text-success">{count}</span>
-							}
+							{productProp.description}
 						</Card.Text>
 						<Card.Text>
-							Seats: {
-								seats === 0 
-
-								? <span  className = "text-danger">"No More Seats Available."</span>
-
-								: <span className
-								="text-success">{seats}</span>
-							}
+							Price: {productProp.price} PHP
 						</Card.Text>
-
-					{/*	<Button variant="primary" onClick={enroll} disabled ={seats == 0}>
-						Enroll
-
-						</Button>*/}
-
-					{
-						isActive === false
-
-						? <Button variant="primary" disabled>Enroll</Button>
-						: <Button variant="primary" onClick={enroll}>Enroll</Button>
-					}
+						<Link to={"/"} className="btn btn-primary">Product Details</Link>
+					
 
 					</Card.Body>
 				</Card>

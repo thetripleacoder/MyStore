@@ -26,7 +26,7 @@ export default function NavBar(){
 			<Navbar.Collapse id = "basic-navbar-nav">
 				<Nav className = "mr-auto">
 					<Nav.Link as={NavLink} to="/">Home</Nav.Link>
-					<Nav.Link as={NavLink} to="/courses">Courses</Nav.Link>
+					<Nav.Link as={NavLink} to="/products">Products</Nav.Link>
 				
 					{
 						user.email 
@@ -34,7 +34,7 @@ export default function NavBar(){
 							user.isAdmin
 							? 
 								<>
-									<Nav.Link as={NavLink} to="/addCourse">Add Course</Nav.Link>
+									<Nav.Link as={NavLink} to="/addProduct">Add Product</Nav.Link>
 									<Nav.Link onClick={logout}>Logout</Nav.Link>
 								</>	
 							: 

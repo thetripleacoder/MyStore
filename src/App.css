@@ -6,3 +6,6 @@
 .cardHighlight {
   min-height: 100%;
 }
+.cardProduct {
+   max-width: 30%;
+}
