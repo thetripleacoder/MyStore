@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
-import {Table, Button} from 'react-bootstrap'
+import {Table, Button, Card, CardGroup, Row} from 'react-bootstrap'
 import UserContext from '../userContext'
 
 /*import components here*/
@@ -76,7 +76,7 @@ let productRows = allProducts.map(product=>{
 	// console.log(product)
 	
 	return (
-			<tr key={product._id}>
+			<tr key={product._id} >
 					<td>{product._id}</td>
 					<td>{product.name}</td>
 					<td>{product.price}</td>
@@ -129,7 +129,9 @@ let bannerContent =
 				: 
 					<>
 						<Banner bannerProp={bannerContent} />
+						<Row xs={12} md={4} className="rowProduct">
 						{productComponents}
+						</Row>
 					</>
 			
 		

@@ -7,6 +7,13 @@
   min-height: 100%;
 }
 .cardProduct {
-   max-width: 30%;
+  min-height: 100%;
    
+}
+.rowProduct {
+ 
+  justify-content: center;
+
+
+
 }

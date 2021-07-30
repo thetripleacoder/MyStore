@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
-import {Container} from 'react-bootstrap'
+import {Container, Row} from 'react-bootstrap'
 import {BrowserRouter as Router} from 'react-router-dom'
 import {Route, Switch} from 'react-router-dom'
 import {UserProvider} from './userContext'
@@ -43,7 +43,9 @@ function App(){
               <Route exact path="/" component={Home} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              
               <Route exact path="/products" component={Products} />
+      
               <Route exact path="/addProduct" component={AddProduct} />
               <Route component={NotFound} />
             </Switch>
