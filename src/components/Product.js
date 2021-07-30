@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import UserContext from '../userContext'
 import '../App.css'
 
+
 export default function Product({productProp}){
 
 	const {user} = useContext(UserContext)
@@ -11,6 +12,7 @@ export default function Product({productProp}){
 	// const[count, setCount] = useState(0)
 	// const[seats, setSeats] = useState(30)
 	const [isActive,setIsActive] = useState(true)
+	
 
 	// useEffect(()=>{
 
@@ -24,6 +26,8 @@ export default function Product({productProp}){
 	// 	setCount (count+1)
 	// 	setSeats (seats-1)
 	// }
+
+
 
 	return(
 		<Card className="mx-4 my-2 cardProduct">
@@ -40,7 +44,7 @@ export default function Product({productProp}){
 				</Card.Text>.
 				
 			</Card.Body>
-				<Link to={"/"} className="btn btn-primary">Product Details
+				<Link to={productProp.destination} onClick={()=>productProp.function} className="btn btn-primary">Details{productProp.label}
 				</Link>
 		</Card>
 

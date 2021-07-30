@@ -30,6 +30,18 @@ export default function Products(){
 		})
 	},[update])
 
+	function getSingleProduct(productId){
+		fetch(`https://cryptic-crag-81593.herokuapp.com/api/products/${productId}`
+		)
+		.then(res => res.json())
+		.then(data => {
+			console.log(data)
+		
+	    setUpdate({})
+			
+		})
+	}
+
 	let productComponents = activeProducts.map((product)=>{
 		// console.log(product)
 
@@ -38,6 +50,9 @@ export default function Products(){
 	     
 	    )
 	})
+
+
+
 	function archive(productId){
 		fetch(`https://cryptic-crag-81593.herokuapp.com/api/products/archive/${productId}`, {
 			method: 'PUT',
@@ -68,6 +83,7 @@ export default function Products(){
 			setUpdate({})
 		})
 }
+
 
 // console.log(typeof null)
 
