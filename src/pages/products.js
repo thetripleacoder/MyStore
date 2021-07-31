@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
-import {Table, Button, Card, CardGroup, Row} from 'react-bootstrap'
+import {Table, Button, Card, CardGroup, Row, Col} from 'react-bootstrap'
 import UserContext from '../userContext'
 
 /*import components here*/
@@ -30,17 +30,7 @@ export default function Products(){
 		})
 	},[update])
 
-	function getSingleProduct(productId){
-		fetch(`https://cryptic-crag-81593.herokuapp.com/api/products/${productId}`
-		)
-		.then(res => res.json())
-		.then(data => {
-			console.log(data)
-		
-	    setUpdate({})
-			
-		})
-	}
+
 
 	let productComponents = activeProducts.map((product)=>{
 		// console.log(product)
@@ -145,8 +135,10 @@ let bannerContent =
 				: 
 					<>
 						<Banner bannerProp={bannerContent} />
-						<Row xs={12} md={4} className="rowProduct">
-						{productComponents}
+						<Row xs={12} md={3} className=" rowProduct">
+						
+								{productComponents}
+								
 						</Row>
 					</>
 			

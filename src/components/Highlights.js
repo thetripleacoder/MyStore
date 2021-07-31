@@ -1,46 +1,28 @@
 import React from 'react'
 import{Row, Col, Card} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
-export default function Highlights(object){
-	// console.log(object)
+
+
+export default function Highlights({featuredProp}){
+	
 	return(
-		<Row>
-			<Col xs ={12} md = {4}>
-				<Card className = "cardHighlight">
-					<Card.Body>
-						<Card.Title>
-						<h2>Buy from Home</h2>
-						</Card.Title>
-						<Card.Text>
-							Irure labore ex reprehenderit occaecat nostrud occaecat quis aliqua nostrud pariatur dolore tempor dolore laboris.
-						</Card.Text>
-					</Card.Body>
-				</Card>
-			</Col>
-			<Col xs ={12} md = {4}>
-				<Card className = "cardHighlight">
-					<Card.Body>
-						<Card.Title>
-						<h2>Buy Now, Die Later.</h2>
-						</Card.Title>
-						<Card.Text>
-							Lorem ipsum ut sit nulla sunt tempor labore pariatur voluptate mollit fugiat laborum proident magna.
-						</Card.Text>
-					</Card.Body>
-				</Card>
-			</Col>
-			<Col xs ={12} md = {4}>
-				<Card className = "cardHighlight">
-					<Card.Body>
-						<Card.Title>
-						<h2>Be Part Of Our Online Selling Community</h2>
-						</Card.Title>
-						<Card.Text>
-							Nulla velit dolore pariatur aliqua officia excepteur tempor minim adipisicing irure ex anim sit aliquip in irure dolor eiusmod consequat deserunt laboris occaecat velit nisi velit sunt. Exercitation magna duis deserunt elit sunt est consectetur sit nisi ea sunt dolor ut eiusmod ullamco sunt ex id labore fugiat dolore magna cupidatat duis amet tempor reprehenderit in excepteur occaecat nostrud aliquip.
-						</Card.Text>
-					</Card.Body>
-				</Card>
-			</Col>
-		</Row>
+		<Card className="my-2">
+				<Card.Img variant="top" className="cardImageDetail" src={featuredProp.picture} />
+				<Card.Body>
+					<Card.Title>
+					<h2>{featuredProp.name}</h2>
+					</Card.Title>
+					<Card.Text>
+						{featuredProp.description}
+					</Card.Text>
+					<Card.Text>
+						Price: {featuredProp.price} PHP
+					</Card.Text>
+					
+				</Card.Body>
+					<Link to={`/products/${featuredProp._id}`} onClick={()=> localStorage.setItem('productId', featuredProp._id)} className="btn btn-primary">Details
+					</Link>
+			</Card>
 		)
 }

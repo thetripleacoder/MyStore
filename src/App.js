@@ -18,6 +18,7 @@ import NotFound from './components/notFound'
 import Register from './pages/register'
 import Login from './pages/login'
 import Products from './pages/products'
+import Details from './pages/details'
 import AddProduct from './pages/addProduct'
 
 
@@ -33,6 +34,9 @@ function App(){
     localStorage.clear()
   }
 
+  let productId = localStorage.getItem('productId')
+  console.log(productId)
+
   return(
     <>
       <UserProvider value={{user, setUser, unsetUser}}>
@@ -45,6 +49,7 @@ function App(){
               <Route exact path="/login" component={Login} />
               
               <Route exact path="/products" component={Products} />
+              <Route exact path="/products/:productId" component={Details} />
       
               <Route exact path="/addProduct" component={AddProduct} />
               <Route component={NotFound} />
