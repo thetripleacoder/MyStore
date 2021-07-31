@@ -1,5 +1,5 @@
 import React, {useState,useEffect, useContext} from 'react'
-import {Form,Button} from 'react-bootstrap'
+import {Form,Button, Row, Card} from 'react-bootstrap'
 import Swal from 'sweetalert2'
 import{Redirect} from 'react-router-dom'
 import UserContext from '../userContext'
@@ -87,6 +87,8 @@ export default function Login(){
 		?
 		<Redirect to='/products'/>
 		:
+		<Row xs={12} md={2} className="rowCenter">
+		<Card className="mt-5 px-5 py-5">
 
 		<Form onSubmit={e=>loginUser(e)}>
 		
@@ -110,6 +112,8 @@ export default function Login(){
 				: <Button variant="primary" disabled> Submit</Button>
 			}
 		</Form>
+		</Card>
+		</Row>
 		)
 
 }
