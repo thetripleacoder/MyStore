@@ -108,7 +108,7 @@ let productRows = allProducts.map(product=>{
 
 let bannerContent = 
 {
-  title: "Welcome to products page",
+  title: "MyProducts",
   description: "Affordable products for everybody",
   label: "Login to Buy",
   destination: "/login"

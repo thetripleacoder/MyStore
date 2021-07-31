@@ -20,7 +20,7 @@ export default function NavBar(){
 	}
 
 	return (
-		<Navbar  fixed="top" bg = "dark" variant="dark" expand = "lg">
+		<Navbar sticky="top" bg = "light" variant="light" expand = "lg">
 			<Navbar.Brand as={Link} to="/">MyStore</Navbar.Brand>
 			<Navbar.Toggle aria-controls = "basic-navbar-nav"/>
 			<Navbar.Collapse id = "basic-navbar-nav">
