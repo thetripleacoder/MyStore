@@ -20,6 +20,7 @@ import Login from './pages/login'
 import Products from './pages/products'
 import Details from './pages/details'
 import AddProduct from './pages/addProduct'
+import Updates from './pages/updates'
 
 
 function App(){
@@ -50,8 +51,8 @@ function App(){
               
               <Route exact path="/products" component={Products} />
               <Route exact path="/products/:productId" component={Details} />
-      
               <Route exact path="/addProduct" component={AddProduct} />
+              <Route exact path="/products/update/:productId" component={Updates} />
               <Route component={NotFound} />
             </Switch>
           </Container>

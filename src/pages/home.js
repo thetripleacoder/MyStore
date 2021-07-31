@@ -29,7 +29,7 @@ export default function Home() {
 
 			setActiveProducts(tempArray)
 		})
-	},[update])
+	},[])
 
 	  let bannerContent = 
     {

@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {Table, Button, Card, CardGroup, Row, Col} from 'react-bootstrap'
 import UserContext from '../userContext'
+import {Link} from 'react-router-dom'
 
 /*import components here*/
 import Banner from '../components/Banner'
@@ -95,6 +96,8 @@ let productRows = allProducts.map(product=>{
 						:
 						<Button variant="success" className="mx-2" onClick={()=>activate(product._id)}>Activate</Button>
 					}
+					<Link  to={`/products/update/${product._id}`} onClick={()=> localStorage.setItem('productId', product._id)} className="btn btn-primary">Edit
+					</Link>
 
 					</td>
 			</tr>

@@ -6,29 +6,30 @@ import '../App.css'
 import Swal from 'sweetalert2'
 import{Redirect} from 'react-router-dom'
 
-export default function AddProduct(){
-
+export default function Update({updateProp}){
 	const {user} = useContext(UserContext)
-	const [picture, setPicture] = useState("")
-	const [name, setProductName] = useState("")
-	const [description, setDescription] = useState("")
-	const [price, setPrice] = useState(0)
+	const [willRedirect, setWillRedirect] = useState(false)
+	const [update,setUpdate] = useState(0)
+		const [picture, setPicture] = useState(updateProp.picture)
+	const [name, setProductName] = useState(updateProp.name)
+	const [description, setDescription] = useState(updateProp.description)
+	const [price, setPrice] = useState(updateProp.price)
 	const [isActive, setIsActive] = useState(false)
-	const [willRedirect, setWillRedirect]= useState(false)
-	console.log(picture)
+
+
 	useEffect(()=>{
-		if(name!=="" && description!=="" && price > 0){
+		if(picture !== updateProp.picture || name!== updateProp.name || description!== updateProp.description || price !== updateProp.price){
 			setIsActive(true)
 		} else {
 			setIsActive(false)
 		}
 	}, [name, description, price])
 
-	function addProduct(e){
 
+	function updateProduct(productId){
 
-	fetch('https://cryptic-crag-81593.herokuapp.com/api/products', {
-		method: "POST",
+		fetch(`https://cryptic-crag-81593.herokuapp.com/api/products/${productId}`, {
+		method: "PUT",
 		headers: {
 			"Content-Type": "application/json",
 			"Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -40,48 +41,32 @@ export default function AddProduct(){
 			price: price
 		})
 
-	})
-	.then(response => response.json()) 
-	.then(data => {
+		})
+		.then(response => response.json()) 
+		.then(data => {
 
-		console.log(data)
-		if(data.message){
-			Swal.fire({
-				icon: "error",
-				title: "Product Creation Failed!",
-				text: data.message
-			})
-		} else {
-			
-			Swal.fire({
-				icon: "success",
-				title: "Product Creation Successful!",
-				text: "Product has been added."
-			})	
-		}
-	})
-		setPicture("")
-		setProductName("")
-		setDescription("")
-		setPrice(0)
+			console.log(data)
+			if(data.message){
+				Swal.fire({
+					icon: "error",
+					title: "Update Failed!",
+					text: data.message
+				})
+			} else {
+				
+				Swal.fire({
+					icon: "success",
+					title: "Update Successful!",
+					text: "Product Information has been updated."
+				})	
+			}
+		})
 	}
-	return (
 
-		user.isAdmin === false || user.isAdmin === null
-		?
-		<Redirect to="/login" />
-		:
+
+	return(
+	
 		<Card >
-
-		{/*<Form.Group>
-				<Form.Label>Picture:</Form.Label>
-				<Form.Control type="text" placeholder="Enter URL" value={picture} onChange={event=>{
-					console.log(event.target)
-					setPicture(event.target.value)}} required/>
-			    <div style={{ display: "block", width: "auto", padding: 30 }}>
-			      <Image src={picture} rounded fluid />
-			    </div>
-			</Form.Group>*/} 
 			<Card.Img variant="top" className="cardImageUpdate" src={picture} />
 			<Card.Body>
 			<Form.Group>
@@ -115,16 +100,21 @@ export default function AddProduct(){
 			{
 				isActive
 				?
-				<Button variant="success" className="mx-2" onClick={()=>addProduct()}>Add Product</Button>
+				<Button variant="success" className="mx-2" onClick={()=>updateProduct(updateProp._id)}>Update Product Information</Button>
 				:
-				<Button variant="success" className="mx-2" disabled>Add Product</Button>
+				<Button variant="success" className="mx-2" disabled>Update Product Information</Button>
 
 			}
 			
 			
 				
 		</Card>
-		)
+	)
 
 }
+
+
+
+
+
 

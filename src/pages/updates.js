@@ -3,13 +3,14 @@ import {Card} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import UserContext from '../userContext'
 import '../App.css'
+import{Redirect} from 'react-router-dom'
+import Update from '../components/Update'
 
-import Detail from '../components/Detail'
 
-
-export default function Details(){
+export default function Updates(){
 
 	const [update,setUpdate] = useState(0)
+	const {user} = useContext(UserContext)
 
 	useEffect(()=>{
 		fetch(`https://cryptic-crag-81593.herokuapp.com/api/products/${localStorage.getItem('productId')}`
@@ -22,14 +23,14 @@ export default function Details(){
 				localStorage.setItem('productPicture', product.picture)
 				localStorage.setItem('productName', product.name)
 				localStorage.setItem('productDescription', product.description)
-				localStorage.setItem('productPrice', product.price)
-
-				setUpdate({})
-				
+				localStorage.setItem('productPrice', product.price)	
+			
 			})
-		},[])
+			
+	},[update])
+	
 
-	let detailContent = 
+	let updateContent = 
 	{
 		_id: localStorage.getItem('productId'),
 		picture: localStorage.getItem('productPicture'),
@@ -39,9 +40,14 @@ export default function Details(){
 	}
 
 	return(
+
+		user.isAdmin === false || user.isAdmin === null
+		?
+		<Redirect to="/login" />
+		:
 	
 		<>
-			<Detail detailProp={detailContent} />
+			<Update updateProp={updateContent} />
 		</>
 	)
 
