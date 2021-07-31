@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
-import {Card, Button, InputGroup, Form} from 'react-bootstrap'
+import {Card, Button, InputGroup, Form, Row} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import UserContext from '../userContext'
 import '../App.css'
@@ -58,9 +58,9 @@ export default function Detail({detailProp}){
 
 
 	return(
-	
-		<Card >
-			<Card.Img variant="top" className="cardImageDetail" src={detailProp.picture} />
+	<Row xs={12} md={2} className="rowCenter">
+		<Card className="mt-5 ">
+			<Card.Img variant="top" className="cardImageUpdate" src={detailProp.picture} />
 			<Card.Body>
 				<Card.Title>
 				<h2>{detailProp.name}</h2>
@@ -75,7 +75,7 @@ export default function Detail({detailProp}){
 				    <Button variant="outline-secondary" id="button-addon1" onClick={subtract}>
 				      -
 				    </Button>
-				    <Form.Control type="text" value={quantity} onChange={event=>{
+				    <Form.Control className="inputValue" size="lg" type="number" value={quantity} onChange={event=>{
 					// console.log(event.target)
 					setQuantity(event.target.value)}} required/>
 					<Button variant="outline-secondary" id="button-addon1" onClick={add}>
@@ -94,6 +94,7 @@ export default function Detail({detailProp}){
 			}
 				
 		</Card>
+	</Row>
 	)
 
 }

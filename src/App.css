@@ -12,6 +12,7 @@
 
 }
 .cardImage{
+  width: auto;
   height: 350px;
   object-fit: cover;
   object-position: 50% 100%;
@@ -27,8 +28,18 @@
 .rowCenter {
   justify-content: center;
 }
+.textCenter {
+  text-align: center;
+}
 .cardImageUpdate{
   height: 350px;
   object-fit: contain;
   object-position: 50% 100%;
+}
+.jumbotron {
+  height: 30vh ;
+}
+
+.inputValue {
+  text-align: center;
 }

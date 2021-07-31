@@ -33,9 +33,9 @@ export default function Home() {
 
 	  let bannerContent = 
     {
-      title: "Welcome to My Store",
-      description: "Buy Now! Die Later!",
-      label: "Shop with us!",
+      title: "Welcome to MyStore",
+      description: "Get your very own MyProducts",
+      label: "Be a MyOwner",
       destination: "/register"
     }
 
@@ -57,24 +57,28 @@ export default function Home() {
 	  return array;
 	}
 
-	let shuffledProducts = shuffle(activeProducts)
+	let shuffledProducts = shuffle(activeProducts).slice(2)
 
 
     let productComponents = shuffledProducts.map((product)=>{
-		// console.log(product)
+    	
 
-	  return (
-
-	      <Highlights key = {product._id} featuredProp={product}/>
-	     
-	    )
-	})
-
+				return (
+		      <Product key = {product._id} productProp={product}/>
+		    ) 
+    	}
+		)
+	
 	return (
 		<>
 			<Banner bannerProp={bannerContent}/>
 			<h1 className="text-center">Featured Products</h1>
+
+		<Row xs={12} md={3} className=" rowCenter">
+						
 			{productComponents}
+			</Row>
+
 			
 		</>
 	)

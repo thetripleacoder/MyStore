@@ -71,59 +71,47 @@ export default function AddProduct(){
 		?
 		<Redirect to="/login" />
 		:
-		<Card >
-
-		{/*<Form.Group>
-				<Form.Label>Picture:</Form.Label>
-				<Form.Control type="text" placeholder="Enter URL" value={picture} onChange={event=>{
-					console.log(event.target)
-					setPicture(event.target.value)}} required/>
-			    <div style={{ display: "block", width: "auto", padding: 30 }}>
-			      <Image src={picture} rounded fluid />
-			    </div>
-			</Form.Group>*/} 
-			<Card.Img variant="top" className="cardImageUpdate" src={picture} />
-			<Card.Body>
-			<Form.Group>
-				<Form.Label>Picture:</Form.Label>
-				<Form.Control type="text" placeholder="Enter URL" value={picture} onChange={event=>{
-						console.log(event.target)
-						setPicture(event.target.value)}} required/>
-			</Form.Group> 
-			<Form.Group>
-				<Form.Label>Product Name:</Form.Label>
-				<Form.Control type="text" placeholder="Enter Name" value={name} onChange={event=>{
-						console.log(event.target)
-						setProductName(event.target.value)}} required/>
-			</Form.Group> 
-			<Form.Group>
-				<Form.Label>Description:</Form.Label>
-				<Form.Control type="text" placeholder="Enter Description" value={description} onChange={event=>{
-						console.log(event.target)
-						setDescription(event.target.value)}} required/>
-			</Form.Group> 
-			<Form.Group>
-				<Form.Label>Price:</Form.Label>
-				<Form.Control type="number" placeholder="Enter Price" value={price} onChange={event=>{
-						console.log(event.target)
-						setPrice(event.target.value)}} required/>
-			</Form.Group> 
-			
-			
-			</Card.Body>
-
-			{
-				isActive
-				?
-				<Button variant="success" className="mx-2" onClick={()=>addProduct()}>Add Product</Button>
-				:
-				<Button variant="success" className="mx-2" disabled>Add Product</Button>
-
-			}
-			
-			
+		<Row xs={12} md={2} className="rowCenter">
+			<Card className="mt-5 ">
+				<Card.Img variant="top" className="cardImageUpdate" src={picture} />
+				<Card.Body>
+				<Form.Group>
+					<Form.Label>Picture:</Form.Label>
+					<Form.Control type="text" placeholder="Enter URL" value={picture} onChange={event=>{
+							console.log(event.target)
+							setPicture(event.target.value)}} required/>
+				</Form.Group> 
+				<Form.Group>
+					<Form.Label>Product Name:</Form.Label>
+					<Form.Control type="text" placeholder="Enter Name" value={name} onChange={event=>{
+							console.log(event.target)
+							setProductName(event.target.value)}} required/>
+				</Form.Group> 
+				<Form.Group>
+					<Form.Label>Description:</Form.Label>
+					<Form.Control type="text" placeholder="Enter Description" value={description} onChange={event=>{
+							console.log(event.target)
+							setDescription(event.target.value)}} required/>
+				</Form.Group> 
+				<Form.Group>
+					<Form.Label>Price:</Form.Label>
+					<Form.Control type="number" placeholder="Enter Price" value={price} onChange={event=>{
+							console.log(event.target)
+							setPrice(event.target.value)}} required/>
+				</Form.Group> 
 				
-		</Card>
+				
+				</Card.Body>
+
+				{
+					isActive
+					?
+					<Button variant="success" className="mx-2" onClick={()=>addProduct()}>Add Product</Button>
+					:
+					<Button variant="success" className="mx-2" disabled>Add Product</Button>
+				}		
+			</Card>
+		</Row>
 		)
 
 }

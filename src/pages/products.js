@@ -119,11 +119,15 @@ let bannerContent =
 				user.isAdmin === true
 				? 
 				<>
-						<h1 className="text-center">Admin Dashboard</h1>
-						<Table striped bordered hover>
+				<Row  className="rowCenter">
+					<Card className="mt-5 px-4 py-4" bg="light" >
+					<Card className="mx-3 my-3">
+						<h1  className="text-center">Admin Dashboard</h1>
+						</Card>
+						<Table striped bordered hover variant="light">
 							<thead>
-								<tr>
-									<th>ID</th>
+								<tr className="textCenter">
+									<th>Product ID</th>
 									<th>Name</th>
 									<th>Price</th>
 									<th>Status</th>
@@ -134,6 +138,8 @@ let bannerContent =
 								{productRows}
 							</tbody>
 						</Table>
+						</Card>
+					</Row>
 				</>
 				: 
 					<>

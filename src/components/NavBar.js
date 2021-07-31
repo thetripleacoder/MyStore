@@ -20,11 +20,11 @@ export default function NavBar(){
 	}
 
 	return (
-		<Navbar bg = "light" expand = "lg">
-			<Navbar.Brand as={Link} to="/">My Store</Navbar.Brand>
+		<Navbar  fixed="top" bg = "dark" variant="dark" expand = "lg">
+			<Navbar.Brand as={Link} to="/">MyStore</Navbar.Brand>
 			<Navbar.Toggle aria-controls = "basic-navbar-nav"/>
 			<Navbar.Collapse id = "basic-navbar-nav">
-				<Nav className = "mr-auto">
+				<Nav className = "ml-auto">
 					<Nav.Link as={NavLink} to="/">Home</Nav.Link>
 					<Nav.Link as={NavLink} to="/products">Products</Nav.Link>
 				
