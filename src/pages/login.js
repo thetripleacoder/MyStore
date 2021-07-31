@@ -94,7 +94,7 @@ export default function Login(){
 		
 			<Form.Group>
 				<Form.Label>Email:</Form.Label>
-				<Form.Control type="text" placeholder="Enter Email" value={email} onChange={event=>{
+				<Form.Control type="email" placeholder="Enter Email" value={email} onChange={event=>{
 					// console.log(event.target)
 					setEmail(event.target.value)}} required/>
 			</Form.Group>

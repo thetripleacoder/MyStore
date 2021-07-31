@@ -113,13 +113,13 @@ export default function Register(){
 			</Form.Group>
 			<Form.Group>
 				<Form.Label>Email:</Form.Label>
-				<Form.Control type="text" placeholder="Enter Email" value={email} onChange={event=>{
+				<Form.Control type="email" placeholder="Enter Email" value={email} onChange={event=>{
 					// console.log(event.target)
 					setEmail(event.target.value)}} required/>
 			</Form.Group>
 			<Form.Group>
 				<Form.Label>Mobile No:</Form.Label>
-				<Form.Control type="text" placeholder="Enter 11-Digit Mobile No" value={mobileNo} onChange={event=>{
+				<Form.Control type="number" placeholder="Enter 11-Digit Mobile No" value={mobileNo} onChange={event=>{
 					// console.log(event.target)
 					setMobileNo(event.target.value)}} required/>
 			</Form.Group>
