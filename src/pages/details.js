@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
-import {Card} from 'react-bootstrap'
+import {Card, Row} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import UserContext from '../userContext'
 import '../App.css'
@@ -41,7 +41,11 @@ export default function Details(){
 	return(
 	
 		<>
-			<Detail detailProp={detailContent} />
+			<Row xs={12} md={2} className="rowCenter">
+				<Card className="mt-5 ">
+					<Detail detailProp={detailContent} />
+				</Card>
+			</Row>
 		</>
 	)
 

@@ -33,12 +33,12 @@
 }
 .cardImageUpdate{
   height: 350px;
-  object-fit: contain;
+  object-fit: cover;
   object-position: 50% 100%;
 }
-.jumbotron {
+/*.jumbotron {
   height: 30vh ;
-}
+}*/
 
 .inputValue {
   text-align: center;

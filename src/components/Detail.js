@@ -9,6 +9,7 @@ export default function Detail({detailProp}){
 	const {user} = useContext(UserContext)
 	const [willRedirect, setWillRedirect] = useState(false)
 	const [quantity, setQuantity] = useState(1)
+	const [update, setUpdate] = useState(0)
 
 	function add() {
 		setQuantity (quantity+1)
@@ -16,9 +17,47 @@ export default function Detail({detailProp}){
 	function subtract() {
 		setQuantity (quantity-1)
 	}
+	function addToCart() {
+
+		fetch(`https://cryptic-crag-81593.herokuapp.com/api/products/${localStorage.getItem('productId')}`
+			)
+			.then(res => res.json())
+			.then(data => {
+				console.log(data.data)
+				let product = data.data
+
+				localStorage.setItem('productPicture', product.picture)
+				localStorage.setItem('productName', product.name)
+				localStorage.setItem('productDescription', product.description)
+				localStorage.setItem('productPrice', product.price)
+				
+			})
 
 
-	function addToCart(e){
+		let data = {
+			name: localStorage.getItem('productName'),
+			price : localStorage.getItem('productPrice'),
+			quantity: quantity
+		}
+
+		var cart = [];
+	    // Parse the serialized data back into an aray of objects
+	    cart = JSON.parse(localStorage.getItem('session')) || [];
+	    // Push the new data (whether it be an object or anything else) onto the array
+	    console.log (cart)
+	    cart.push(data);
+	    // Alert the array value
+	    alert(cart);  // Should be something like [Object array]
+	    // Re-serialize the array back into cart string and store it in localStorage
+	    localStorage.setItem('session', JSON.stringify(cart));
+	    console.log(cart)
+
+	    setUpdate({})
+	}
+
+// var storedNames = JSON.parse(localStorage.getItem("names"));
+
+	function createOrder(e){
 		e.preventDefault()
 	
 	fetch('https://cryptic-crag-81593.herokuapp.com/api/users/checkout', {
@@ -58,8 +97,7 @@ export default function Detail({detailProp}){
 
 
 	return(
-	<Row xs={12} md={2} className="rowCenter">
-		<Card className="mt-5 ">
+	<Card>
 			<Card.Img variant="top" className="cardImageUpdate" src={detailProp.picture} />
 			<Card.Body>
 				<Card.Title>
@@ -91,10 +129,9 @@ export default function Detail({detailProp}){
 					? <Button variant="primary" onClick={addToCart}>Add To Cart</Button>
 					: <Button variant="primary" disabled>Add To Cart</Button>
 				: <Button href= "/login" variant="primary">Login to Order</Button>
-			}
-				
+			}		
 		</Card>
-	</Row>
+	
 	)
 
 }

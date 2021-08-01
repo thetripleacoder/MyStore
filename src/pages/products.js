@@ -144,7 +144,7 @@ let bannerContent =
 				: 
 					<>
 						<Banner bannerProp={bannerContent} />
-						<Row xs={12} md={3} className=" rowCenter">
+						<Row xs={12} md={4} className=" rowCenter">
 						
 								{productComponents}
 								

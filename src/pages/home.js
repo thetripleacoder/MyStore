@@ -36,7 +36,9 @@ export default function Home() {
       title: "Welcome to MyStore",
       description: "Get your very own MyProducts",
       label: "Be a MyOwner",
-      destination: "/register"
+      destination: "/register",
+      label2: "Browse All Products",
+      destination2: "/products"
     }
 
   function shuffle(array) {
@@ -74,7 +76,7 @@ export default function Home() {
 			<Banner bannerProp={bannerContent}/>
 			<h1 className="text-center">Featured Products</h1>
 
-		<Row xs={12} md={3} className=" rowCenter">
+		<Row xs={12} md={4} className=" rowCenter">
 						
 			{productComponents}
 			</Row>

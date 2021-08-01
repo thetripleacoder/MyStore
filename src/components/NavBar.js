@@ -27,6 +27,7 @@ export default function NavBar(){
 				<Nav className = "ml-auto">
 					<Nav.Link as={NavLink} to="/">Home</Nav.Link>
 					<Nav.Link as={NavLink} to="/products">Products</Nav.Link>
+
 				
 					{
 						user.email 
@@ -38,7 +39,10 @@ export default function NavBar(){
 									<Nav.Link onClick={logout}>Logout</Nav.Link>
 								</>	
 							: 
+							<>
+								<Nav.Link as={NavLink} to="/cart">Cart</Nav.Link>
 								<Nav.Link onClick={logout}>Logout</Nav.Link>
+							</>
 						:
 							<>
 								<Nav.Link as={NavLink} to="/register">Register</Nav.Link>
