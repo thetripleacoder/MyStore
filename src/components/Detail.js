@@ -35,20 +35,24 @@ export default function Detail({detailProp}){
 
 
 		let data = {
+
+			_id: localStorage.getItem('productId'),
 			name: localStorage.getItem('productName'),
 			price : localStorage.getItem('productPrice'),
-			quantity: quantity
+			quantity: quantity,
+			// subTotal: localStorage.productPrice*quantity
 		}
 
 		var cart = [];
-	    // Parse the serialized data back into an aray of objects
 	    cart = JSON.parse(localStorage.getItem('session')) || [];
-	    // Push the new data (whether it be an object or anything else) onto the array
 	    console.log (cart)
 	    cart.push(data);
-	    // Alert the array value
-	    alert(cart);  // Should be something like [Object array]
-	    // Re-serialize the array back into cart string and store it in localStorage
+	   
+	    Swal.fire({
+				icon: "success",
+				title: "Add to Cart Successful!",
+				text: `Product added to cart.` 
+			})
 	    localStorage.setItem('session', JSON.stringify(cart));
 	    console.log(cart)
 

@@ -8,102 +8,163 @@ import Detail from '../components/Detail'
 import {Row, Card, Table, Button, Form, InputGroup} from 'react-bootstrap'
 import {Link, Redirect} from 'react-router-dom'
 import UserContext from '../userContext'
+import Swal from 'sweetalert2'
 
 export default function Cart() {
     const [allProducts, setAllProducts] = useState([])
     const [activeProducts, setActiveProducts] = useState([])
-    const [cart, setCart] = useState([])
+    // const [cart, setCart] = useState([])
   
     const [update,setUpdate] = useState(0)
     const {user} = useContext(UserContext)
     const [willRedirect, setWillRedirect] = useState(false)
     const [quantity, setQuantity] = useState(1)
+    // const [total, setTotal] = useState(0)
 
 
-    useEffect(()=>{
-  //   	fetch('https://cryptic-crag-81593.herokuapp.com/api/products')
-		// .then(res => res.json())
-		// .then(data => {
-		// 	// console.log(data)
-		// 	setAllProducts(data.data)
-		// 	let productsTemp = data.data
-		// 	/*temporary array to hold filtered items. only active courses*/
-		// 	let tempArray = productsTemp.filter(product => {
-		// 		return product.isActive === true
-		// 	})
-		// 	setActiveProducts(tempArray) 
-			setCart(JSON.parse(localStorage.getItem('session')) || [])
-			console.log(cart)
-
-			setUpdate({})
-		// })	
-	},[])
-
-
-	function add() {
-		setQuantity (quantity+1)
-	}
-	function subtract() {
-		setQuantity (quantity-1)
-	}
-
-	function removeProduct(arr, value) {
-	  var index = arr.indexOf(value);
-	  if (index > -1) {
-	    arr.splice(index, 1);
-	  }
-	  return arr;
-	}
+ //    useEffect(()=>{
+ //    	setCart(JSON.parse(localStorage.session))
+	// 		console.log(cart)
+	// 	setUpdate({})
 	
-		    // Parse the serialized data back into an aray of objects
+	// },[])
+	function add(element) {
 
-	let productRows = cart.map(product=>{
+		let cart = JSON.parse(localStorage.session)
+		let index = cart.findIndex(obj => obj.name === element.name)
+		cart[index].quantity = element.quantity+1
+		localStorage.setItem('session', JSON.stringify(cart));
 
-	// console.log(product)
+		setUpdate({})
+		
+	}
+	function subtract(element) {
+		let cart = JSON.parse(localStorage.session)
+		let index = cart.findIndex(obj => obj.name === element.name)
+		cart[index].quantity = element.quantity-1
+		localStorage.setItem('session', JSON.stringify(cart));
 
-	
-	
-	return (
-			<tr key={product._id} >
+		setUpdate({})
+	}
+
+	function removeProduct(element) {
+		let cart = JSON.parse(localStorage.session)
+		let index = cart.findIndex(obj => obj.name === element.name)
+		cart.splice(index, 1);
+	  	localStorage.setItem('session', JSON.stringify(cart));
+	 
+	  	setUpdate({})
+	}
+
+
+	let cart = localStorage.session ? JSON.parse(localStorage.session) : []
+	 console.log(localStorage.session)
+
+
+	let cartComponents = cart.map((product)=>{
+		// console.log(product)
+
+		let subTotal= product.quantity*product.price
+
+
+
+
+
+	  return (
+	      <tr key={product._id} >
 					
 					<td>{product.name}</td>
 					<td>{product.price}</td>
 					<td>
 					<InputGroup >
-				    <Button variant="outline-secondary" id="button-addon1" onClick={subtract}>
+				    <Button variant="outline-secondary" id="button-addon1" onClick={()=>subtract(product)}>
 				      -
 				    </Button>
-				    <Form.Control className="inputValue" size="lg" type="number" value={product.quantity} onChange={event=>{
-					// console.log(event.target)
-					setQuantity(event.target.value)}} required/>
-					<Button variant="outline-secondary" id="button-addon1" onClick={add}>
+				    <Form.Control className="inputValue" size="lg" type="number" value={product.quantity} 
+
+				 //    onChange={event=>{
+					// // console.log(event.target)
+					// setQuantity(event.target.value)}} 
+
+					required/>
+					<Button variant="outline-secondary" id="button-addon1" onClick={()=>add(product)}>
 				      +
 				    </Button>
 				  </InputGroup>
 				  </td>
 				  <td>
-				  		{product.quantity*product.price}
+				  		{subTotal}
 				  </td>
 				
 					<td>
-					<Button variant="success" className="mx-2" onClick={()=>removeProduct(cart, product)}>Delete</Button>
+					<Button variant="success" className="mx-2" onClick={()=>removeProduct(product)}>Delete</Button>
 
 					</td>
 			</tr>
-		
-		)
-
-})
-
-	let productComponents = activeProducts.map((product)=>{
-		// console.log(product)
-
-	  return (
-	      <Detail key = {product._id} detailProp={product}/>
 	     
 	    )
 	})
 
+		let total = cart.map((product)=>{
+		// console.log(product)
+			let total = 0
+
+			return (
+				 total += product.quantity*product.price
+
+				)
+		})
+
+		function getArraySum(a){
+		    var total=0;
+		    for(var i in a) { 
+		        total += a[i];
+		    }
+		    return total;
+		}
+
+		total = getArraySum(total)
+		console.log(total)
+
+		function checkout(){
+			fetch('https://cryptic-crag-81593.herokuapp.com/api/users/checkout', {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					"Authorization": `Bearer ${localStorage.getItem('token')}`
+				},
+				body: JSON.stringify({
+					totalAmount: total,
+					products: cart,
+				})
+
+			})
+			.then(response => response.json()) 
+			.then(data => {
+
+				console.log(data)
+				if(data.message){
+					Swal.fire({
+						icon: "error",
+						title: "Order Creation Failed!",
+						text: data.message
+					})
+				} else {
+					
+					Swal.fire({
+						icon: "success",
+						title: "Order Creation Successful!",
+						text: "Order has been added."
+					})	
+				}
+			})
+				localStorage.removeItem('session')
+			 	setUpdate({})
+				
+			}
+
+
+ console.log(cart)
 		return (
 		
 				user.email && user.isAdmin === false
@@ -127,9 +188,18 @@ export default function Cart() {
 									</tr>
 								</thead>
 								<tbody>
-									{productRows}
+									{cartComponents}
+									<tr>
+										<th>Total</th>
+										<th></th>
+										<th></th>
+										<th>{total}</th>
+										<th></th>
+									</tr>
 								</tbody>
 							</Table>
+
+							<Button variant="success" className="mx-2" onClick={()=>checkout()}>Checkout</Button>
 						</Card>
 					</Row>
 

@@ -36,11 +36,13 @@ export default function NavBar(){
 							? 
 								<>
 									<Nav.Link as={NavLink} to="/addProduct">Add Product</Nav.Link>
+									<Nav.Link as={NavLink} to="/orders">Orders</Nav.Link>
 									<Nav.Link onClick={logout}>Logout</Nav.Link>
 								</>	
 							: 
 							<>
 								<Nav.Link as={NavLink} to="/cart">Cart</Nav.Link>
+								<Nav.Link as={NavLink} to="/orders">Orders</Nav.Link>
 								<Nav.Link onClick={logout}>Logout</Nav.Link>
 							</>
 						:
