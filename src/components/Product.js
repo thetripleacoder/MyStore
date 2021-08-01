@@ -16,9 +16,9 @@ export default function Product({productProp}){
 					<Card.Title>
 					<h2>{productProp.name}</h2>
 					</Card.Title>
-					<Card.Text>
+				{/*	<Card.Text>
 						{productProp.description}
-					</Card.Text>
+					</Card.Text>*/}
 					<Card.Text>
 						Price: {productProp.price} PHP
 					</Card.Text>
