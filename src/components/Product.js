@@ -24,7 +24,7 @@ export default function Product({productProp}){
 					</Card.Text>
 					
 				</Card.Body>
-					<Link to={`/products/${productProp._id}`} onClick={()=> localStorage.setItem('productId', productProp._id)} className="btn btn-primary">Details
+					<Link to={`/products/${productProp._id}`} onClick={()=> localStorage.setItem('productId', productProp._id)} className="btn btn-dark">Details
 					</Link>
 			</Card>
 		

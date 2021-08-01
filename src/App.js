@@ -41,7 +41,7 @@ function App(){
   return(
     <>
       <UserProvider value={{user, setUser, unsetUser}}>
-        <Router>
+        <Router >
           <NavBar />
           <Container>
             <Switch>
