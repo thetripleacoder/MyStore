@@ -57,7 +57,7 @@ export default function Home() {
 	  return array;
 	}
 
-	let shuffledProducts = shuffle(activeProducts).slice(2)
+	let shuffledProducts = shuffle(activeProducts).slice(0, 3)
 
 
     let productComponents = shuffledProducts.map((product)=>{

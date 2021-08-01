@@ -15,8 +15,8 @@ export default function Banner({bannerProp}) {
 			{
 				!user.email
 				? 
-					<Link to={bannerProp.destination} className="btn btn-outline-dark bannerLogin px-4 py-2">{bannerProp.label}</Link>
-				: <Button href= "/products" variant="outline-dark">Browse all products</Button>
+					<Link to={bannerProp.destination} className="btn btn-outline-dark bannerButton px-4 py-2">{bannerProp.label}</Link>
+				: <Button href= "/products" variant="outline-dark" className="bannerButton px-4 py-2">Browse all products</Button>
 			}
 			
 		</Jumbotron>

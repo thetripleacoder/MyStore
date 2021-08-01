@@ -96,7 +96,8 @@ export default function Updates(){
 
 	return(
 	
-		<Card >
+		<Row xs={12} md={2} className="rowCenter">
+			<Card className="mt-5 ">
 			<Card.Img variant="top" className="cardImageUpdate" src={picture} />
 			<Card.Body>
 			<Form.Group>
@@ -135,10 +136,9 @@ export default function Updates(){
 				<Button variant="success" className="mx-2" disabled>Update Product Information</Button>
 
 			}
-			
-			
 				
 		</Card>
+		</Row>
 	)
 
 }
