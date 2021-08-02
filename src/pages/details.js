@@ -41,7 +41,7 @@ export default function Details(){
 	return(
 	
 		<>
-			<Row xs={12} md={2} className="rowCenter">
+			<Row xs={12} md={3} className="rowCenter">
 				<Card className="mt-5 ">
 					<Detail detailProp={detailContent} />
 				</Card>

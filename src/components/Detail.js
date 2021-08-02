@@ -105,7 +105,7 @@ export default function Detail({detailProp}){
 			<Card.Img variant="top" className="cardImageUpdate" src={detailProp.picture} />
 			<Card.Body>
 				<Card.Title>
-				<h2>{detailProp.name}</h2>
+					{detailProp.name}
 				</Card.Title>
 				<Card.Text>
 					{detailProp.description}
@@ -117,7 +117,7 @@ export default function Detail({detailProp}){
 				    <Button variant="outline-secondary" id="button-addon1" onClick={subtract}>
 				      -
 				    </Button>
-				    <Form.Control className="inputValue" size="lg" type="number" value={quantity} onChange={event=>{
+				    <Form.Control className="inputValue" size="" type="number" value={quantity} onChange={event=>{
 					// console.log(event.target)
 					setQuantity(event.target.value)}} required/>
 					<Button variant="outline-secondary" id="button-addon1" onClick={add}>

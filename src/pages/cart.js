@@ -80,7 +80,7 @@ export default function Cart() {
 				    <Button variant="outline-secondary" id="button-addon1" onClick={()=>subtract(product)}>
 				      -
 				    </Button>
-				    <Form.Control className="inputValue" size="lg" type="number" value={product.quantity} 
+				    <Form.Control className="inputValue" size="" type="number" value={product.quantity} 
 
 				 //    onChange={event=>{
 					// // console.log(event.target)
@@ -174,7 +174,7 @@ export default function Cart() {
 					<Row  className="rowCenter">
 						<Card className="mt-5 px-4 py-4" bg="light" >
 						<Card className="mx-3 my-3">
-							<h1  className="text-center">Cart</h1>
+							<h3  className="text-center">Cart</h3>
 							</Card>
 							<Table striped bordered hover variant="light">
 								<thead>

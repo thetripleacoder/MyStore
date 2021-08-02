@@ -14,7 +14,7 @@ export default function Product({productProp}){
 				<Card.Img variant="top" className="cardImage" src={productProp.picture} />
 				<Card.Body>
 					<Card.Title>
-					<h2>{productProp.name}</h2>
+						{productProp.name}
 					</Card.Title>
 				{/*	<Card.Text>
 						{productProp.description}

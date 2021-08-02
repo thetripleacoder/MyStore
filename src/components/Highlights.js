@@ -11,7 +11,7 @@ export default function Highlights({featuredProp}){
 				<Card.Img variant="top" className="cardImageDetail" src={featuredProp.picture} />
 				<Card.Body>
 					<Card.Title>
-					<h2>{featuredProp.name}</h2>
+						{featuredProp.name}
 					</Card.Title>
 					<Card.Text>
 						{featuredProp.description}

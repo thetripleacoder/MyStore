@@ -122,7 +122,7 @@ let bannerContent =
 				<Row  className="rowCenter">
 					<Card className="mt-5 px-4 py-4" bg="light" >
 					<Card className="mx-3 my-3">
-						<h1  className="text-center">Admin Dashboard</h1>
+						<h3  className="text-center">Admin Dashboard</h3>
 						</Card>
 						<Table striped bordered hover variant="light">
 							<thead>
