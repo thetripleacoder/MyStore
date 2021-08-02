@@ -103,13 +103,14 @@ export default function Orders(){
 
 	  return (
 	  		<>
-	  		<Card className="viewFull">
+	  		<Card className="viewFull textCenter">
 	  		<Row  xs={12} md={1} className=" mt-5 rowCenter">
 	  		{
 				user.isAdmin
 				?
 				<h2>Admin</h2>
 				: null
+
 				}
 	  			{orderComponents}
 			</Row>

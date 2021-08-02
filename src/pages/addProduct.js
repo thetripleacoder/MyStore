@@ -106,9 +106,9 @@ export default function AddProduct(){
 				{
 					isActive
 					?
-					<Button variant="success" className="mx-2" onClick={()=>addProduct()}>Add Product</Button>
+					<Button variant="success" className="" onClick={()=>addProduct()}>Add Product</Button>
 					:
-					<Button variant="success" className="mx-2" disabled>Add Product</Button>
+					<Button variant="success" className="" disabled>Add Product</Button>
 				}		
 			</Card>
 		</Row>

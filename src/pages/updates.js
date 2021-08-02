@@ -131,9 +131,9 @@ export default function Updates(){
 			{
 				isActive
 				?
-				<Button variant="success" className="mx-2" onClick={()=>updateProduct(localStorage.productId)}>Update Product Information</Button>
+				<Button variant="success" className="" onClick={()=>updateProduct(localStorage.productId)}>Update Product Information</Button>
 				:
-				<Button variant="success" className="mx-2" disabled>Update Product Information</Button>
+				<Button variant="success" className="" disabled>Update Product Information</Button>
 
 			}
 				
