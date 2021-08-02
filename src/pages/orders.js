@@ -103,7 +103,7 @@ export default function Orders(){
 
 	  return (
 	  		<>
-	  		<Card className="viewFull textCenter">
+	  		<Card className=" textCenter">
 	  		<Row  xs={12} md={1} className=" mt-5 rowCenter">
 	  		{
 				user.isAdmin
