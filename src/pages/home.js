@@ -4,6 +4,7 @@ import React, {useState, useEffect} from 'react'
 import Banner from '../components/Banner'
 import Highlights from '../components/Highlights'
 import Product from '../components/Product'
+import Footer from '../components/Footer'
 import {Row} from 'react-bootstrap'
 
 export default function Home() {
@@ -39,7 +40,8 @@ export default function Home() {
       destination: "/register",
       label2: "Browse All Products",
       destination2: "/products"
-    }
+    } 
+
 
   function shuffle(array) {
 	  var currentIndex = array.length,  randomIndex;
@@ -80,7 +82,7 @@ export default function Home() {
 						
 			{productComponents}
 			</Row>
-
+  
 			
 		</>
 	)

@@ -13,6 +13,7 @@ import Home from './pages/home'
 import Cart from './pages/cart'
 import Orders from './pages/orders'
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 // import Product from './components/Product'
 import NotFound from './components/notFound'
 
@@ -60,6 +61,7 @@ function App(){
               <Route component={NotFound} />
             </Switch>
           </Container>
+          <Footer />
         </Router>
       </UserProvider>
     </>

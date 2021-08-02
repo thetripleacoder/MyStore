@@ -1,11 +1,12 @@
 import React, {useState, useEffect, useContext} from 'react'
-import {Table, Button, Card, CardGroup, Row, Col} from 'react-bootstrap'
+import {Table, Button, Card, CardGroup, Row, Col, Jumbotron} from 'react-bootstrap'
 import UserContext from '../userContext'
 import {Link} from 'react-router-dom'
 
 /*import components here*/
 import Banner from '../components/Banner'
 import Product from '../components/Product'
+import Footer from '../components/Footer'
 
 export default function Products(){
 
@@ -109,7 +110,7 @@ let productRows = allProducts.map(product=>{
 let bannerContent = 
 {
   title: "MyProducts",
-  description: "Affordable products for everybody",
+  description: "Premium High Quality Products",
   label: "Login to Buy",
   destination: "/login"
 }
@@ -119,8 +120,8 @@ let bannerContent =
 				user.isAdmin === true
 				? 
 				<>
-				<Row  className="rowCenter">
-					<Card className="mt-5 px-4 py-4" bg="light" >
+				<Row className="rowCenter">
+					<Card className="my-5 px-4 py-4" bg="light" >
 					<Card className="mx-3 my-3">
 						<h3  className="text-center">Admin Dashboard</h3>
 						</Card>
@@ -143,12 +144,32 @@ let bannerContent =
 				</>
 				: 
 					<>
-						<Banner bannerProp={bannerContent} />
+						<Jumbotron className="mt-4 jumbotronHome" >
+							<h1>{bannerContent.title}</h1>
+							<p>{bannerContent.description}</p>
+							{
+								!user.email
+								? 
+									<Link to={bannerContent.destination} className="btn btn-outline-dark bannerButton px-4 py-2 link">{bannerContent.label}</Link>
+
+								: 
+									bannerContent.destination2 && bannerContent.label2
+									?
+
+									<Link to={bannerContent.destination2} className="btn btn-outline-dark bannerButton px-4 py-2 link">{bannerContent.label2}</Link>
+									: null
+								
+							
+							}
+							
+						</Jumbotron>
 						<Row xs={12} md={4} className=" rowCenter">
 						
 								{productComponents}
 								
 						</Row>
+
+						
 					</>
 			
 		

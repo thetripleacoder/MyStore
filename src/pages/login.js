@@ -87,10 +87,13 @@ export default function Login(){
 		?
 		<Redirect to='/products'/>
 		:
-		<Row xs={12} md={2} className="rowCenter">
-		<Card className="mt-5 px-5 py-5">
 
-		<Form onSubmit={e=>loginUser(e)}>
+		<Row xs={12} md={2} className="rowCenter">
+		<Card className="my-5 px-5 py-5 formStyle">
+
+		<Card.Img variant="top" className="loginCard mb-5 cardImageUpdate" src={"https://images.unsplash.com/photo-1596443686812-2f45229eebc3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1951&q=80"} />
+
+		<Form className="" onSubmit={e=>loginUser(e)}>
 		
 			<Form.Group>
 				<Form.Label>Email:</Form.Label>
@@ -113,6 +116,7 @@ export default function Login(){
 			}
 		</Form>
 		</Card>
+
 		</Row>
 		)
 

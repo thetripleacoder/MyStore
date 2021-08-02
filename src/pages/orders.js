@@ -58,7 +58,7 @@ export default function Orders(){
 
 	  return (
 	   	<Row  xs={12} md={2} className="rowCenter">
-			<Card className="mt-2" bg="light" >
+			<Card className="my-2" bg="light" >
 				<Card className="">
 
 			      <Button color="dark" onClick={toggle} style={{ width: '100%'}}>Order ID: {order._id} </Button>
@@ -103,15 +103,18 @@ export default function Orders(){
 
 	  return (
 	  		<>
-	  		<Row  className=" mt-5 rowCenter">
+	  		<Card className="viewFull">
+	  		<Row  xs={12} md={1} className=" mt-5 rowCenter">
 	  		{
 				user.isAdmin
 				?
 				<h2>Admin</h2>
 				: null
 				}
-			</Row>
 	  			{orderComponents}
+			</Row>
+			</Card>
+
 
 	  		</>
 

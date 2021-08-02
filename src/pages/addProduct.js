@@ -72,7 +72,7 @@ export default function AddProduct(){
 		<Redirect to="/login" />
 		:
 		<Row xs={12} md={2} className="rowCenter">
-			<Card className="mt-5 ">
+			<Card className="my-5 ">
 				<Card.Img variant="top" className="cardImageUpdate" src={picture} />
 				<Card.Body>
 				<Form.Group>

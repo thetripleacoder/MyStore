@@ -171,6 +171,7 @@ export default function Cart() {
 				?
 					
 				<>
+				<Card className="viewFull">
 					<Row  className="rowCenter">
 						<Card className="mt-5 px-4 py-4" bg="light" >
 						<Card className="mx-3 my-3">
@@ -202,6 +203,7 @@ export default function Cart() {
 							<Button variant="success" className="mx-2" onClick={()=>checkout()}>Checkout</Button>
 						</Card>
 					</Row>
+				</Card>
 
 				{/*	<Row xs={12} md={3} className="mt-5 rowCenter">	
 						{productComponents}				

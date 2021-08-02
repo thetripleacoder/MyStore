@@ -27,7 +27,7 @@
   text-align: center;
 }
 .cardImageUpdate{
-  max-height: 400px;
+  
 
   object-fit: cover;
   object-position: 50% 100%;
@@ -45,12 +45,58 @@
 }
 
 .jumbotron {
-  background-image: url("https://images.unsplash.com/photo-1618397746666-63405ce5d015?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=967&q=80");
+  background-image: url("https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80");
   background-size: cover;
+
+  padding-top: 10rem;
 
   box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
 
 }
+
+.jumbotronHome {
+  background-image: url("https://images.unsplash.com/photo-1585792180666-f7347c490ee2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1056&q=80");
+  background-size: cover;
+  padding-bottom:35rem;
+  padding-top: 4rem;
+
+  box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
+
+}
+
+.formStyle {
+  box-shadow: 0px 30px 40px rgb(0 0 0 / 0.5);
+}
+
+
+
+
+
 .link {
   box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
+}
+
+.footer{
+  margin-top: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  background-color:   rgb(30,30,30);
+  color:  white;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.view {
+  height: 60vh;
+}
+.viewFull {
+  height: 100vh;
+}
+
+.loginCard {
+  border-radius: 10rem;
+  height: 15rem;
+  object-position: 50% 50%;
+
 }
