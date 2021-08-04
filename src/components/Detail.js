@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect} from 'react';
 import { Card, Button, InputGroup, Form } from 'react-bootstrap';
 import UserContext from '../userContext';
 import '../App.css';
@@ -13,8 +13,12 @@ export default function Detail({ detailProp }) {
     setQuantity(quantity + 1);
   }
   function subtract() {
+    if(quantity > 1){
+
     setQuantity(quantity - 1);
+    }
   }
+ 
   function addToCart() {
     fetch(
       `https://cryptic-crag-81593.herokuapp.com/api/products/${localStorage.getItem(
@@ -23,7 +27,7 @@ export default function Detail({ detailProp }) {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
+        // console.log(data.data);
         let product = data.data;
 
         localStorage.setItem('productPicture', product.picture);
@@ -42,7 +46,7 @@ export default function Detail({ detailProp }) {
 
     var cart = [];
     cart = JSON.parse(localStorage.getItem('session')) || [];
-    console.log(cart);
+    // console.log(cart);
     cart.push(data);
 
     Swal.fire({
@@ -51,7 +55,7 @@ export default function Detail({ detailProp }) {
       text: `Product added to cart.`,
     });
     localStorage.setItem('session', JSON.stringify(cart));
-    console.log(cart);
+    // console.log(cart);
 
     setUpdate({});
   }
@@ -103,24 +107,25 @@ export default function Detail({ detailProp }) {
         <Card.Text>{detailProp.description}</Card.Text>
         <Card.Text>Price: {detailProp.price} PHP</Card.Text>
         <InputGroup className='mb-3'>
+        
           <Button
             variant='outline-secondary'
             id='button-addon1'
-            onClick={subtract}
-          >
-            -
-          </Button>
+            onClick={subtract}>
+              -
+            </Button>
           <Form.Control
-            className='inputValue'
-            size=''
-            type='number'
-            value={quantity}
-            onChange={(event) => {
-              // console.log(event.target)
-              setQuantity(event.target.value);
-            }}
-            required
-          />
+              className="inputValue"
+              type='number'
+              placeholder='Enter Quantity'
+              value={quantity}
+              onChange={(event) => {
+                // console.log(event.target)
+                setQuantity(event.target.value);
+              }}
+              required
+            />
+            
           <Button variant='outline-secondary' id='button-addon1' onClick={add}>
             +
           </Button>
@@ -128,7 +133,7 @@ export default function Detail({ detailProp }) {
       </Card.Body>
 
       {user.email ? (
-        quantity > 0 ? (
+        quantity >= 1 ? (
           <Button variant='primary' onClick={addToCart}>
             Add To Cart
           </Button>

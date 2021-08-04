@@ -7,12 +7,12 @@ import { Redirect } from 'react-router-dom';
 
 export default function AddProduct() {
   const { user } = useContext(UserContext);
-  const [picture, setPicture] = useState('');
+  const [picture, setPicture] = useState('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
   const [name, setProductName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState(0);
   const [isActive, setIsActive] = useState(false);
-  console.log(picture);
+  // console.log(picture);
   useEffect(() => {
     if (name !== '' && description !== '' && price > 0) {
       setIsActive(true);
@@ -37,7 +37,7 @@ export default function AddProduct() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.message) {
           Swal.fire({
             icon: 'error',
@@ -62,16 +62,22 @@ export default function AddProduct() {
   ) : (
     <Row xs={12} md={2} className='rowCenter'>
       <Card className='my-5 '>
+        {
+          picture === 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
+          ?
+          <h3 className="text-center">Sample Product Image</h3>
+          :null
+        }
         <Card.Img variant='top' className='cardImageUpdate' src={picture} />
         <Card.Body>
           <Form.Group>
-            <Form.Label>Picture:</Form.Label>
+            <Form.Label>Image:</Form.Label>
             <Form.Control
               type='text'
               placeholder='Enter URL'
               value={picture}
               onChange={(event) => {
-                console.log(event.target);
+                // console.log(event.target);
                 setPicture(event.target.value);
               }}
               required
@@ -84,7 +90,7 @@ export default function AddProduct() {
               placeholder='Enter Name'
               value={name}
               onChange={(event) => {
-                console.log(event.target);
+                // console.log(event.target);
                 setProductName(event.target.value);
               }}
               required
@@ -97,7 +103,7 @@ export default function AddProduct() {
               placeholder='Enter Description'
               value={description}
               onChange={(event) => {
-                console.log(event.target);
+                // console.log(event.target);
                 setDescription(event.target.value);
               }}
               required
@@ -110,7 +116,7 @@ export default function AddProduct() {
               placeholder='Enter Price'
               value={price}
               onChange={(event) => {
-                console.log(event.target);
+                // console.log(event.target);
                 setPrice(event.target.value);
               }}
               required

@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 
 export default function Cart() {
   const [update, setUpdate] = useState(0);
+
   const { user } = useContext(UserContext);
 
   function add(element) {
@@ -22,8 +23,11 @@ export default function Cart() {
   function subtract(element) {
     let cart = JSON.parse(localStorage.session);
     let index = cart.findIndex((obj) => obj.name === element.name);
+    if(cart[index].quantity > 1){
+      
     cart[index].quantity = element.quantity - 1;
     localStorage.setItem('session', JSON.stringify(cart));
+    }
 
     setUpdate({});
   }
@@ -38,12 +42,12 @@ export default function Cart() {
   }
 
   let cart = localStorage.session ? JSON.parse(localStorage.session) : [];
-  console.log(localStorage.session);
+  // console.log(localStorage.session);
 
   let cartComponents = cart.map((product) => {
     // console.log(product)
 
-    let subTotal = product.quantity * product.price;
+  let subTotal = product.quantity * product.price;
 
     return (
       <tr key={product._id}>
@@ -64,7 +68,7 @@ export default function Cart() {
               type='number'
               value={product.quantity}
               //    onChange={event=>{
-              // // console.log(event.target)
+              // console.log(event.target)
               // setQuantity(event.target.value)}}
 
               required
@@ -82,7 +86,7 @@ export default function Cart() {
 
         <td>
           <Button
-            variant='success'
+            variant='danger'
             className='mx-2'
             onClick={() => removeProduct(product)}
           >
@@ -100,6 +104,7 @@ export default function Cart() {
     return (total += product.quantity * product.price);
   });
 
+
   function getArraySum(a) {
     var total = 0;
     for (var i in a) {
@@ -109,7 +114,9 @@ export default function Cart() {
   }
 
   total = getArraySum(total);
-  console.log(total);
+  // console.log(total);
+
+  let shippingFee = total*0.05;
 
   function checkout() {
     fetch('https://cryptic-crag-81593.herokuapp.com/api/users/checkout', {
@@ -120,12 +127,13 @@ export default function Cart() {
       },
       body: JSON.stringify({
         totalAmount: total,
+        shipping: shippingFee,
         products: cart,
       }),
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.message) {
           Swal.fire({
             icon: 'error',
@@ -144,7 +152,7 @@ export default function Cart() {
     setUpdate({});
   }
 
-  console.log(cart);
+  // console.log(cart);
   return user.email && user.isAdmin === false ? (
     <>
       <Card className='viewFull'>
@@ -166,17 +174,24 @@ export default function Cart() {
               <tbody>
                 {cartComponents}
                 <tr>
+                  <th>Shipping Fee</th>
+                  <th></th>
+                  <th></th>
+                  <th>{shippingFee.toFixed(2)}</th>
+                  <th></th>
+                </tr>
+                <tr>
                   <th>Total</th>
                   <th></th>
                   <th></th>
-                  <th>{total}</th>
+                  <th>{total.toFixed(2)}</th>
                   <th></th>
                 </tr>
               </tbody>
             </Table>
 
             <Button
-              variant='success'
+              variant='dark'
               className='mx-2'
               onClick={() => checkout()}
             >

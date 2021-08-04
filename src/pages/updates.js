@@ -23,7 +23,7 @@ export default function Updates() {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
+        // console.log(data.data);
         let product = data.data;
 
         localStorage.setItem('productPicture', product.picture);
@@ -73,7 +73,7 @@ export default function Updates() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.message) {
           Swal.fire({
             icon: 'error',
@@ -102,7 +102,7 @@ export default function Updates() {
               placeholder='Enter URL'
               value={picture}
               onChange={(event) => {
-                console.log(event.target);
+                // console.log(event.target);
                 setPicture(event.target.value);
               }}
               required
@@ -115,7 +115,7 @@ export default function Updates() {
               placeholder='Enter Name'
               value={name}
               onChange={(event) => {
-                console.log(event.target);
+                // console.log(event.target);
                 setProductName(event.target.value);
               }}
               required
@@ -128,7 +128,7 @@ export default function Updates() {
               placeholder='Enter Description'
               value={description}
               onChange={(event) => {
-                console.log(event.target);
+                // console.log(event.target);
                 setDescription(event.target.value);
               }}
               required
@@ -141,7 +141,7 @@ export default function Updates() {
               placeholder='Enter Price'
               value={price}
               onChange={(event) => {
-                console.log(event.target);
+                // console.log(event.target);
                 setPrice(event.target.value);
               }}
               required

@@ -28,14 +28,14 @@ function App() {
     email: localStorage.getItem('email'),
     isAdmin: localStorage.getItem('isAdmin') === 'true',
   });
-  console.log(user);
+  // console.log(user);
 
   function unsetUser() {
     localStorage.clear();
   }
 
   let productId = localStorage.getItem('productId');
-  console.log(productId);
+  // console.log(productId);
 
   return (
     <>

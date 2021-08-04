@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 
-import { Collapse, Button, CardBody, Card } from 'reactstrap';
-import { Row } from 'react-bootstrap';
+import { Row, Card } from 'react-bootstrap';
 import UserContext from '../userContext';
+import OrderComp from '../components/Order';
 
 export default function Orders() {
   const { user } = useContext(UserContext);
   const [update, setUpdate] = useState();
   const [order, setOrder] = useState();
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+
 
   useEffect(() => {
     user.isAdmin
@@ -34,49 +33,20 @@ export default function Orders() {
           .then((data) => {
             // console.log(data)
             setOrder(data.data);
-
             setUpdate({});
           });
   }, []);
 
   console.log(order);
 
-  let orderComponents = order
-    ? order.map((order) => {
-        console.log(order);
+  let orderComponents = order ? order.map((orderElement) => {
+        console.log(orderElement);
 
-        return (
-          <Row xs={12} md={2} className='rowCenter'>
-            <Card className='my-2' bg='light'>
-              <Card className=''>
-                <Button color='dark' onClick={toggle} style={{ width: '100%' }}>
-                  Order ID: {order._id}{' '}
-                </Button>
-                <Collapse isOpen={isOpen}>
-                  <Card>
-                    <CardBody>
-                      {user.isAdmin ? (
-                        <>
-                          <Card>Buyer ID: {order.buyer}</Card>
-                          {/*[{order.products}]*/}
-                          <Card>Purchased On: {order.purchasedOn}</Card>
-                          <Card>Total Amount: {order.totalAmount}</Card>
-                        </>
-                      ) : (
-                        <>
-                          <Card>Purchased On: {order.purchasedOn}</Card>
-                          <Card>Total Amount: {order.totalAmount}</Card>
-                        </>
-                      )}
-                    </CardBody>
-                  </Card>
-                </Collapse>
-              </Card>
-            </Card>
-          </Row>
-        );
+        return <OrderComp key={orderElement._id} orderProp={orderElement} />;
+          
       })
-    : null;
+  : null
+   
 
   return (
     <>

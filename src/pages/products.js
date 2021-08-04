@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Table, Button, Card, Row, Jumbotron } from 'react-bootstrap';
 import UserContext from '../userContext';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 /*import components here*/
 import Product from '../components/Product';
@@ -46,7 +47,12 @@ export default function Products() {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
+        Swal.fire({
+            icon: 'success',
+            title: 'Product Archived Successful!',
+            text: 'Product has been archived.',
+          });
 
         setUpdate({});
       });
@@ -64,7 +70,36 @@ export default function Products() {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
+         Swal.fire({
+            icon: 'success',
+            title: 'Product Activated Successful!',
+            text: 'Product has been activated.'
+          });
+
+        setUpdate({});
+      });
+  }
+
+  function deleteProduct(productId) {
+    fetch(
+      `https://cryptic-crag-81593.herokuapp.com/api/products/delete/${productId}`,
+      {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        Swal.fire({
+            icon: 'success',
+            title: 'Product Deleted Successful!',
+            text: 'Product has been deleted.'
+          });
+
 
         setUpdate({});
       });
@@ -86,7 +121,7 @@ export default function Products() {
         <td>
           {product.isActive ? (
             <Button
-              variant='danger'
+              variant='secondary'
               className='mx-2'
               onClick={() => archive(product._id)}
             >
@@ -104,10 +139,17 @@ export default function Products() {
           <Link
             to={`/products/update/${product._id}`}
             onClick={() => localStorage.setItem('productId', product._id)}
-            className='btn btn-primary'
+            className='btn btn-warning'
           >
             Edit
           </Link>
+          <Button
+              variant='danger'
+              className='mx-2'
+              onClick={() => deleteProduct(product._id)}
+            >
+              Delete
+          </Button>
         </td>
       </tr>
     );
