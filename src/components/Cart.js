@@ -12,15 +12,8 @@
 // export default function Cart({cardProp}) {
 // 	 const [cart, setCart] = useState([])
 
-	
-
-
-
-
-	
 // 	return (
-			
-		
+
 // 		)
 
 // }

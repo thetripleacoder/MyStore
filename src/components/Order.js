@@ -3,10 +3,7 @@
 // import { Collapse, Button, CardBody, Card } from 'reactstrap'
 // import { Row} from 'react-bootstrap'
 
-
 // export default function OrderComp({orderProp}){
-
- 
 
 //   const [isOpen, setIsOpen] = useState(false)
 //   const toggle = () => setIsOpen(!isOpen)
@@ -28,7 +25,7 @@
 //                       </CardBody>
 //                     </Card>
 //                   </Collapse>
-//              </> 
+//              </>
 //       )
 
 //   }

@@ -1,10 +1,9 @@
-import React, {Fragment} from 'react'; 
+import React, { Fragment } from 'react';
 
 import ReactDOM from 'react-dom';
 
-import App from './App'; 
+import App from './App';
 
 let root = document.getElementById('root');
 
-ReactDOM.render(<App />, root)
-
+ReactDOM.render(<App />, root);

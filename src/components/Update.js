@@ -16,7 +16,6 @@
 // 	const [price, setPrice] = useState(updateProp.price)
 // 	const [isActive, setIsActive] = useState(false)
 
-
 // 	useEffect(()=>{
 // 		if(picture !== updateProp.picture || name!== updateProp.name || description!== updateProp.description || price !== updateProp.price){
 // 			setIsActive(true)
@@ -27,7 +26,6 @@
 // 		setUpdate({})
 
 // 	}, [name, description, price])
-
 
 // 	function updateProduct(productId){
 
@@ -45,7 +43,7 @@
 // 		})
 
 // 		})
-// 		.then(response => response.json()) 
+// 		.then(response => response.json())
 // 		.then(data => {
 
 // 			console.log(data)
@@ -56,19 +54,18 @@
 // 					text: data.message
 // 				})
 // 			} else {
-				
+
 // 				Swal.fire({
 // 					icon: "success",
 // 					title: "Update Successful!",
 // 					text: "Product Information has been updated."
-// 				})	
+// 				})
 // 			}
 // 		})
 // 	}
 
-
 // 	return(
-	
+
 // 		<Card >
 // 			<Card.Img variant="top" className="cardImageUpdate" src={picture} />
 // 			<Card.Body>
@@ -77,27 +74,26 @@
 // 				<Form.Control type="text" placeholder="Enter URL" value={picture} onChange={event=>{
 // 						console.log(event.target)
 // 						setPicture(event.target.value)}} required/>
-// 			</Form.Group> 
+// 			</Form.Group>
 // 			<Form.Group>
 // 				<Form.Label>Product Name:</Form.Label>
 // 				<Form.Control type="text" placeholder="Enter Name" value={name} onChange={event=>{
 // 						console.log(event.target)
 // 						setProductName(event.target.value)}} required/>
-// 			</Form.Group> 
+// 			</Form.Group>
 // 			<Form.Group>
 // 				<Form.Label>Description:</Form.Label>
 // 				<Form.Control type="text" placeholder="Enter Description" value={description} onChange={event=>{
 // 						console.log(event.target)
 // 						setDescription(event.target.value)}} required/>
-// 			</Form.Group> 
+// 			</Form.Group>
 // 			<Form.Group>
 // 				<Form.Label>Price:</Form.Label>
 // 				<Form.Control type="number" placeholder="Enter Price" value={price} onChange={event=>{
 // 						console.log(event.target)
 // 						setPrice(event.target.value)}} required/>
-// 			</Form.Group> 
-			
-			
+// 			</Form.Group>
+
 // 			</Card.Body>
 
 // 			{
@@ -108,16 +104,8 @@
 // 				<Button variant="success" className="mx-2" disabled>Update Product Information</Button>
 
 // 			}
-			
-			
-				
+
 // 		</Card>
 // 	)
 
 // }
-
-
-
-
-
-

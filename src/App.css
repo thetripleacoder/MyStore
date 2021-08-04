@@ -1,33 +1,38 @@
-*{
-  margin:  0;
-  padding:  0;
-  box-sizing:  border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .cardProduct {
   min-height: 100%;
 }
-.cardImage{
+
+.cardImage {
   height: 20rem;
   object-fit: cover;
   object-position: 50% 100%;
 }
-.cardImageDetail{
+
+.cardImageDetail {
 
   min-height: 100%;
   max-height: 1000px;
   object-fit: cover;
   object-position: 50% 50%;
-  
+
 }
+
 .rowCenter {
   justify-content: center;
 }
+
 .textCenter {
   text-align: center;
 }
-.cardImageUpdate{
-  
+
+.cardImageUpdate {
+
 
   object-fit: cover;
   object-position: 50% 100%;
@@ -36,10 +41,12 @@
 .inputValue {
   text-align: center;
 }
+
 .bannerButton {
   border-radius: 50px;
-  
+
 }
+
 .orderCard {
   width: 1;
 }
@@ -57,7 +64,7 @@
 .jumbotronHome {
   background-image: url("https://images.unsplash.com/photo-1585792180666-f7347c490ee2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1056&q=80");
   background-size: cover;
-  padding-bottom:35rem;
+  padding-bottom: 35rem;
   padding-top: 4rem;
 
   box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
@@ -76,20 +83,22 @@
   box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
 }
 
-.footer{
+.footer {
   margin-top: 5rem;
   padding-top: 2rem;
   padding-bottom: 1rem;
-  background-color:   rgb(30,30,30);
-  color:  white;
+  background-color: rgb(30, 30, 30);
+  color: white;
   position: relative;
   bottom: 0;
   left: 0;
   width: 100%;
 }
+
 .view {
   height: 60vh;
 }
+
 .viewFull {
   height: 100vh;
 }
