@@ -14,7 +14,6 @@ export default function NavBar() {
       email: null,
       isAdmin: null,
     });
-    window.location = '/login';
   }
 
   return (
@@ -51,7 +50,9 @@ export default function NavBar() {
                 <Nav.Link as={NavLink} to='/orders'>
                   Orders
                 </Nav.Link>
-                <Nav.Link onClick={logout}>Logout</Nav.Link>
+                <Nav.Link onClick={logout} as={NavLink} to='/login'>
+                  Logout
+                </Nav.Link>
               </>
             )
           ) : (
