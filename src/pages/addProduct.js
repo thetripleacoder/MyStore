@@ -7,7 +7,9 @@ import { Redirect } from 'react-router-dom';
 
 export default function AddProduct() {
   const { user } = useContext(UserContext);
-  const [picture, setPicture] = useState('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+  const [picture, setPicture] = useState(
+    'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
+  );
   const [name, setProductName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState(0);
@@ -62,12 +64,10 @@ export default function AddProduct() {
   ) : (
     <Row xs={12} md={2} className='rowCenter'>
       <Card className='my-5 '>
-        {
-          picture === 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
-          ?
-          <h3 className="text-center">Sample Product Image</h3>
-          :null
-        }
+        {picture ===
+        'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80' ? (
+          <h3 className='text-center'>Sample Product Image</h3>
+        ) : null}
         <Card.Img variant='top' className='cardImageUpdate' src={picture} />
         <Card.Body>
           <Form.Group>

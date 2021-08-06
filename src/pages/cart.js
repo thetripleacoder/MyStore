@@ -23,10 +23,9 @@ export default function Cart() {
   function subtract(element) {
     let cart = JSON.parse(localStorage.session);
     let index = cart.findIndex((obj) => obj.name === element.name);
-    if(cart[index].quantity > 1){
-      
-    cart[index].quantity = element.quantity - 1;
-    localStorage.setItem('session', JSON.stringify(cart));
+    if (cart[index].quantity > 1) {
+      cart[index].quantity = element.quantity - 1;
+      localStorage.setItem('session', JSON.stringify(cart));
     }
 
     setUpdate({});
@@ -47,7 +46,7 @@ export default function Cart() {
   let cartComponents = cart.map((product) => {
     // console.log(product)
 
-  let subTotal = product.quantity * product.price;
+    let subTotal = product.quantity * product.price;
 
     return (
       <tr key={product._id}>
@@ -104,7 +103,6 @@ export default function Cart() {
     return (total += product.quantity * product.price);
   });
 
-
   function getArraySum(a) {
     var total = 0;
     for (var i in a) {
@@ -116,7 +114,8 @@ export default function Cart() {
   total = getArraySum(total);
   // console.log(total);
 
-  let shippingFee = total*0.05;
+  let shippingFee = total * 0.05;
+  console.log(shippingFee);
 
   function checkout() {
     fetch('https://cryptic-crag-81593.herokuapp.com/api/users/checkout', {
@@ -127,7 +126,7 @@ export default function Cart() {
       },
       body: JSON.stringify({
         totalAmount: total,
-        shipping: shippingFee,
+        shippingFee: shippingFee,
         products: cart,
       }),
     })
@@ -190,11 +189,7 @@ export default function Cart() {
               </tbody>
             </Table>
 
-            <Button
-              variant='dark'
-              className='mx-2'
-              onClick={() => checkout()}
-            >
+            <Button variant='dark' className='mx-2' onClick={() => checkout()}>
               Checkout
             </Button>
           </Card>

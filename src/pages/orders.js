@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 
-import { Row, Card } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import UserContext from '../userContext';
-import OrderComp from '../components/Order';
+import Order from '../components/Order';
+import { Card } from 'reactstrap';
 
 export default function Orders() {
   const { user } = useContext(UserContext);
   const [update, setUpdate] = useState();
   const [order, setOrder] = useState();
-
 
   useEffect(() => {
     user.isAdmin
@@ -20,6 +20,7 @@ export default function Orders() {
           .then((res) => res.json())
           .then((data) => {
             // console.log(data)
+
             setOrder(data.data);
 
             setUpdate({});
@@ -39,23 +40,21 @@ export default function Orders() {
 
   console.log(order);
 
-  let orderComponents = order ? order.map((orderElement) => {
-        console.log(orderElement);
+  let orderComponents = order
+    ? order.map((order) => {
+        console.log(order);
 
-        return <OrderComp key={orderElement._id} orderProp={orderElement} />;
-          
+        return <Order orderProp={order} />;
       })
-  : null
-   
+    : null;
 
   return (
-    <>
-      <Card className=' textCenter'>
-        <Row xs={12} md={1} className=' mt-5 rowCenter'>
-          {user.isAdmin ? <h2>Admin</h2> : null}
-          {orderComponents}
-        </Row>
-      </Card>
-    </>
+    <Card className=' textCenter'>
+      <Row xs={12} md={1} className=' mt-5 rowCenter'>
+        {user.isAdmin ? <h2>Admin</h2> : null}
+        {orderComponents}
+        {/* {elementProducts} */}
+      </Row>
+    </Card>
   );
 }

@@ -49,10 +49,10 @@ export default function Products() {
       .then((data) => {
         // console.log(data);
         Swal.fire({
-            icon: 'success',
-            title: 'Product Archived Successful!',
-            text: 'Product has been archived.',
-          });
+          icon: 'success',
+          title: 'Product Archived Successful!',
+          text: 'Product has been archived.',
+        });
 
         setUpdate({});
       });
@@ -71,11 +71,11 @@ export default function Products() {
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
-         Swal.fire({
-            icon: 'success',
-            title: 'Product Activated Successful!',
-            text: 'Product has been activated.'
-          });
+        Swal.fire({
+          icon: 'success',
+          title: 'Product Activated Successful!',
+          text: 'Product has been activated.',
+        });
 
         setUpdate({});
       });
@@ -95,11 +95,10 @@ export default function Products() {
       .then((data) => {
         // console.log(data);
         Swal.fire({
-            icon: 'success',
-            title: 'Product Deleted Successful!',
-            text: 'Product has been deleted.'
-          });
-
+          icon: 'success',
+          title: 'Product Deleted Successful!',
+          text: 'Product has been deleted.',
+        });
 
         setUpdate({});
       });
@@ -144,11 +143,11 @@ export default function Products() {
             Edit
           </Link>
           <Button
-              variant='danger'
-              className='mx-2'
-              onClick={() => deleteProduct(product._id)}
-            >
-              Delete
+            variant='danger'
+            className='mx-2'
+            onClick={() => deleteProduct(product._id)}
+          >
+            Delete
           </Button>
         </td>
       </tr>

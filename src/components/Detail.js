@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect} from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Card, Button, InputGroup, Form } from 'react-bootstrap';
 import UserContext from '../userContext';
 import '../App.css';
@@ -13,12 +13,11 @@ export default function Detail({ detailProp }) {
     setQuantity(quantity + 1);
   }
   function subtract() {
-    if(quantity > 1){
-
-    setQuantity(quantity - 1);
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
     }
   }
- 
+
   function addToCart() {
     fetch(
       `https://cryptic-crag-81593.herokuapp.com/api/products/${localStorage.getItem(
@@ -107,25 +106,25 @@ export default function Detail({ detailProp }) {
         <Card.Text>{detailProp.description}</Card.Text>
         <Card.Text>Price: {detailProp.price} PHP</Card.Text>
         <InputGroup className='mb-3'>
-        
           <Button
             variant='outline-secondary'
             id='button-addon1'
-            onClick={subtract}>
-              -
-            </Button>
+            onClick={subtract}
+          >
+            -
+          </Button>
           <Form.Control
-              className="inputValue"
-              type='number'
-              placeholder='Enter Quantity'
-              value={quantity}
-              onChange={(event) => {
-                // console.log(event.target)
-                setQuantity(event.target.value);
-              }}
-              required
-            />
-            
+            className='inputValue'
+            type='number'
+            placeholder='Enter Quantity'
+            value={quantity}
+            onChange={(event) => {
+              // console.log(event.target)
+              setQuantity(event.target.value);
+            }}
+            required
+          />
+
           <Button variant='outline-secondary' id='button-addon1' onClick={add}>
             +
           </Button>
