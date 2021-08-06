@@ -14,7 +14,6 @@ export default function NavBar() {
       email: null,
       isAdmin: null,
     });
-    window.location.replace('/login');
   }
 
   return (
