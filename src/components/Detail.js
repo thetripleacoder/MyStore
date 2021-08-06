@@ -3,6 +3,7 @@ import { Card, Button, InputGroup, Form } from 'react-bootstrap';
 import UserContext from '../userContext';
 import '../App.css';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 export default function Detail({ detailProp }) {
   const { user } = useContext(UserContext);
@@ -142,9 +143,10 @@ export default function Detail({ detailProp }) {
           </Button>
         )
       ) : (
-        <Button href='/login' variant='primary'>
+        <Link to={'/login'} className='btn btn-dark px-4 py-2 link'>
+          {' '}
           Login to Order
-        </Button>
+        </Link>
       )}
     </Card>
   );
