@@ -60,8 +60,8 @@ function App() {
               <Route component={NotFound} />
             </Switch>
           </Container>
-          <Footer />
         </Router>
+        <Footer />
       </UserProvider>
     </>
   );

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import '../App.css';
 import UserContext from '../userContext';
-import { Card, Table } from 'react-bootstrap';
+import { Card, Table, Col } from 'react-bootstrap';
 import { Collapse, Button, CardBody } from 'reactstrap';
 import { Row } from 'react-bootstrap';
 
@@ -24,44 +24,51 @@ export default function Order({ orderProp }) {
   });
 
   return (
-    <Row xs={12} md={2} className='rowCenter'>
-      <Card className='my-2' bg='light'>
-        <Card className=''>
-          <Button color='dark' onClick={toggle} style={{ width: '100%' }}>
-            Order ID: {orderProp._id}{' '}
-          </Button>
-          <Collapse isOpen={isOpen}>
-            <Card>
-              <CardBody>
-                {user.isAdmin ? (
-                  <>
-                    <Card>Buyer ID: {orderProp.buyer}</Card>
-                    {/*[{orderProp.products}]*/}
-                    <Card>Purchased On: {orderProp.purchasedOn}</Card>
-                    <Card>Total Amount: {orderProp.totalAmount}</Card>
-                  </>
-                ) : (
-                  <>
-                    <Card>Purchased On: {orderProp.purchasedOn}</Card>
-                    <Table striped bordered hover variant='light'>
-                      <thead>
-                        <tr className='textCenter'>
-                          <th>Quantity</th>
-                          <th>Name</th>
-                          <th>Price</th>
-                        </tr>
-                      </thead>
-                      <tbody>{products}</tbody>
-                    </Table>
-                    <Card>Shipping Fee: {orderProp.shippingFee}</Card>
-                    <Card>Total Amount: {orderProp.totalAmount}</Card>
-                  </>
-                )}
-              </CardBody>
-            </Card>
-          </Collapse>
+    <Card className=''>
+      <Button color='dark' onClick={toggle} style={{ width: '100%' }}>
+        Order ID: {orderProp._id}{' '}
+      </Button>
+      <Collapse isOpen={isOpen}>
+        <Card>
+          <CardBody>
+            {user.isAdmin ? (
+              <>
+                <Card.Text>Buyer ID: {orderProp.buyer}</Card.Text>
+                {/*[{orderProp.products}]*/}
+                <Card.Text>Purchased On: {orderProp.purchasedOn}</Card.Text>
+                <Table striped bordered hover variant='light'>
+                  <thead>
+                    <tr className='textCenter'>
+                      <th>Quantity</th>
+                      <th>Name</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>{products}</tbody>
+                </Table>
+                <Card.Text>Shipping Fee: {orderProp.shippingFee}</Card.Text>
+                <Card.Text>Total Amount: {orderProp.totalAmount}</Card.Text>
+              </>
+            ) : (
+              <>
+                <Card.Text>Purchased On: {orderProp.purchasedOn}</Card.Text>
+                <Table striped bordered hover variant='light'>
+                  <thead>
+                    <tr className='textCenter'>
+                      <th>Quantity</th>
+                      <th>Name</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>{products}</tbody>
+                </Table>
+                <Card.Text>Shipping Fee: {orderProp.shippingFee}</Card.Text>
+                <Card.Text>Total Amount: {orderProp.totalAmount}</Card.Text>
+              </>
+            )}
+          </CardBody>
         </Card>
-      </Card>
-    </Row>
+      </Collapse>
+    </Card>
   );
 }

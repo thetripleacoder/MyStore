@@ -204,9 +204,7 @@ export default function Products() {
           </Link>
         ) : null}
       </Jumbotron>
-      <Row xs={12} md={4} className=' rowCenter'>
-        {productComponents}
-      </Row>
+      <Row className=' rowCenter'>{productComponents}</Row>
     </>
   );
 }

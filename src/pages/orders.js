@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 
-import { Row } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import UserContext from '../userContext';
 import Order from '../components/Order';
 import { Card } from 'reactstrap';
@@ -49,12 +49,23 @@ export default function Orders() {
     : null;
 
   return (
-    <Card className=' textCenter'>
-      <Row xs={12} md={1} className=' mt-5 rowCenter'>
-        {user.isAdmin ? <h2>Admin</h2> : null}
-        {orderComponents}
-        {/* {elementProducts} */}
+    // <Card className=' textCenter'>
+    <>
+      <Row className='mt-5 rowCenter'>
+        {user.isAdmin ? <h1>Admin</h1> : <h1>Pending Orders</h1>}
       </Row>
-    </Card>
+      <Row className='textCenter mt-3 rowCenter'>
+        <Col>
+          <h4>Pending Orders</h4>
+          {orderComponents}
+        </Col>
+        {/* {elementProducts} */}
+        <Col>
+          <h4>Completed Orders</h4>
+          {orderComponents}
+        </Col>
+      </Row>
+      {/* // </Card> */}
+    </>
   );
 }
