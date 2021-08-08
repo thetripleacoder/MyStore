@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 
 export default function Cart() {
   const [update, setUpdate] = useState(0);
+  const [userOrder, setUserOrder] = useState(0);
 
   const { user } = useContext(UserContext);
 
@@ -118,6 +119,17 @@ export default function Cart() {
   console.log(shippingFee);
 
   function checkout() {
+    fetch('https://cryptic-crag-81593.herokuapp.com/api/profile', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setUserOrder(data);
+      });
+
     fetch('https://cryptic-crag-81593.herokuapp.com/api/users/checkout', {
       method: 'POST',
       headers: {
