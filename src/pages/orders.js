@@ -3,12 +3,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import UserContext from '../userContext';
 import Order from '../components/Order';
-import { Card } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 
 export default function Orders() {
   const { user } = useContext(UserContext);
-  const [update, setUpdate] = useState();
   const [pendingOrders, setPendingOrders] = useState();
   const [completedOrders, setCompletedOrders] = useState();
 
@@ -21,9 +19,7 @@ export default function Orders() {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             let ordersTemp = data.data;
-
             let tempArray = ordersTemp.filter((order) => {
               return order.isPending === true;
             });
@@ -43,15 +39,19 @@ export default function Orders() {
           .then((data) => {
             // console.log(data)
             let ordersTemp = data.data;
+            console.log(ordersTemp);
 
-            let tempArray = ordersTemp.filter((order) => {
-              return order.isPending === true;
-            });
+            let tempArray = ordersTemp
+              ? ordersTemp.filter((order) => {
+                  return order.isPending === true;
+                })
+              : null;
             setPendingOrders(tempArray);
-
-            let tempArray2 = ordersTemp.filter((order) => {
-              return order.isPending === false;
-            });
+            let tempArray2 = ordersTemp
+              ? ordersTemp.filter((order) => {
+                  return order.isPending === false;
+                })
+              : null;
             setCompletedOrders(tempArray2);
           });
   }, []);

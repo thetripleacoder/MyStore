@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 /*import components here*/
 
@@ -12,6 +12,19 @@ export default function Cart() {
   const [userOrder, setUserOrder] = useState(0);
 
   const { user } = useContext(UserContext);
+  useEffect(() => {
+    fetch('https://cryptic-crag-81593.herokuapp.com/api/profile', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setUserOrder(data);
+      });
+    setUpdate({});
+  }, []);
 
   function add(element) {
     let cart = JSON.parse(localStorage.session);
@@ -119,16 +132,6 @@ export default function Cart() {
   console.log(shippingFee);
 
   function checkout() {
-    fetch('https://cryptic-crag-81593.herokuapp.com/api/profile', {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setUserOrder(data);
-      });
     fetch('https://cryptic-crag-81593.herokuapp.com/api/users/checkout', {
       method: 'POST',
       headers: {
@@ -139,18 +142,16 @@ export default function Cart() {
         totalAmount: total,
         shippingFee: shippingFee,
         products: cart,
-        buyer: {
-          firstName: userOrder.firstName,
-          lastName: userOrder.lastName,
-          email: userOrder.email,
-          address: userOrder.address,
-          mobileNo: userOrder.mobileNo,
-        },
+        firstName: userOrder.firstName,
+        lastName: userOrder.lastName,
+        email: userOrder.email,
+        address: userOrder.address,
+        mobileNo: userOrder.mobileNo,
       }),
     })
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data);
+        console.log(data);
         if (data.message) {
           Swal.fire({
             icon: 'error',

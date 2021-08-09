@@ -86,7 +86,7 @@ export default function Order({ orderProp }) {
                 Buyer: {orderProp.firstName} {orderProp.lastName}
               </Card.Text>
               <Card.Text>Address: {orderProp.address}</Card.Text>
-              <Card.Text>Mobile No.: {orderProp.mobileNo}</Card.Text>
+              <Card.Text>Mobile No: {orderProp.mobileNo}</Card.Text>
 
               <Card.Text>Purchased On: {orderProp.purchasedOn}</Card.Text>
               <Table striped bordered hover variant='light'>
@@ -102,9 +102,9 @@ export default function Order({ orderProp }) {
               <Card.Text>Shipping Fee: {orderProp.shippingFee}</Card.Text>
               <Card.Text>Total Amount: {orderProp.totalAmount}</Card.Text>
 
-              {user.isAdmin == true ? (
+              {user.isAdmin === true ? (
                 orderProp ? (
-                  orderProp.isPending == true ? (
+                  orderProp.isPending === true ? (
                     <Button
                       variant='success'
                       className='alignItem'

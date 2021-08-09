@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Card, Button, InputGroup, Form } from 'react-bootstrap';
 import UserContext from '../userContext';
 import '../App.css';
@@ -61,39 +61,6 @@ export default function Detail({ detailProp }) {
   }
 
   // var storedNames = JSON.parse(localStorage.getItem("names"));
-
-  function createOrder(e) {
-    e.preventDefault();
-
-    fetch('https://cryptic-crag-81593.herokuapp.com/api/users/checkout', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        productId: `${localStorage.getItem('productId')}`,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // console.log(data)
-        if (data.message) {
-          Swal.fire({
-            icon: 'error',
-            title: 'Add to Cart Failed!',
-            text: data.message,
-          });
-        } else {
-          Swal.fire({
-            icon: 'success',
-            title: 'Added to Cart!',
-            text: 'Product has been added to cart.',
-          });
-        }
-      });
-    setQuantity(1);
-  }
 
   return (
     <Card>
