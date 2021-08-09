@@ -140,7 +140,7 @@ export default function Cart() {
         totalAmount: total,
         shippingFee: shippingFee,
         products: cart,
-        firstName: user.firstName,
+        firstName: userOrder.firstName,
         lastName: userOrder.lastName,
         email: userOrder.email,
         address: userOrder.address,

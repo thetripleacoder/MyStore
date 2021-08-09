@@ -45,16 +45,16 @@ export default function Orders() {
             let ordersTemp = data.data;
 
             let tempArray = ordersTemp.filter((order) => {
-              return order.isPending == true;
+              return order.isPending === true;
             });
             setPendingOrders(tempArray);
 
             let tempArray2 = ordersTemp.filter((order) => {
-              return order.isPending == false;
+              return order.isPending === false;
             });
             setCompletedOrders(tempArray2);
           });
-  }, [update]);
+  }, []);
   console.log(pendingOrders);
 
   let pendingOrderComponents = pendingOrders
