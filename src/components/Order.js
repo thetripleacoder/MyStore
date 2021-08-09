@@ -82,8 +82,12 @@ export default function Order({ orderProp }) {
           <CardBody>
             {/* {user.isAdmin ? ( */}
             <>
-              <Card.Text>Buyer ID: {orderProp.buyer}</Card.Text>
-              {/*[{orderProp.products}]*/}
+              <Card.Text>
+                Buyer: {orderProp.firstName} {orderProp.lastName}
+              </Card.Text>
+              <Card.Text>Address: {orderProp.address}</Card.Text>
+              <Card.Text>Mobile No.: {orderProp.mobileNo}</Card.Text>
+
               <Card.Text>Purchased On: {orderProp.purchasedOn}</Card.Text>
               <Table striped bordered hover variant='light'>
                 <thead>
