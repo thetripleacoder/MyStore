@@ -4,6 +4,7 @@ import { Row, Col } from 'react-bootstrap';
 import UserContext from '../userContext';
 import Order from '../components/Order';
 import { Card } from 'reactstrap';
+import { Redirect } from 'react-router-dom';
 
 export default function Orders() {
   const { user } = useContext(UserContext);
@@ -32,8 +33,6 @@ export default function Orders() {
               return order.isPending === false;
             });
             setCompletedOrders(tempArray2);
-
-            setUpdate({});
           })
       : fetch('https://cryptic-crag-81593.herokuapp.com/api/user/orders', {
           headers: {
@@ -46,17 +45,16 @@ export default function Orders() {
             let ordersTemp = data.data;
 
             let tempArray = ordersTemp.filter((order) => {
-              return order.isPending === true;
+              return order.isPending == true;
             });
             setPendingOrders(tempArray);
 
             let tempArray2 = ordersTemp.filter((order) => {
-              return order.isPending === false;
+              return order.isPending == false;
             });
             setCompletedOrders(tempArray2);
-            setUpdate({});
           });
-  }, []);
+  }, [update]);
   console.log(pendingOrders);
 
   let pendingOrderComponents = pendingOrders
@@ -70,35 +68,33 @@ export default function Orders() {
   let completedOrderComponents = completedOrders
     ? completedOrders.map((order) => {
         console.log(order);
-        let i = 1;
-        i++;
-        console.log(i);
 
-        return <Order orderProp={(order, i)} />;
+        return <Order orderProp={order} />;
       })
     : null;
 
   return (
     // <Card className=' textCenter'>
-    <>
-      <Row className='mt-5 rowCenter'>
-        {user.isAdmin ? <h1>Customer Orders</h1> : <h1>User Orders</h1>}
-      </Row>
-      <Row className=' textCenter mt-3 '>
-        <Col>
-          <h4>Pending Orders</h4>
-        </Col>
-        {/* {elementProducts} */}
-        <Col>
-          <h4>Completed Orders</h4>
-        </Col>
-      </Row>
-      <Row className=' mt-3 '>
-        <Col>{pendingOrderComponents}</Col>
-        {/* {elementProducts} */}
-        <Col>{completedOrderComponents}</Col>
-      </Row>
-      {/* // </Card> */}
-    </>
+    user.isAdmin || user.email ? (
+      <>
+        <Row className='mt-5 rowCenter'>
+          {user.isAdmin ? <h1>Customer Orders</h1> : <h1>User Orders</h1>}
+        </Row>
+        <Row>
+          <Col xs={12} md={6}>
+            <h4 className='textCenter'>Pending Orders</h4>
+            {pendingOrderComponents}
+          </Col>
+          {/* {elementProducts} */}
+          <Col xs={12} md={6}>
+            <h4 className='textCenter'>Completed Orders</h4>
+            {completedOrderComponents}
+          </Col>
+        </Row>
+        {/* // </Card> */}
+      </>
+    ) : (
+      <Redirect to='/login' />
+    )
   );
 }

@@ -1,31 +1,81 @@
 import React, { useState, useContext } from 'react';
 import '../App.css';
 import UserContext from '../userContext';
-import { Card, Table } from 'react-bootstrap';
-import { Collapse, Button, CardBody } from 'reactstrap';
+import { Card, Table, Button } from 'react-bootstrap';
+import { Collapse, CardBody } from 'reactstrap';
+import Swal from 'sweetalert2';
 
-export default function Order({ orderProp, i }) {
+export default function Order({ orderProp }) {
   const { user } = useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
+  const [update, setUpdate] = useState(0);
   const toggle = () => setIsOpen(!isOpen);
 
-  let orderElement = orderProp.products;
+  let orderElement = orderProp ? orderProp.products : null;
   console.log(orderElement);
 
-  let products = orderElement.map((product) => {
-    return (
-      <tr key={product._id}>
-        <td>{product.quantity}</td>
-        <td>{product.name}</td>
-        <td>{product.price}</td>
-      </tr>
-    );
-  });
+  let products = orderElement
+    ? orderElement.map((product) => {
+        return (
+          <tr key={product._id}>
+            <td>{product.quantity}</td>
+            <td>{product.name}</td>
+            <td>{product.price}</td>
+          </tr>
+        );
+      })
+    : null;
+
+  function setAsCompletedOrder(orderId) {
+    fetch(
+      `https://cryptic-crag-81593.herokuapp.com/api/admin/orders/completed/${orderId}`,
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        Swal.fire({
+          icon: 'success',
+          title: 'Order Completed Successfully!',
+          text: 'Order has been completed.',
+        });
+
+        setUpdate({});
+      });
+  }
+  function setAsPendingOrder(orderId) {
+    fetch(
+      `https://cryptic-crag-81593.herokuapp.com/api/admin/orders/pending/${orderId}`,
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        Swal.fire({
+          icon: 'success',
+          title: 'Order set as Pending Successful!',
+          text: 'Order has been moved to Pending.',
+        });
+
+        setUpdate({});
+      });
+  }
+  console.log(orderProp.isPending);
 
   return (
     <Card className=''>
-      <Button color='dark' onClick={toggle} style={{ width: '100%' }}>
-        Order # {i}: {orderProp._id}{' '}
+      <Button variant='dark' onClick={toggle} style={{ width: '100%' }}>
+        Order # : {orderProp._id}{' '}
       </Button>
       <Collapse isOpen={isOpen}>
         <Card>
@@ -47,6 +97,28 @@ export default function Order({ orderProp, i }) {
               </Table>
               <Card.Text>Shipping Fee: {orderProp.shippingFee}</Card.Text>
               <Card.Text>Total Amount: {orderProp.totalAmount}</Card.Text>
+
+              {user.isAdmin == true ? (
+                orderProp ? (
+                  orderProp.isPending == true ? (
+                    <Button
+                      variant='success'
+                      className='alignItem'
+                      onClick={() => setAsCompletedOrder(orderProp._id)}
+                    >
+                      Set as Completed
+                    </Button>
+                  ) : (
+                    <Button
+                      variant='danger'
+                      className='mx-2'
+                      onClick={() => setAsPendingOrder(orderProp._id)}
+                    >
+                      Set as Pending
+                    </Button>
+                  )
+                ) : null
+              ) : null}
             </>
             {/* ) : (
               <>

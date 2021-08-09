@@ -65,9 +65,7 @@ export default function Home() {
       <Banner bannerProp={bannerContent} />
       <h3 className='text-center'>Featured Products</h3>
 
-      <Row xs={12} md={3} className=' rowCenter'>
-        {productComponents}
-      </Row>
+      <Row className=' rowCenter'>{productComponents}</Row>
     </>
   );
 }
