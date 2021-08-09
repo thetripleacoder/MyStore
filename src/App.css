@@ -134,7 +134,13 @@
   position: relative;
   bottom: 0;
   width: 100%;
-  text-align: center;
+
+  /* text-align: center; */
+}
+
+.main-footer a {
+  color: white;
+  text-decoration: none;
 }
 
 .main-container {

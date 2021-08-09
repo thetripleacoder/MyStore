@@ -75,7 +75,7 @@ export default function Order({ orderProp }) {
   return (
     <Card className=''>
       <Button variant='dark' onClick={toggle} style={{ width: '100%' }}>
-        Order # : {orderProp._id}{' '}
+        Order ID : {orderProp._id}{' '}
       </Button>
       <Collapse isOpen={isOpen}>
         <Card>
