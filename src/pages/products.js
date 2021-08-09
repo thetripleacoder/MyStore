@@ -3,8 +3,6 @@ import { Table, Button, Card, Row, Jumbotron } from 'react-bootstrap';
 import UserContext from '../userContext';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-
-/*import components here*/
 import Product from '../components/Product';
 
 export default function Products() {
@@ -17,10 +15,9 @@ export default function Products() {
     fetch('https://cryptic-crag-81593.herokuapp.com/api/products')
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data)
         setAllProducts(data.data);
         let productsTemp = data.data;
-        /*temporary array to hold filtered items. only active courses*/
+
         let tempArray = productsTemp.filter((product) => {
           return product.isActive === true;
         });
@@ -30,8 +27,6 @@ export default function Products() {
   }, [update]);
 
   let productComponents = activeProducts.map((product) => {
-    // console.log(product)
-
     return <Product key={product._id} productProp={product} />;
   });
 
@@ -47,7 +42,6 @@ export default function Products() {
     )
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
         Swal.fire({
           icon: 'success',
           title: 'Product Archived Successful!',
@@ -70,7 +64,6 @@ export default function Products() {
     )
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
         Swal.fire({
           icon: 'success',
           title: 'Product Activated Successful!',
@@ -93,7 +86,6 @@ export default function Products() {
     )
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
         Swal.fire({
           icon: 'success',
           title: 'Product Deleted Successful!',
@@ -104,11 +96,7 @@ export default function Products() {
       });
   }
 
-  // console.log(typeof null)
-
   let productRows = allProducts.map((product) => {
-    // console.log(product)
-
     return (
       <tr key={product._id}>
         <td>{product._id}</td>

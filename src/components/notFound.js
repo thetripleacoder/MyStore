@@ -1,6 +1,4 @@
 import React from 'react';
-
-/*import components here*/
 import Banner from '../components/Banner';
 
 export default function NotFound() {

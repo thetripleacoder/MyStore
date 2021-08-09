@@ -10,20 +10,8 @@
 
 .cardImage {
   height: 20rem;
-
-  /* width: 100%; */
   object-fit: cover;
   object-position: 50% 100%;
-  /* -webkit-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out; */
-}
-
-.cardImage:hover {
-  /* -webkit-transform: scale(1.3);
-  transform: scale(1.3); */
-
 }
 
 .cardImageDetail {
@@ -31,7 +19,6 @@
   max-height: 1000px;
   object-fit: cover;
   object-position: 50% 50%;
-
 }
 
 .rowCenter {
@@ -64,8 +51,6 @@
   background-size: cover;
   padding-top: 10rem;
   box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
-
-
 }
 
 .jumbotronHome {
@@ -75,18 +60,15 @@
   padding-top: 4rem;
   box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
   background-position: 50%;
-
 }
 
 .formStyle {
   box-shadow: 0px 30px 40px rgb(0 0 0 / 0.5);
 }
 
-
 .link {
   box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
 }
-
 
 .view {
   height: 60vh;
@@ -102,7 +84,6 @@
   object-position: 50% 50%;
 }
 
-
 .cardAnimate {
   width: 100%;
   height: auto;
@@ -110,7 +91,6 @@
   transform: scale(0.95);
   transition: transform .3s;
   color: black;
-
 }
 
 .cardAnimate:hover {
@@ -134,8 +114,6 @@
   position: relative;
   bottom: 0;
   width: 100%;
-
-  /* text-align: center; */
 }
 
 .main-footer a {
@@ -146,210 +124,3 @@
 .main-container {
   min-height: 100vh;
 }
-
-
-
-
-
-
-
-
-
-/* Zoom In #1
-.hover01 figure img {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
-}
-
-.hover01 figure:hover img {
-  -webkit-transform: scale(1.3);
-  transform: scale(1.3);
-} */
-
-/* Opacity #1
-.hover11 figure img {
-  opacity: 1;
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
-}
-
-.hover11 figure:hover img {
-  opacity: .5;
-} */
-
-/* Flashing
-.hover13 figure:hover img {
-  opacity: 1;
-  -webkit-animation: flash 1.5s;
-  animation: flash 1.5s;
-}
-
-@-webkit-keyframes flash {
-  0% {
-    opacity: .4;
-  }
-
-  100% {
-    opacity: 1;
-  }
-} */
-
-/* @keyframes flash {
-  0% {
-    opacity: .4;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-
-Shine
-.hover14 figure {
-  position: relative;
-} */
-
-/* .hover14 figure::before {
-  position: absolute;
-  top: 0;
-  left: -75%;
-  z-index: 2;
-  display: block;
-  content: '';
-  width: 50%;
-  height: 100%;
-  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
-  -webkit-transform: skewX(-25deg);
-  transform: skewX(-25deg);
-}
-
-.hover14 figure:hover::before {
-  -webkit-animation: shine .75s;
-  animation: shine .75s;
-}
-
-@-webkit-keyframes shine {
-  100% {
-    left: 125%;
-  }
-}
-
-@keyframes shine {
-  100% {
-    left: 125%;
-  }
-} */
-
-/*---------------*/
-/***** Zoe *****/
-/*---------------*/
-
-/* figure.effect-zoe figcaption {
-  top: auto;
-  bottom: 0;
-  padding: 1em;
-  height: 3.75em;
-  background: #fff;
-  color: #3c4a50;
-  -webkit-transition: -webkit-transform 0.35s;
-  transition: transform 0.35s;
-  -webkit-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100%, 0);
-}
-
-figure.effect-zoe h2 {
-  float: left;
-}
-
-figure.effect-zoe p.icon-links a {
-  float: right;
-  color: #3c4a50;
-  font-size: 1.4em;
-}
-
-figure.effect-zoe:hover p.icon-links a:hover,
-figure.effect-zoe:hover p.icon-links a:focus {
-  color: #252d31;
-}
-
-figure.effect-zoe p.description {
-  position: absolute;
-  bottom: 8em;
-  padding: 2em;
-  color: #fff;
-  text-transform: none;
-  font-size: 90%;
-  opacity: 0;
-  -webkit-transition: opacity 0.35s;
-  transition: opacity 0.35s;
-  -webkit-backface-visibility: hidden;
-  Fix for Chrome 37.0.2062.120 (Mac)
-}
-
-figure.effect-zoe h2,
-figure.effect-zoe p.icon-links a {
-  -webkit-transition: -webkit-transform 0.35s;
-  transition: transform 0.35s;
-  -webkit-transform: translate3d(0, 200%, 0);
-  transform: translate3d(0, 200%, 0);
-}
-
-figure.effect-zoe p.icon-links a span::before {
-  display: inline-block;
-  padding: 8px 10px;
-  font-family: 'feathericons';
-  speak: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-eye::before {
-  content: '\e000';
-}
-
-.icon-paper-clip::before {
-  content: '\e001';
-}
-
-.icon-heart::before {
-  content: '\e024';
-}
-
-figure.effect-zoe h2 {
-  display: inline-block;
-}
-
-figure.effect-zoe:hover p.description {
-  opacity: 1;
-}
-
-figure.effect-zoe:hover figcaption,
-figure.effect-zoe:hover h2,
-figure.effect-zoe:hover p.icon-links a {
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-
-figure.effect-zoe:hover h2 {
-  -webkit-transition-delay: 0.05s;
-  transition-delay: 0.05s;
-}
-
-figure.effect-zoe:hover p.icon-links a:nth-child(3) {
-  -webkit-transition-delay: 0.1s;
-  transition-delay: 0.1s;
-}
-
-figure.effect-zoe:hover p.icon-links a:nth-child(2) {
-  -webkit-transition-delay: 0.15s;
-  transition-delay: 0.15s;
-}
-
-figure.effect-zoe:hover p.icon-links a:first-child {
-  -webkit-transition-delay: 0.2s;
-  transition-delay: 0.2s;
-} */

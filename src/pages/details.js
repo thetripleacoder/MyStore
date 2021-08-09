@@ -15,7 +15,6 @@ export default function Details() {
     )
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data.data);
         let product = data.data;
 
         localStorage.setItem('productPicture', product.picture);

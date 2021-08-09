@@ -14,7 +14,6 @@ export default function NavBar() {
       email: null,
       isAdmin: null,
     });
-    console.log(user);
   }
 
   return (

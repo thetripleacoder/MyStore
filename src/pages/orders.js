@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-
 import { Row, Col } from 'react-bootstrap';
 import UserContext from '../userContext';
 import Order from '../components/Order';
@@ -37,9 +36,7 @@ export default function Orders() {
         })
           .then((res) => res.json())
           .then((data) => {
-            // console.log(data)
             let ordersTemp = data.data;
-            console.log(ordersTemp);
 
             let tempArray = ordersTemp
               ? ordersTemp.filter((order) => {
@@ -55,46 +52,37 @@ export default function Orders() {
             setCompletedOrders(tempArray2);
           });
   }, []);
-  console.log(pendingOrders);
 
   let pendingOrderComponents = pendingOrders
     ? pendingOrders.map((order) => {
-        console.log(order);
-
         return <Order orderProp={order} />;
       })
     : null;
 
   let completedOrderComponents = completedOrders
     ? completedOrders.map((order) => {
-        console.log(order);
-
-        return <Order orderProp={order} />;
+        return <Order key={order._id} orderProp={order} />;
       })
     : null;
 
-  return (
-    // <Card className=' textCenter'>
-    user.isAdmin || user.email ? (
-      <>
-        <Row className='mt-5 rowCenter'>
-          {user.isAdmin ? <h1>Customer Orders</h1> : <h1>User Orders</h1>}
-        </Row>
-        <Row>
-          <Col xs={12} md={6}>
-            <h4 className='textCenter'>Pending Orders</h4>
-            {pendingOrderComponents}
-          </Col>
-          {/* {elementProducts} */}
-          <Col xs={12} md={6}>
-            <h4 className='textCenter'>Completed Orders</h4>
-            {completedOrderComponents}
-          </Col>
-        </Row>
-        {/* // </Card> */}
-      </>
-    ) : (
-      <Redirect to='/login' />
-    )
+  return user.isAdmin || user.email ? (
+    <>
+      <Row className='mt-5 rowCenter'>
+        {user.isAdmin ? <h1>Customer Orders</h1> : <h1>User Orders</h1>}
+      </Row>
+      <Row>
+        <Col xs={12} md={6}>
+          <h4 className='textCenter'>Pending Orders</h4>
+          {pendingOrderComponents}
+        </Col>
+
+        <Col xs={12} md={6}>
+          <h4 className='textCenter'>Completed Orders</h4>
+          {completedOrderComponents}
+        </Col>
+      </Row>
+    </>
+  ) : (
+    <Redirect to='/login' />
   );
 }

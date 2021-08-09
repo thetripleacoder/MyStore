@@ -21,7 +21,6 @@ export default function Login() {
 
   function loginUser(e) {
     e.preventDefault();
-    // console.log("The page will no longer refresh because of submit.")
 
     fetch('https://cryptic-crag-81593.herokuapp.com/api/login', {
       method: 'POST',
@@ -35,7 +34,6 @@ export default function Login() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.message) {
           Swal.fire({
             icon: 'error',
@@ -43,8 +41,6 @@ export default function Login() {
             text: data.message,
           });
         } else {
-          // console.log(data)
-
           localStorage.setItem('token', data.accessToken);
 
           fetch('https://cryptic-crag-81593.herokuapp.com/api/profile', {
@@ -54,8 +50,6 @@ export default function Login() {
           })
             .then((res) => res.json())
             .then((data) => {
-              // console.log(data)
-
               localStorage.setItem('email', data.email);
               localStorage.setItem('isAdmin', data.isAdmin);
               setUser({
@@ -81,14 +75,6 @@ export default function Login() {
   ) : (
     <Row xs={12} md={2} className='rowCenter'>
       <Card className='my-5 px-5 py-5 formStyle'>
-        {/* <Card.Img
-          variant='top'
-          className='loginCard mb-5 cardImageUpdate'
-          src={
-            'https://images.unsplash.com/photo-1596443686812-2f45229eebc3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1951&q=80'
-          }
-        /> */}
-
         <Form className='' onSubmit={(e) => loginUser(e)}>
           <Form.Group>
             <Form.Label>Email:</Form.Label>
@@ -97,7 +83,6 @@ export default function Login() {
               placeholder='Enter Email'
               value={email}
               onChange={(event) => {
-                // console.log(event.target)
                 setEmail(event.target.value);
               }}
               required
@@ -111,7 +96,6 @@ export default function Login() {
               placeholder='Enter Password'
               value={password}
               onChange={(event) => {
-                // console.log(event.target)
                 setPassword(event.target.value);
               }}
               required

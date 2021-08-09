@@ -12,7 +12,6 @@ export default function Order({ orderProp }) {
   const toggle = () => setIsOpen(!isOpen);
 
   let orderElement = orderProp ? orderProp.products : null;
-  console.log(orderElement);
 
   let products = orderElement
     ? orderElement.map((product) => {
@@ -38,14 +37,14 @@ export default function Order({ orderProp }) {
     )
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
         Swal.fire({
           icon: 'success',
           title: 'Order Completed Successfully!',
           text: 'Order has been completed.',
+        }).then(() => {
+          window.location.reload();
+          setUpdate({});
         });
-
-        setUpdate({});
       });
   }
   function setAsPendingOrder(orderId) {
@@ -60,17 +59,16 @@ export default function Order({ orderProp }) {
     )
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
         Swal.fire({
           icon: 'success',
           title: 'Order set as Pending Successful!',
           text: 'Order has been moved to Pending.',
+        }).then(() => {
+          window.location.reload();
+          setUpdate({});
         });
-
-        setUpdate({});
       });
   }
-  console.log(orderProp.isPending);
 
   return (
     <Card className=''>
@@ -80,68 +78,47 @@ export default function Order({ orderProp }) {
       <Collapse isOpen={isOpen}>
         <Card>
           <CardBody>
-            {/* {user.isAdmin ? ( */}
-            <>
-              <Card.Text>
-                Buyer: {orderProp.firstName} {orderProp.lastName}
-              </Card.Text>
-              <Card.Text>Address: {orderProp.address}</Card.Text>
-              <Card.Text>Mobile No: {orderProp.mobileNo}</Card.Text>
-
-              <Card.Text>Purchased On: {orderProp.purchasedOn}</Card.Text>
-              <Table striped bordered hover variant='light'>
-                <thead>
-                  <tr className='textCenter'>
-                    <th>Quantity</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                  </tr>
-                </thead>
-                <tbody>{products}</tbody>
-              </Table>
-              <Card.Text>Shipping Fee: {orderProp.shippingFee}</Card.Text>
-              <Card.Text>Total Amount: {orderProp.totalAmount}</Card.Text>
-              <Card>
-                {user.isAdmin === true ? (
-                  orderProp ? (
-                    orderProp.isPending === true ? (
-                      <Button
-                        variant='success'
-                        className='alignItem'
-                        onClick={() => setAsCompletedOrder(orderProp._id)}
-                      >
-                        Set as Completed
-                      </Button>
-                    ) : (
-                      <Button
-                        variant='danger'
-                        className='alignItem'
-                        onClick={() => setAsPendingOrder(orderProp._id)}
-                      >
-                        Set as Pending
-                      </Button>
-                    )
-                  ) : null
-                ) : null}
-              </Card>
-            </>
-            {/* ) : (
-              <>
-                <Card.Text>Purchased On: {orderProp.purchasedOn}</Card.Text>
-                <Table striped bordered hover variant='light'>
-                  <thead>
-                    <tr className='textCenter'>
-                      <th>Quantity</th>
-                      <th>Name</th>
-                      <th>Price</th>
-                    </tr>
-                  </thead>
-                  <tbody>{products}</tbody>
-                </Table>
-                <Card.Text>Shipping Fee: {orderProp.shippingFee}</Card.Text>
-                <Card.Text>Total Amount: {orderProp.totalAmount}</Card.Text>
-              </>
-            )} */}
+            <Card.Text>
+              Buyer: {orderProp.firstName} {orderProp.lastName}
+            </Card.Text>
+            <Card.Text>Address: {orderProp.address}</Card.Text>
+            <Card.Text>Mobile No: {orderProp.mobileNo}</Card.Text>
+            <Card.Text>Purchased On: {orderProp.purchasedOn}</Card.Text>
+            <Table striped bordered hover variant='light'>
+              <thead>
+                <tr className='textCenter'>
+                  <th>Quantity</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>{products}</tbody>
+            </Table>
+            <Card.Text>Shipping Fee: {orderProp.shippingFee}</Card.Text>
+            <Card.Text>Total Amount: {orderProp.totalAmount}</Card.Text>
+            <Card>
+              {user.isAdmin === true ? (
+                orderProp ? (
+                  orderProp.isPending === true ? (
+                    <Button
+                      variant='success'
+                      className='alignItem'
+                      onClick={() => setAsCompletedOrder(orderProp._id)}
+                    >
+                      Set as Completed
+                    </Button>
+                  ) : (
+                    <Button
+                      variant='danger'
+                      className='alignItem'
+                      onClick={() => setAsPendingOrder(orderProp._id)}
+                    >
+                      Set as Pending
+                    </Button>
+                  )
+                ) : null
+              ) : null}
+            </Card>
           </CardBody>
         </Card>
       </Collapse>

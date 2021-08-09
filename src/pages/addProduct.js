@@ -14,7 +14,7 @@ export default function AddProduct() {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState(0);
   const [isActive, setIsActive] = useState(false);
-  // console.log(picture);
+
   useEffect(() => {
     if (name !== '' && description !== '' && price > 0) {
       setIsActive(true);
@@ -90,7 +90,6 @@ export default function AddProduct() {
               placeholder='Enter Name'
               value={name}
               onChange={(event) => {
-                // console.log(event.target);
                 setProductName(event.target.value);
               }}
               required
@@ -103,7 +102,6 @@ export default function AddProduct() {
               placeholder='Enter Description'
               value={description}
               onChange={(event) => {
-                // console.log(event.target);
                 setDescription(event.target.value);
               }}
               required
@@ -116,7 +114,6 @@ export default function AddProduct() {
               placeholder='Enter Price'
               value={price}
               onChange={(event) => {
-                // console.log(event.target);
                 setPrice(event.target.value);
               }}
               required

@@ -1,7 +1,4 @@
 import React, { useState, useContext, useEffect } from 'react';
-
-/*import components here*/
-
 import { Row, Card, Table, Button, Form, InputGroup } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import UserContext from '../userContext';
@@ -20,7 +17,6 @@ export default function Cart() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setUserOrder(data);
       });
     setUpdate({});
@@ -31,7 +27,6 @@ export default function Cart() {
     let index = cart.findIndex((obj) => obj.name === element.name);
     cart[index].quantity = element.quantity + 1;
     localStorage.setItem('session', JSON.stringify(cart));
-
     setUpdate({});
   }
   function subtract(element) {
@@ -41,7 +36,6 @@ export default function Cart() {
       cart[index].quantity = element.quantity - 1;
       localStorage.setItem('session', JSON.stringify(cart));
     }
-
     setUpdate({});
   }
 
@@ -50,16 +44,12 @@ export default function Cart() {
     let index = cart.findIndex((obj) => obj.name === element.name);
     cart.splice(index, 1);
     localStorage.setItem('session', JSON.stringify(cart));
-
     setUpdate({});
   }
 
   let cart = localStorage.session ? JSON.parse(localStorage.session) : [];
-  // console.log(localStorage.session);
 
   let cartComponents = cart.map((product) => {
-    // console.log(product)
-
     let subTotal = product.quantity * product.price;
 
     return (
@@ -111,7 +101,6 @@ export default function Cart() {
   });
 
   let total = cart.map((product) => {
-    // console.log(product)
     let total = 0;
 
     return (total += product.quantity * product.price);
@@ -126,10 +115,8 @@ export default function Cart() {
   }
 
   total = getArraySum(total);
-  // console.log(total);
 
   let shippingFee = total * 0.05;
-  console.log(shippingFee);
 
   function checkout() {
     fetch('https://cryptic-crag-81593.herokuapp.com/api/users/checkout', {
@@ -170,7 +157,6 @@ export default function Cart() {
     setUpdate({});
   }
 
-  // console.log(cart);
   return user.email && user.isAdmin === false ? (
     <>
       <Card className='viewFull'>
@@ -214,10 +200,6 @@ export default function Cart() {
           </Card>
         </Row>
       </Card>
-
-      {/*	<Row xs={12} md={3} className="mt-5 rowCenter">	
-						{productComponents}				
-					</Row>	*/}
     </>
   ) : (
     <Redirect to='/login' />

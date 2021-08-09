@@ -27,7 +27,6 @@ export default function Detail({ detailProp }) {
     )
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data.data);
         let product = data.data;
 
         localStorage.setItem('productPicture', product.picture);
@@ -41,12 +40,11 @@ export default function Detail({ detailProp }) {
       name: localStorage.getItem('productName'),
       price: localStorage.getItem('productPrice'),
       quantity: quantity,
-      // subTotal: localStorage.productPrice*quantity
     };
 
     var cart = [];
     cart = JSON.parse(localStorage.getItem('session')) || [];
-    // console.log(cart);
+
     cart.push(data);
 
     Swal.fire({
@@ -55,12 +53,9 @@ export default function Detail({ detailProp }) {
       text: `Product added to cart.`,
     });
     localStorage.setItem('session', JSON.stringify(cart));
-    // console.log(cart);
 
     setUpdate({});
   }
-
-  // var storedNames = JSON.parse(localStorage.getItem("names"));
 
   return (
     <Card>
@@ -87,7 +82,6 @@ export default function Detail({ detailProp }) {
             placeholder='Enter Quantity'
             value={quantity}
             onChange={(event) => {
-              // console.log(event.target)
               setQuantity(event.target.value);
             }}
             required
