@@ -129,7 +129,6 @@ export default function Cart() {
         console.log(data);
         setUserOrder(data);
       });
-
     fetch('https://cryptic-crag-81593.herokuapp.com/api/users/checkout', {
       method: 'POST',
       headers: {
@@ -140,11 +139,13 @@ export default function Cart() {
         totalAmount: total,
         shippingFee: shippingFee,
         products: cart,
-        firstName: userOrder.firstName,
-        lastName: userOrder.lastName,
-        email: userOrder.email,
-        address: userOrder.address,
-        mobileNo: userOrder.mobileNo,
+        buyer: {
+          firstName: userOrder.firstName,
+          lastName: userOrder.lastName,
+          email: userOrder.email,
+          address: userOrder.address,
+          mobileNo: userOrder.mobileNo,
+        },
       }),
     })
       .then((response) => response.json())
