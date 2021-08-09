@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 /*import components here*/
 import Banner from '../components/Banner';
 import Product from '../components/Product';
-import { Row } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 export default function Home() {
   const [allProducts, setAllProducts] = useState([]);
@@ -63,9 +63,11 @@ export default function Home() {
   return (
     <>
       <Banner bannerProp={bannerContent} />
-      <h3 className='text-center'>Featured Products</h3>
 
-      <Row className=' rowCenter'>{productComponents}</Row>
+      <Row className=' alignItem mt-5'>
+        <h1>Featured</h1>
+      </Row>
+      <Row className=' alignItem mt-3'>{productComponents}</Row>
     </>
   );
 }

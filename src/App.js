@@ -42,7 +42,7 @@ function App() {
       <UserProvider value={{ user, setUser, unsetUser }}>
         <Router>
           <NavBar />
-          <Container>
+          <Container className='main-container'>
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/register' component={Register} />

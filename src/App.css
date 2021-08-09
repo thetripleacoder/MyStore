@@ -65,6 +65,7 @@
   padding-top: 10rem;
   box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
 
+
 }
 
 .jumbotronHome {
@@ -82,22 +83,10 @@
 }
 
 
-
 .link {
   box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
 }
 
-.footer {
-  margin-top: 5rem;
-  padding-top: 2rem;
-  padding-bottom: 1rem;
-  background-color: rgb(30, 30, 30);
-  color: white;
-  position: relative;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
 
 .view {
   height: 60vh;
@@ -138,6 +127,19 @@
   align-items: center;
 }
 
+.main-footer {
+  color: white;
+  background-color: #131313;
+  padding-top: 3em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.main-container {
+  min-height: 100vh;
+}
 
 
 

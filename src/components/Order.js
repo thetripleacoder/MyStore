@@ -101,28 +101,29 @@ export default function Order({ orderProp }) {
               </Table>
               <Card.Text>Shipping Fee: {orderProp.shippingFee}</Card.Text>
               <Card.Text>Total Amount: {orderProp.totalAmount}</Card.Text>
-
-              {user.isAdmin === true ? (
-                orderProp ? (
-                  orderProp.isPending === true ? (
-                    <Button
-                      variant='success'
-                      className='alignItem'
-                      onClick={() => setAsCompletedOrder(orderProp._id)}
-                    >
-                      Set as Completed
-                    </Button>
-                  ) : (
-                    <Button
-                      variant='danger'
-                      className='mx-2'
-                      onClick={() => setAsPendingOrder(orderProp._id)}
-                    >
-                      Set as Pending
-                    </Button>
-                  )
-                ) : null
-              ) : null}
+              <Card>
+                {user.isAdmin === true ? (
+                  orderProp ? (
+                    orderProp.isPending === true ? (
+                      <Button
+                        variant='success'
+                        className='alignItem'
+                        onClick={() => setAsCompletedOrder(orderProp._id)}
+                      >
+                        Set as Completed
+                      </Button>
+                    ) : (
+                      <Button
+                        variant='danger'
+                        className='alignItem'
+                        onClick={() => setAsPendingOrder(orderProp._id)}
+                      >
+                        Set as Pending
+                      </Button>
+                    )
+                  ) : null
+                ) : null}
+              </Card>
             </>
             {/* ) : (
               <>
