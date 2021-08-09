@@ -140,6 +140,11 @@ export default function Cart() {
         totalAmount: total,
         shippingFee: shippingFee,
         products: cart,
+        firstName: user.firstName,
+        lastName: userOrder.lastName,
+        email: userOrder.email,
+        address: userOrder.address,
+        mobileNo: userOrder.mobileNo,
       }),
     })
       .then((response) => response.json())
