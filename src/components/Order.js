@@ -48,7 +48,8 @@ export default function Order({ orderProp }) {
           text: 'Order has been completed.',
         }).then(() => {
           setUpdate({});
-          window.location.replace('/orders');
+          window.location =
+            'https://flamboyant-bhabha-e60cd9.netlify.app/orders';
         });
       });
   }
@@ -70,7 +71,8 @@ export default function Order({ orderProp }) {
           text: 'Order has been moved to Pending.',
         }).then(() => {
           setUpdate({});
-          window.location.replace('/orders');
+          window.location =
+            'https://flamboyant-bhabha-e60cd9.netlify.app/orders';
         });
       });
   }
