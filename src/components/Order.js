@@ -4,6 +4,7 @@ import UserContext from '../userContext';
 import { Card, Table, Button } from 'react-bootstrap';
 import { Collapse, CardBody } from 'reactstrap';
 import Swal from 'sweetalert2';
+import { Redirect } from 'react-router-dom';
 
 export default function Order({ orderProp }) {
   const { user } = useContext(UserContext);
@@ -45,8 +46,10 @@ export default function Order({ orderProp }) {
           icon: 'success',
           title: 'Order Completed Successfully!',
           text: 'Order has been completed.',
+        }).then(() => {
+          setUpdate({});
+          window.location.replace('/orders');
         });
-        setUpdate({});
       });
   }
   function setAsPendingOrder(orderId) {
@@ -65,8 +68,10 @@ export default function Order({ orderProp }) {
           icon: 'success',
           title: 'Order set as Pending Successful!',
           text: 'Order has been moved to Pending.',
+        }).then(() => {
+          setUpdate({});
+          window.location.replace('/orders');
         });
-        setUpdate({});
       });
   }
 
