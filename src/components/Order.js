@@ -26,7 +26,7 @@ export default function Order({ orderProp }) {
     : null;
 
   function reloadWindow() {
-    window.location = window.location;
+    window.location.href = window.location.href;
   }
 
   function setAsCompletedOrder(orderId) {
