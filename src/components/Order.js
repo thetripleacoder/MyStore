@@ -88,7 +88,7 @@ export default function Order({ orderProp }) {
             <Card.Text>Purchased On: {orderProp.purchasedOn}</Card.Text>
             <Table striped bordered hover variant='light'>
               <thead>
-                <tr className='textCenter'>
+                <tr>
                   <th>Quantity</th>
                   <th>Name</th>
                   <th>Price</th>
