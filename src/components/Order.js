@@ -25,6 +25,12 @@ export default function Order({ orderProp }) {
       })
     : null;
 
+  function reloadWindow() {
+    setTimeout(function () {
+      window.location.reload();
+    }, 1000);
+  }
+
   function setAsCompletedOrder(orderId) {
     fetch(
       `https://cryptic-crag-81593.herokuapp.com/api/admin/orders/completed/${orderId}`,
@@ -42,9 +48,7 @@ export default function Order({ orderProp }) {
           title: 'Order Completed Successfully!',
           text: 'Order has been completed.',
         }).then(() => {
-          setTimeout(function () {
-            window.location.reload();
-          }, 1000);
+          reloadWindow();
         });
       });
   }
@@ -65,9 +69,7 @@ export default function Order({ orderProp }) {
           title: 'Order set as Pending Successful!',
           text: 'Order has been moved to Pending.',
         }).then(() => {
-          setTimeout(function () {
-            window.location.reload();
-          }, 1000);
+          reloadWindow();
         });
       });
   }
