@@ -68,22 +68,7 @@ export default function Orders() {
   return user.isAdmin || user.email ? (
     <>
       <Row className='mt-5 rowCenter'>
-        {user.isAdmin ? (
-          <>
-            <Col xs={12} md={1}>
-              <h1>Customer Orders</h1>
-              <Button
-                variant='danger'
-                className='alignItem'
-                onClick={() => window.location.reload()}
-              >
-                Refresh Page
-              </Button>
-            </Col>
-          </>
-        ) : (
-          <h1>User Orders</h1>
-        )}
+        {user.isAdmin ? <h1>Customer Orders</h1> : <h1>User Orders</h1>}
       </Row>
       <Row>
         <Col xs={12} md={6}>
