@@ -41,9 +41,9 @@ export default function Order({ orderProp }) {
           icon: 'success',
           title: 'Order Completed Successfully!',
           text: 'Order has been completed.',
-        }).then(() => {
-          window.location.reload();
+        }).then((result) => {
           setUpdate({});
+          window.location.reload();
         });
       });
   }
@@ -63,9 +63,9 @@ export default function Order({ orderProp }) {
           icon: 'success',
           title: 'Order set as Pending Successful!',
           text: 'Order has been moved to Pending.',
-        }).then(() => {
-          window.location.reload();
+        }).then((result) => {
           setUpdate({});
+          window.location.reload();
         });
       });
   }
