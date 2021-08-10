@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import UserContext from '../userContext';
 import Order from '../components/Order';
 import { Redirect } from 'react-router-dom';
@@ -8,7 +8,6 @@ export default function Orders() {
   const { user } = useContext(UserContext);
   const [pendingOrders, setPendingOrders] = useState();
   const [completedOrders, setCompletedOrders] = useState();
-  const [update, setUpdate] = useState(0);
 
   useEffect(() => {
     user.isAdmin

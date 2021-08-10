@@ -33,8 +33,6 @@ function App() {
     localStorage.clear();
   }
 
-  let productId = localStorage.getItem('productId');
-
   return (
     <>
       <UserProvider value={{ user, setUser, unsetUser }}>
