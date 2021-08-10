@@ -25,9 +25,9 @@ export default function Order({ orderProp }) {
       })
     : null;
 
-  function reloadWindow() {
-    window.location.href = window.location.href;
-  }
+  // function reloadWindow() {
+  //   window.location.href = window.location.href;
+  // }
 
   function setAsCompletedOrder(orderId) {
     fetch(
@@ -46,6 +46,7 @@ export default function Order({ orderProp }) {
           title: 'Order Completed Successfully!',
           text: 'Order has been completed.',
         });
+        setUpdate({});
       });
   }
   function setAsPendingOrder(orderId) {
@@ -65,6 +66,7 @@ export default function Order({ orderProp }) {
           title: 'Order set as Pending Successful!',
           text: 'Order has been moved to Pending.',
         });
+        setUpdate({});
       });
   }
 
