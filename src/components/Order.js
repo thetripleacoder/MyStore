@@ -46,7 +46,7 @@ export default function Order({ orderProp }) {
           title: 'Order Completed Successfully!',
           text: 'Order has been completed.',
         }).then(() => {
-          reloadWindow();
+          window.location.replace('/orders');
         });
       });
   }
@@ -67,7 +67,7 @@ export default function Order({ orderProp }) {
           title: 'Order set as Pending Successful!',
           text: 'Order has been moved to Pending.',
         }).then(() => {
-          reloadWindow();
+          window.location.replace('/orders');
         });
       });
   }
