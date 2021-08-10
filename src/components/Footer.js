@@ -134,13 +134,12 @@ const Footer = () => (
 
     <Row className='mt-3 mx-5 pb-5'>
       <Col>
-        <p></p>
         <p>&copy;{new Date().getFullYear()} MyStore | All rights reserved</p>
       </Col>
       <Col>
         <p>Follow Us</p>
         <a
-          class='btn btn-outline-secondary rounded-circle'
+          class='btn btn-outline-secondary rounded-circle socMedLinks'
           href='#'
           role='button'
           target='_blank'
@@ -148,7 +147,7 @@ const Footer = () => (
           <i class='fab fa-facebook'></i>
         </a>
         <a
-          class='btn btn-outline-secondary rounded-circle'
+          class='btn btn-outline-secondary rounded-circle socMedLinks'
           href='#'
           role='button'
           target='_blank'
@@ -156,7 +155,7 @@ const Footer = () => (
           <i class='fab fa-instagram'></i>
         </a>
         <a
-          class='btn btn-outline-secondary rounded-circle'
+          class='btn btn-outline-secondary rounded-circle socMedLinks'
           href='mailto:inquiry@mystore.co'
           role='button'
           target='_blank'

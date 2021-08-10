@@ -124,3 +124,7 @@
 .main-container {
   min-height: 100vh;
 }
+
+.socMedLinks {
+  margin: 0 1rem 1rem 1rem;
+}
