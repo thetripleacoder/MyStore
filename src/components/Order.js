@@ -26,9 +26,7 @@ export default function Order({ orderProp }) {
     : null;
 
   function reloadWindow() {
-    setTimeout(function () {
-      window.location.reload();
-    }, 1000);
+    window.location = window.location;
   }
 
   function setAsCompletedOrder(orderId) {
