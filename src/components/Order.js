@@ -1,10 +1,9 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import '../App.css';
 import UserContext from '../userContext';
 import { Card, Table, Button } from 'react-bootstrap';
 import { Collapse, CardBody } from 'reactstrap';
 import Swal from 'sweetalert2';
-import { Redirect } from 'react-router-dom';
 
 export default function Order({ orderProp }) {
   const { user } = useContext(UserContext);
@@ -48,8 +47,6 @@ export default function Order({ orderProp }) {
           text: 'Order has been completed.',
         }).then(() => {
           setUpdate({});
-          window.location =
-            'https://flamboyant-bhabha-e60cd9.netlify.app/orders';
         });
       });
   }
@@ -71,8 +68,6 @@ export default function Order({ orderProp }) {
           text: 'Order has been moved to Pending.',
         }).then(() => {
           setUpdate({});
-          window.location =
-            'https://flamboyant-bhabha-e60cd9.netlify.app/orders';
         });
       });
   }

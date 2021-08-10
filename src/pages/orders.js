@@ -8,6 +8,7 @@ export default function Orders() {
   const { user } = useContext(UserContext);
   const [pendingOrders, setPendingOrders] = useState();
   const [completedOrders, setCompletedOrders] = useState();
+  const [update, setUpdate] = useState(0);
 
   useEffect(() => {
     user.isAdmin
