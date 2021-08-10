@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import '../App.css';
 import UserContext from '../userContext';
 import { Card, Table, Button } from 'react-bootstrap';
@@ -41,9 +41,10 @@ export default function Order({ orderProp }) {
           icon: 'success',
           title: 'Order Completed Successfully!',
           text: 'Order has been completed.',
-        }).then((result) => {
-          setUpdate({});
-          window.location.reload();
+        }).then(() => {
+          setTimeout(function () {
+            window.location.reload();
+          }, 1000);
         });
       });
   }
@@ -63,9 +64,10 @@ export default function Order({ orderProp }) {
           icon: 'success',
           title: 'Order set as Pending Successful!',
           text: 'Order has been moved to Pending.',
-        }).then((result) => {
-          setUpdate({});
-          window.location.reload();
+        }).then(() => {
+          setTimeout(function () {
+            window.location.reload();
+          }, 1000);
         });
       });
   }
