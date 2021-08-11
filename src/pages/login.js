@@ -10,6 +10,17 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [isActive, setIsActive] = useState(false);
   const [willRedirect, setWillRedirect] = useState(false);
+  const [update, setUpdate] = useState(0);
+
+  function myFunction() {
+    var x = document.getElementById('myInput');
+    if (x.type === 'password') {
+      x.type = 'text';
+    } else {
+      x.type = 'password';
+    }
+    setUpdate({});
+  }
 
   useEffect(() => {
     if (email !== '' && password !== '') {
@@ -70,6 +81,7 @@ export default function Login() {
     setEmail('');
     setPassword('');
   }
+
   return user.email || willRedirect ? (
     <Redirect to='/products' />
   ) : (
@@ -92,13 +104,21 @@ export default function Login() {
           <Form.Group>
             <Form.Label>Password:</Form.Label>
             <Form.Control
-              type='text'
+              id='myInput'
+              type='password'
               placeholder='Enter Password'
               value={password}
               onChange={(event) => {
                 setPassword(event.target.value);
               }}
               required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Check
+              type='checkbox'
+              label='Show Password'
+              onClick={() => myFunction()}
             />
           </Form.Group>
 
