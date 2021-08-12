@@ -30,7 +30,7 @@ export default function Banner({ bannerProp }) {
 
     <Carousel className='carouselBanner'>
       {bannerProp.map((product) => (
-        <Carousel.Item interval={3000}>
+        <Carousel.Item interval={4000}>
           <img
             className='d-block w-100 carouselImg'
             src={product.picture}
