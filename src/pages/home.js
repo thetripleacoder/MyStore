@@ -37,7 +37,7 @@ export default function Home() {
   }
 
   let shuffledProducts = shuffle(activeProducts).slice(0, 3);
-  let shuffledProducts2 = shuffle(activeProducts).slice(1, 4);
+  let shuffledProducts2 = shuffle(activeProducts);
   let productComponents = shuffledProducts.map((product) => {
     return <Product key={product._id} productProp={product} />;
   });
