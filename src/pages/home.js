@@ -21,15 +21,6 @@ export default function Home() {
       });
   }, []);
 
-  let bannerContent = {
-    title: 'Welcome to MyStore',
-    description: 'Get your very own MyProducts',
-    label: 'Be a MyOwner',
-    destination: '/register',
-    label2: 'Browse All Products',
-    destination2: '/products',
-  };
-
   function shuffle(array) {
     var currentIndex = array.length,
       randomIndex;
@@ -46,13 +37,24 @@ export default function Home() {
   }
 
   let shuffledProducts = shuffle(activeProducts).slice(0, 3);
+  let shuffledProducts2 = shuffle(activeProducts).slice(1, 4);
   let productComponents = shuffledProducts.map((product) => {
     return <Product key={product._id} productProp={product} />;
   });
+  console.log(shuffledProducts);
 
+  // let bannerContent = {
+  //   title: 'Welcome to MyStore',
+  //   description: 'Get your very own MyProducts',
+  //   label: 'Be a MyOwner',
+  //   destination: '/register',
+  //   label2: 'Browse All Products',
+  //   destination2: '/products',
+  // };
   return (
     <>
-      <Banner bannerProp={bannerContent} />
+      <Banner bannerProp={shuffledProducts2} />
+
       <Row className=' alignItem mt-5'>
         <h1>Featured</h1>
       </Row>
