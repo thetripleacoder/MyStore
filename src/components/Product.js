@@ -6,8 +6,8 @@ import '../App.css';
 export default function Product({ productProp }) {
   return (
     <Col xs={12} md={4}>
-      <a
-        href={`/products/${productProp._id}`}
+      <Link
+        to={`/products/${productProp._id}`}
         onClick={() => localStorage.setItem('productId', productProp._id)}
         className='cardLink'
       >
@@ -26,7 +26,7 @@ export default function Product({ productProp }) {
             <Card.Text>Price: {productProp.price} PHP</Card.Text>
           </Card.Body>
         </Card>
-      </a>
+      </Link>
     </Col>
   );
 }
