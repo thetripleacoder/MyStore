@@ -18,35 +18,51 @@ export default function NavBar() {
   return (
     <Navbar sticky='top' bg='light' variant='light' expand='lg'>
       <Container fluid>
-        <Navbar.Brand href='/'>MyStore</Navbar.Brand>
+        <Navbar.Brand as={NavLink} to={'/'}>
+          MyStore
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ml-auto'>
             <Nav.Link as={NavLink} to={'/'}>
               Home
             </Nav.Link>
-            <Nav.Link href='/products'>Products</Nav.Link>
+            <Nav.Link as={NavLink} to={'/products'}>
+              Products
+            </Nav.Link>
 
             {user.email ? (
               user.isAdmin ? (
                 <>
-                  <Nav.Link href='/addProduct'>Add Product</Nav.Link>
-                  <Nav.Link href='/orders'>Orders</Nav.Link>
+                  <Nav.Link as={NavLink} to={'/addProduct'}>
+                    Add Product
+                  </Nav.Link>
+                  <Nav.Link as={NavLink} to={'/orders'}>
+                    Orders
+                  </Nav.Link>
                   <Nav.Link onClick={logout}>Logout</Nav.Link>
                 </>
               ) : (
                 <>
-                  <Nav.Link href='/cart'>Cart</Nav.Link>
-                  <Nav.Link href='/orders'>Orders</Nav.Link>
-                  <Nav.Link onClick={logout} href='/login'>
+                  <Nav.Link as={NavLink} to={'/cart'}>
+                    Cart
+                  </Nav.Link>
+                  <Nav.Link as={NavLink} to={'/orders'}>
+                    Orders
+                  </Nav.Link>
+                  <Nav.Link onClick={logout} as={NavLink} to={'/login'}>
                     Logout
                   </Nav.Link>
                 </>
               )
             ) : (
               <>
-                <Nav.Link href='/register'>Register</Nav.Link>
-                <Nav.Link href='/login'>Login</Nav.Link>
+                <Nav.Link as={NavLink} to={'/register'}>
+                  Register
+                </Nav.Link>
+                <Nav.Link as={NavLink} to={'/login'}>
+                  Login
+                </Nav.Link>
               </>
             )}
           </Nav>
