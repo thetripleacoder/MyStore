@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import UserContext from '../userContext';
 import Order from '../components/Order';
 import { Redirect } from 'react-router-dom';
@@ -66,7 +66,7 @@ export default function Orders() {
     : null;
 
   return user.isAdmin || user.email ? (
-    <>
+    <Container>
       <Row className='mt-5 rowCenter'>
         {user.isAdmin ? <h1>Customer Orders</h1> : <h1>User Orders</h1>}
       </Row>
@@ -81,7 +81,7 @@ export default function Orders() {
           {completedOrderComponents}
         </Col>
       </Row>
-    </>
+    </Container>
   ) : (
     <Redirect to='/login' />
   );

@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Table, Button, Card, Row, Jumbotron } from 'react-bootstrap';
+import {
+  Table,
+  Button,
+  Card,
+  Row,
+  Jumbotron,
+  Container,
+} from 'react-bootstrap';
 import UserContext from '../userContext';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -150,7 +157,7 @@ export default function Products() {
   };
 
   return user.isAdmin === true ? (
-    <>
+    <Container>
       <Row className='rowCenter'>
         <Card className='my-5 px-4 py-4' bg='light'>
           <Card className='mx-3 my-3'>
@@ -170,9 +177,9 @@ export default function Products() {
           </Table>
         </Card>
       </Row>
-    </>
+    </Container>
   ) : (
-    <>
+    <Container>
       <Jumbotron className='mt-4 jumbotronHome'>
         <h1>{bannerContent.title}</h1>
         <p>{bannerContent.description}</p>
@@ -193,6 +200,6 @@ export default function Products() {
         ) : null}
       </Jumbotron>
       <Row className=' rowCenter'>{productComponents}</Row>
-    </>
+    </Container>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Form, Button, Row, Card } from 'react-bootstrap';
+import { Form, Button, Row, Card, Container } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import { Redirect } from 'react-router-dom';
 import UserContext from '../userContext';
@@ -85,56 +85,58 @@ export default function Login() {
   return user.email || willRedirect ? (
     <Redirect to='/products' />
   ) : (
-    <Row xs={12} md={2} className='rowCenter'>
-      <Card className='my-5 px-5 py-5 formStyle'>
-        <Form className='' onSubmit={(e) => loginUser(e)}>
-          <Form.Group>
-            <Form.Label>Email:</Form.Label>
-            <Form.Control
-              type='email'
-              placeholder='Enter Email'
-              value={email}
-              onChange={(event) => {
-                setEmail(event.target.value);
-              }}
-              required
-            />
-          </Form.Group>
+    <Container>
+      <Row xs={12} md={2} className='rowCenter'>
+        <Card className='my-5 px-5 py-5 formStyle'>
+          <Form className='' onSubmit={(e) => loginUser(e)}>
+            <Form.Group>
+              <Form.Label>Email:</Form.Label>
+              <Form.Control
+                type='email'
+                placeholder='Enter Email'
+                value={email}
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                }}
+                required
+              />
+            </Form.Group>
 
-          <Form.Group>
-            <Form.Label>Password:</Form.Label>
-            <Form.Control
-              id='myInput'
-              type='password'
-              placeholder='Enter Password'
-              value={password}
-              onChange={(event) => {
-                setPassword(event.target.value);
-              }}
-              required
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Check
-              type='checkbox'
-              label='Show Password'
-              onClick={() => myFunction()}
-            />
-          </Form.Group>
+            <Form.Group>
+              <Form.Label>Password:</Form.Label>
+              <Form.Control
+                id='myInput'
+                type='password'
+                placeholder='Enter Password'
+                value={password}
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                }}
+                required
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Check
+                type='checkbox'
+                label='Show Password'
+                onClick={() => myFunction()}
+              />
+            </Form.Group>
 
-          {isActive ? (
-            <Button variant='primary' type='submit'>
-              {' '}
-              Submit
-            </Button>
-          ) : (
-            <Button variant='primary' disabled>
-              {' '}
-              Submit
-            </Button>
-          )}
-        </Form>
-      </Card>
-    </Row>
+            {isActive ? (
+              <Button variant='primary' type='submit'>
+                {' '}
+                Submit
+              </Button>
+            ) : (
+              <Button variant='primary' disabled>
+                {' '}
+                Submit
+              </Button>
+            )}
+          </Form>
+        </Card>
+      </Row>
+    </Container>
   );
 }

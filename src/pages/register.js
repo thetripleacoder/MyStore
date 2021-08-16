@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Form, Button, Card, Row } from 'react-bootstrap';
+import { Form, Button, Card, Row, Container } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import { Redirect } from 'react-router-dom';
 import UserContext from '../userContext';
@@ -88,106 +88,108 @@ export default function Register() {
   return user.email || willRedirect ? (
     <Redirect to='/login' />
   ) : (
-    <Row xs={12} md={2} className='rowCenter'>
-      <Card className='mt-5 px-5 py-5 formStyle '>
-        <Form onSubmit={(e) => registerUser(e)}>
-          <Form.Group>
-            <Form.Label>First Name:</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Enter First Name'
-              value={firstName}
-              onChange={(event) => {
-                setFirstName(event.target.value);
-              }}
-              required
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Last Name:</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Enter Last Name'
-              value={lastName}
-              onChange={(event) => {
-                setLastName(event.target.value);
-              }}
-              required
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Address:</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Enter Address'
-              value={address}
-              onChange={(event) => {
-                setAddress(event.target.value);
-              }}
-              required
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Email:</Form.Label>
-            <Form.Control
-              type='email'
-              placeholder='Enter Email'
-              value={email}
-              onChange={(event) => {
-                setEmail(event.target.value);
-              }}
-              required
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Mobile No:</Form.Label>
-            <Form.Control
-              type='number'
-              placeholder='Enter 11-Digit Mobile No'
-              value={mobileNo}
-              onChange={(event) => {
-                setMobileNo(event.target.value);
-              }}
-              required
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Password:</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Enter Password'
-              value={password}
-              onChange={(event) => {
-                setPassword(event.target.value);
-              }}
-              required
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Confirm Password:</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Confirm Password'
-              value={confirmPassword}
-              onChange={(event) => {
-                setConfirmPassword(event.target.value);
-              }}
-              required
-            />
-          </Form.Group>
-          {isActive ? (
-            <Button variant='primary' type='submit'>
-              {' '}
-              Submit
-            </Button>
-          ) : (
-            <Button variant='primary' disabled>
-              {' '}
-              Submit
-            </Button>
-          )}
-        </Form>
-      </Card>
-    </Row>
+    <Container>
+      <Row xs={12} md={2} className='rowCenter'>
+        <Card className='mt-5 px-5 py-5 formStyle '>
+          <Form onSubmit={(e) => registerUser(e)}>
+            <Form.Group>
+              <Form.Label>First Name:</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Enter First Name'
+                value={firstName}
+                onChange={(event) => {
+                  setFirstName(event.target.value);
+                }}
+                required
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Last Name:</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Enter Last Name'
+                value={lastName}
+                onChange={(event) => {
+                  setLastName(event.target.value);
+                }}
+                required
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Address:</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Enter Address'
+                value={address}
+                onChange={(event) => {
+                  setAddress(event.target.value);
+                }}
+                required
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Email:</Form.Label>
+              <Form.Control
+                type='email'
+                placeholder='Enter Email'
+                value={email}
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                }}
+                required
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Mobile No:</Form.Label>
+              <Form.Control
+                type='number'
+                placeholder='Enter 11-Digit Mobile No'
+                value={mobileNo}
+                onChange={(event) => {
+                  setMobileNo(event.target.value);
+                }}
+                required
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Password:</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Enter Password'
+                value={password}
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                }}
+                required
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Confirm Password:</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Confirm Password'
+                value={confirmPassword}
+                onChange={(event) => {
+                  setConfirmPassword(event.target.value);
+                }}
+                required
+              />
+            </Form.Group>
+            {isActive ? (
+              <Button variant='primary' type='submit'>
+                {' '}
+                Submit
+              </Button>
+            ) : (
+              <Button variant='primary' disabled>
+                {' '}
+                Submit
+              </Button>
+            )}
+          </Form>
+        </Card>
+      </Row>
+    </Container>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Row } from 'react-bootstrap';
+import { Card, Row, Container } from 'react-bootstrap';
 import '../App.css';
 
 import Detail from '../components/Detail';
@@ -35,12 +35,12 @@ export default function Details() {
   };
 
   return (
-    <>
+    <Container>
       <Row xs={12} md={2} className='rowCenter'>
         <Card className='my-5 '>
           <Detail detailProp={detailContent} />
         </Card>
       </Row>
-    </>
+    </Container>
   );
 }
