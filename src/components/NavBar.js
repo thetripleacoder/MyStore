@@ -17,7 +17,7 @@ export default function NavBar() {
   }
 
   return (
-    <Navbar sticky='top' bg='light' variant='light' expand='lg'>
+    <Navbar sticky='top' bg='dark' variant='dark' expand='lg'>
       <Navbar.Brand as={Link} to='/'>
         MyStore
       </Navbar.Brand>

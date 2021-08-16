@@ -1,35 +1,49 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Jumbotron, Carousel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import UserContext from '../userContext';
 import '../App.css';
 
-export default function Banner({ bannerProp }) {
-  const { user } = useContext(UserContext);
+// export default function Banner({ bannerProp, bannerContent }) {
+//   const { user } = useContext(UserContext);
+
+export default function Banner() {
+  const [allProducts, setAllProducts] = useState([]);
+  const [activeProducts, setActiveProducts] = useState([]);
+  useEffect(() => {
+    fetch('https://cryptic-crag-81593.herokuapp.com/api/products')
+      .then((res) => res.json())
+      .then((data) => {
+        setAllProducts(data.data);
+        let productsTemp = data.data;
+        let tempArray = productsTemp.filter((product) => {
+          return product.isActive === true;
+        });
+
+        setActiveProducts(tempArray);
+      });
+  }, []);
+
+  function shuffle(array) {
+    var currentIndex = array.length,
+      randomIndex;
+
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+    return array;
+  }
+  let shuffledProducts = shuffle(activeProducts).slice(0, 3);
+  let shuffledProducts2 = shuffle(activeProducts);
 
   return (
-    // <Jumbotron className='mt-4 '>
-    //   <h1>{bannerProp.title}</h1>
-    //   <p>{bannerProp.description}</p>
-    //   {!user.email ? (
-    //     <Link
-    //       to={bannerProp.destination}
-    //       className='btn btn-outline-dark bannerButton px-4 py-2 link'
-    //     >
-    //       {bannerProp.label}
-    //     </Link>
-    //   ) : bannerProp.destination2 && bannerProp.label2 ? (
-    //     <Link
-    //       to={bannerProp.destination2}
-    //       className='btn btn-outline-dark bannerButton px-4 py-2 link'
-    //     >
-    //       {bannerProp.label2}
-    //     </Link>
-    //   ) : null}
-    // </Jumbotron>
-
     <Carousel className='carouselBanner'>
-      {bannerProp.map((product) => (
+      {shuffledProducts2.map((product) => (
         <Carousel.Item interval={4000}>
           <img
             className='d-block w-100 carouselImg'

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Banner from '../components/Banner';
+import Banner2 from '../components/Banner2';
 import Product from '../components/Product';
-import { Row } from 'react-bootstrap';
+import { Row, Container } from 'react-bootstrap';
 
 export default function Home() {
   const [allProducts, setAllProducts] = useState([]);
@@ -43,22 +44,25 @@ export default function Home() {
   });
   console.log(shuffledProducts);
 
-  // let bannerContent = {
-  //   title: 'Welcome to MyStore',
-  //   description: 'Get your very own MyProducts',
-  //   label: 'Be a MyOwner',
-  //   destination: '/register',
-  //   label2: 'Browse All Products',
-  //   destination2: '/products',
-  // };
+  let bannerContent = {
+    title: 'Welcome to MyStore',
+    description: 'Get your very own MyProducts',
+    label: 'Be a MyOwner',
+    destination: '/register',
+    label2: 'Browse All Products',
+    destination2: '/products',
+  };
   return (
-    <>
+    <div className='homeContainer'>
       <Banner bannerProp={shuffledProducts2} />
+      <Container>
+        <Banner2 bannerProp={bannerContent} />
 
-      <Row className=' alignItem mt-5'>
-        <h1>Featured</h1>
-      </Row>
-      <Row className=' alignItem mt-3'>{productComponents}</Row>
-    </>
+        <Row className=' alignItem mt-5'>
+          <h1>Featured</h1>
+        </Row>
+        <Row className=' alignItem mt-3'>{productComponents}</Row>
+      </Container>
+    </div>
   );
 }

@@ -11,6 +11,7 @@ import Home from './pages/home';
 import Cart from './pages/cart';
 import Orders from './pages/orders';
 import NavBar from './components/NavBar';
+// import Banner from './components/Banner';
 import Footer from './components/Footer';
 // import Product from './components/Product'
 import NotFound from './components/notFound';
@@ -38,7 +39,8 @@ function App() {
       <UserProvider value={{ user, setUser, unsetUser }}>
         <Router>
           <NavBar />
-          <Container className='main-container'>
+
+          <Container className='my-0 mx-0 py-0 px-0 main-container' fluid>
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/register' component={Register} />
