@@ -136,7 +136,7 @@ export default function Cart() {
       body: JSON.stringify({
         totalAmount: total,
         shippingFee: shippingFee,
-        products: cart,
+        products: cart.length >= 1 ? cart : null,
         firstName: userOrder.firstName,
         lastName: userOrder.lastName,
         email: userOrder.email,
