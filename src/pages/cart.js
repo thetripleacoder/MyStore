@@ -32,14 +32,18 @@ export default function Cart() {
 
   function add(element) {
     let cart = JSON.parse(localStorage.session);
-    let index = cart.findIndex((obj) => obj.name === element.name);
+    let index = cart.findIndex(
+      (obj) => obj.name === element.name && obj.date === element.date
+    );
     cart[index].quantity = element.quantity + 1;
     localStorage.setItem('session', JSON.stringify(cart));
     setUpdate({});
   }
   function subtract(element) {
     let cart = JSON.parse(localStorage.session);
-    let index = cart.findIndex((obj) => obj.name === element.name);
+    let index = cart.findIndex(
+      (obj) => obj._id === element._id && obj.date === element.date
+    );
     if (cart[index].quantity > 1) {
       cart[index].quantity = element.quantity - 1;
       localStorage.setItem('session', JSON.stringify(cart));
@@ -49,13 +53,16 @@ export default function Cart() {
 
   function removeProduct(element) {
     let cart = JSON.parse(localStorage.session);
-    let index = cart.findIndex((obj) => obj.name === element.name);
+    let index = cart.findIndex(
+      (obj) => obj._id === element._id && obj.date === element.date
+    );
     cart.splice(index, 1);
     localStorage.setItem('session', JSON.stringify(cart));
     setUpdate({});
   }
 
   let cart = localStorage.session ? JSON.parse(localStorage.session) : [];
+  console.log(cart);
 
   let cartComponents = cart.map((product) => {
     let subTotal = product.quantity * product.price;

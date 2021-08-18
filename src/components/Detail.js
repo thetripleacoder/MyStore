@@ -33,9 +33,17 @@ export default function Detail({ detailProp }) {
         localStorage.setItem('productName', product.name);
         localStorage.setItem('productDescription', product.description);
         localStorage.setItem('productPrice', product.price);
+
+        var date1 = new Date();
+        window.localStorage.setItem('date', date1.getTime());
+
+        var date2 = new Date(Number(window.localStorage.getItem('date')));
+        date2.setDate(date2.getDate() + 7);
+        window.localStorage.setItem('date', date2.getTime());
       });
 
     let data = {
+      date: localStorage.getItem('date'),
       _id: localStorage.getItem('productId'),
       name: localStorage.getItem('productName'),
       price: localStorage.getItem('productPrice'),
