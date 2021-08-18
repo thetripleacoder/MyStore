@@ -126,6 +126,8 @@ export default function Cart() {
 
   let shippingFee = total * 0.05;
 
+  total += shippingFee;
+
   function checkout() {
     fetch('https://cryptic-crag-81593.herokuapp.com/api/users/checkout', {
       method: 'POST',
