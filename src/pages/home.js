@@ -66,29 +66,25 @@ export default function Home() {
     <div className='homeContainer'>
       <Banner bannerProp={shuffledProducts2} />
       <Banner2 bannerProp={bannerContent} />
-      <div className='d-flex justify-content-center mt-5 px-5'>
-        <Col xs={12} md={9}>
-          <Row className=''>
-            <Col xs={10}>
-              <h4 className=''>Shop</h4>
-            </Col>
-            <Col xs={2} className='align-right '>
-              <Nav.Link
-                as={NavLink}
-                to={'/products'}
-                className='view-more-link'
-              >
-                View More>>
-              </Nav.Link>
-            </Col>
-          </Row>
-        </Col>
+      <div className='d-flex justify-content-center mt-5 '>
+        <Row className=''>
+          <h1 className=''>Today's Picks</h1>
+        </Row>
       </div>
       <div class='d-flex justify-content-center shop-section'>
         <Col xs={12} md={9}>
           <Row className=' alignItem '>{productComponents2}</Row>
         </Col>
       </div>
+
+      <div className='d-flex justify-content-center'>
+        <Row className=''>
+          <Nav.Link as={NavLink} to={'/products'} className='view-more-link'>
+            View More >>>
+          </Nav.Link>
+        </Row>
+      </div>
+
       {/* <div class=' featured-section'>{productComponents}</div> */}
     </div>
   );
