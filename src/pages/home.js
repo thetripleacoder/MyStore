@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Banner from '../components/Banner';
 import Banner2 from '../components/Banner2';
 import Product from '../components/Product';
-import { Row, Container } from 'react-bootstrap';
+import Highlights from '../components/Highlights';
+import { Row, Container, Col, Nav } from 'react-bootstrap';
+import { NavLink, Link } from 'react-router-dom';
 
 export default function Home() {
   const [allProducts, setAllProducts] = useState([]);
@@ -38,8 +40,16 @@ export default function Home() {
   }
 
   let shuffledProducts = shuffle(activeProducts).slice(0, 3);
+  // let shuffledProducts5 = shuffle(activeProducts).slice(0, 5);
   let shuffledProducts2 = shuffle(activeProducts);
   let productComponents = shuffledProducts.map((product) => {
+    return (
+      <Col xs={12} md={12}>
+        <Highlights key={product._id} featuredProp={product} />;
+      </Col>
+    );
+  });
+  let productComponents2 = shuffledProducts.map((product) => {
     return <Product key={product._id} productProp={product} />;
   });
   console.log(shuffledProducts);
@@ -55,14 +65,31 @@ export default function Home() {
   return (
     <div className='homeContainer'>
       <Banner bannerProp={shuffledProducts2} />
-      <Container>
-        <Banner2 bannerProp={bannerContent} />
-
-        <Row className=' alignItem mt-5'>
-          <h1>Featured</h1>
-        </Row>
-        <Row className=' alignItem mt-3'>{productComponents}</Row>
-      </Container>
+      <div className='d-flex justify-content-center mt-5 px-5'>
+        <Col xs={12} md={9}>
+          <Row className=''>
+            <Col xs={10}>
+              <h4 className=''>Shop</h4>
+            </Col>
+            <Col xs={2} className='align-right '>
+              <Nav.Link
+                as={NavLink}
+                to={'/products'}
+                className='view-more-link'
+              >
+                View More>>
+              </Nav.Link>
+            </Col>
+          </Row>
+        </Col>
+      </div>
+      <div class='d-flex justify-content-center shop-section'>
+        <Col xs={12} md={9}>
+          <Row className=' alignItem '>{productComponents2}</Row>
+        </Col>
+      </div>
+      <Banner2 bannerProp={bannerContent} />
+      {/* <div class=' featured-section'>{productComponents}</div> */}
     </div>
   );
 }

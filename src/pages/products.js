@@ -6,6 +6,7 @@ import {
   Row,
   Jumbotron,
   Container,
+  Col,
 } from 'react-bootstrap';
 import UserContext from '../userContext';
 import { Link } from 'react-router-dom';
@@ -179,8 +180,8 @@ export default function Products() {
       </Row>
     </Container>
   ) : (
-    <Container>
-      <Jumbotron className='mt-4 jumbotronHome'>
+    <>
+      <Jumbotron className=' jumbotron-shop'>
         <h1>{bannerContent.title}</h1>
         <p>{bannerContent.description}</p>
         {!user.email ? (
@@ -199,7 +200,14 @@ export default function Products() {
           </Link>
         ) : null}
       </Jumbotron>
-      <Row className=' rowCenter'>{productComponents}</Row>
-    </Container>
+
+      <div class='d-flex justify-content-center'>
+        <Col xs={12} md={9}>
+          <Row className=' justify-content-center mt-3'>
+            {productComponents}
+          </Row>
+        </Col>
+      </div>
+    </>
   );
 }
