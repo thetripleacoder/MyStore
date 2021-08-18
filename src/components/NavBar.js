@@ -30,17 +30,17 @@ export default function NavBar() {
             <Nav.Link as={NavLink} to={'/products'}>
               Shop
             </Nav.Link>
-
-            {user.email ? (
-              user.isAdmin ? (
-                <>
-                  <Navbar.Collapse id='navbar-dark-example'>
-                    <Nav>
-                      <NavDropdown
-                        id='nav-dropdown-dark-example'
-                        title='MyAccount'
-                        menuVariant='dark'
-                      >
+            <Navbar.Toggle aria-controls='navbar-dark-example' />
+            <Navbar.Collapse id='navbar-dark-example'>
+              <Nav>
+                <NavDropdown
+                  id='nav-dropdown-dark-example'
+                  title='MyAccount'
+                  menuVariant='dark'
+                >
+                  {user.email ? (
+                    user.isAdmin ? (
+                      <>
                         <Nav.Link
                           as={NavLink}
                           className='nav-dropdown-link'
@@ -55,21 +55,16 @@ export default function NavBar() {
                         >
                           Orders
                         </Nav.Link>
+                        <NavDropdown.Divider />
                         <Nav.Link
                           onClick={logout}
                           className='nav-dropdown-link'
                         >
                           Logout
                         </Nav.Link>
-                      </NavDropdown>
-                    </Nav>
-                  </Navbar.Collapse>
-                </>
-              ) : (
-                <>
-                  <Navbar.Collapse id='navbar-example'>
-                    <Nav>
-                      <NavDropdown id='nav-dropdown-example' title='MyAccount'>
+                      </>
+                    ) : (
+                      <>
                         <Nav.Link
                           as={NavLink}
                           className='nav-dropdown-link'
@@ -84,6 +79,7 @@ export default function NavBar() {
                         >
                           Orders
                         </Nav.Link>
+                        <NavDropdown.Divider />
                         <Nav.Link
                           onClick={logout}
                           as={NavLink}
@@ -92,20 +88,10 @@ export default function NavBar() {
                         >
                           Logout
                         </Nav.Link>
-                      </NavDropdown>
-                    </Nav>
-                  </Navbar.Collapse>
-                </>
-              )
-            ) : (
-              <>
-                <Navbar.Collapse id='navbar-dark-example'>
-                  <Nav>
-                    <NavDropdown
-                      id='nav-dropdown-dark-example'
-                      title='MyAccount'
-                      menuVariant='dark'
-                    >
+                      </>
+                    )
+                  ) : (
+                    <>
                       <Nav.Link
                         as={NavLink}
                         className='nav-dropdown-link'
@@ -120,11 +106,11 @@ export default function NavBar() {
                       >
                         Login
                       </Nav.Link>
-                    </NavDropdown>
-                  </Nav>
-                </Navbar.Collapse>
-              </>
-            )}
+                    </>
+                  )}
+                </NavDropdown>
+              </Nav>
+            </Navbar.Collapse>
           </Nav>
         </Navbar.Collapse>
       </Container>
