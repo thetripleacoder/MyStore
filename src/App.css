@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+.nav-dropdown-link:hover {
+
+  background-color: rgb(163, 163, 163);
+
+}
+
 .img-fluid {
   /* width: 100%; */
   height: 5rem;
