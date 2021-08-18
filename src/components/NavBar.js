@@ -28,7 +28,7 @@ export default function NavBar() {
               Home
             </Nav.Link>
             <Nav.Link as={NavLink} to={'/products'}>
-              Products
+              Shop
             </Nav.Link>
 
             {user.email ? (

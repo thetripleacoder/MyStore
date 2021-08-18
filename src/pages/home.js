@@ -65,6 +65,7 @@ export default function Home() {
   return (
     <div className='homeContainer'>
       <Banner bannerProp={shuffledProducts2} />
+      <Banner2 bannerProp={bannerContent} />
       <div className='d-flex justify-content-center mt-5 px-5'>
         <Col xs={12} md={9}>
           <Row className=''>
@@ -88,7 +89,6 @@ export default function Home() {
           <Row className=' alignItem '>{productComponents2}</Row>
         </Col>
       </div>
-      <Banner2 bannerProp={bannerContent} />
       {/* <div class=' featured-section'>{productComponents}</div> */}
     </div>
   );
