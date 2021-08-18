@@ -27,9 +27,22 @@ export default function NavBar() {
             <Nav.Link as={NavLink} to={'/'}>
               Home
             </Nav.Link>
-            <Nav.Link as={NavLink} to={'/products'}>
-              Shop
-            </Nav.Link>
+            {user.email ? (
+              user.isAdmin ? (
+                <Nav.Link as={NavLink} to={'/products'}>
+                  Products
+                </Nav.Link>
+              ) : (
+                <Nav.Link as={NavLink} to={'/products'}>
+                  Shop
+                </Nav.Link>
+              )
+            ) : (
+              <Nav.Link as={NavLink} to={'/products'}>
+                Shop
+              </Nav.Link>
+            )}
+
             <Navbar.Toggle aria-controls='navbar-dark-example' />
             <Navbar.Collapse id='navbar-dark-example'>
               <Nav>
