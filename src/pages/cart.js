@@ -63,7 +63,7 @@ export default function Cart() {
     return (
       <tr key={product._id}>
         <td>{product.name}</td>
-        <td>{product.price}</td>
+        <td>{parseFloat(product.price).toFixed(2)}</td>
         <td>
           <InputGroup>
             <Button
@@ -93,7 +93,7 @@ export default function Cart() {
             </Button>
           </InputGroup>
         </td>
-        <td>{subTotal}</td>
+        <td>{parseFloat(subTotal).toFixed(2)}</td>
 
         <td>
           <Button

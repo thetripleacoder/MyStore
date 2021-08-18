@@ -19,7 +19,7 @@ export default function Order({ orderProp }) {
           <tr key={product._id}>
             <td>{product.quantity}</td>
             <td>{product.name}</td>
-            <td>{product.price}</td>
+            <td>{parseFloat(product.price).toFixed(2)}</td>
           </tr>
         );
       })
@@ -96,8 +96,12 @@ export default function Order({ orderProp }) {
               </thead>
               <tbody>{products}</tbody>
             </Table>
-            <Card.Text>Shipping Fee: {orderProp.shippingFee}</Card.Text>
-            <Card.Text>Total Amount: {orderProp.totalAmount}</Card.Text>
+            <Card.Text>
+              Shipping Fee: {parseFloat(orderProp.shippingFee).toFixed(2)}
+            </Card.Text>
+            <Card.Text>
+              Total Amount: {parseFloat(orderProp.totalAmount).toFixed(2)}
+            </Card.Text>
             <Card>
               {user.isAdmin === true ? (
                 orderProp ? (
