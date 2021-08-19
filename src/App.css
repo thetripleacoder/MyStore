@@ -72,13 +72,13 @@
   box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
 }
 
-.carouselBanner {
-  /* box-shadow: 0 50px 50px rgb(0 0 0 / 0.2); */
+/* .carouselBanner {
+  box-shadow: 0 50px 50px rgb(0 0 0 / 0.2);
 
-}
+} */
 
 .carouselImg {
-  height: 65vh;
+  height: 100vh;
   object-fit: cover;
 }
 
