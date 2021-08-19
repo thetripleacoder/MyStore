@@ -1,3 +1,22 @@
+# MyStore
+
+A Full Stack E-Commerce Website developed with MERN (MongoDB, Express.js, React.js, Node.js) Technology Stack
+
+## About
+
+* Home page highlights
+* User/Admin registration
+* User/Admin Login
+* Admin roles
+* Listing of available products
+* Add to cart single product
+* Checkout orders
+* Listings of pending and completed orders
+
+## Date Created
+
+July 28, 2021
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
