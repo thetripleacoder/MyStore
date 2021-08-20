@@ -1,13 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import {
-  Row,
-  Card,
-  Table,
-  Button,
-  Form,
-  InputGroup,
-  Container,
-} from 'react-bootstrap';
+import { Row, Card, Table, Button, Form, InputGroup } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import UserContext from '../userContext';
 import Swal from 'sweetalert2';
@@ -18,6 +10,7 @@ export default function Cart() {
 
   const { user } = useContext(UserContext);
   useEffect(() => {
+    window.scrollTo(0, 0);
     fetch('https://cryptic-crag-81593.herokuapp.com/api/profile', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -85,10 +78,6 @@ export default function Cart() {
               size=''
               type='number'
               value={product.quantity}
-              //    onChange={event=>{
-              // console.log(event.target)
-              // setQuantity(event.target.value)}}
-
               required
             />
             <Button

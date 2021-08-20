@@ -17,6 +17,7 @@ export default function Register() {
   const [willRedirect, setWillRedirect] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (
       firstName !== '' &&
       lastName !== '' &&

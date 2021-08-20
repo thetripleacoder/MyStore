@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, Button, Form, Row } from 'react-bootstrap';
-import UserContext from '../userContext';
 import '../App.css';
 import Swal from 'sweetalert2';
 
 export default function Updates() {
-  const { user } = useContext(UserContext);
   const [update, setUpdate] = useState(0);
   const [picture, setPicture] = useState('');
   const [name, setProductName] = useState('');

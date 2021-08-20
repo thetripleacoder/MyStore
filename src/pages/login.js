@@ -23,6 +23,7 @@ export default function Login() {
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (email !== '' && password !== '') {
       setIsActive(true);
     } else {

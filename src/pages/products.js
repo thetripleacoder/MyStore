@@ -20,6 +20,7 @@ export default function Products() {
   const [update, setUpdate] = useState(0);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     fetch('https://cryptic-crag-81593.herokuapp.com/api/products')
       .then((res) => res.json())
       .then((data) => {

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import UserContext from '../userContext';
 
 export default function NavBar() {

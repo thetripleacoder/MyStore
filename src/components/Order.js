@@ -6,9 +6,9 @@ import { Collapse, CardBody } from 'reactstrap';
 import Swal from 'sweetalert2';
 
 export default function Order({ orderProp }) {
-  const { user } = useContext(UserContext);
+  const { user, setUpdate } = useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
-  const [update, setUpdate] = useState(0);
+
   const toggle = () => setIsOpen(!isOpen);
 
   let orderElement = orderProp ? orderProp.products : null;
@@ -24,10 +24,6 @@ export default function Order({ orderProp }) {
         );
       })
     : null;
-
-  // function reloadWindow() {
-  //   window.location.href = window.location.href;
-  // }
 
   function setAsCompletedOrder(orderId) {
     fetch(

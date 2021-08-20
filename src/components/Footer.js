@@ -157,7 +157,7 @@ const Footer = () => (
           </a>
           <a
             class='btn btn-outline-secondary rounded-circle socMedLinks'
-            href='mailto:inquiry@mystore.co'
+            href='#'
             role='button'
             target='_blank'
           >

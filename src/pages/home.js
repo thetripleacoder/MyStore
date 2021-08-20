@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import Banner from '../components/Banner';
 import Banner2 from '../components/Banner2';
 import Product from '../components/Product';
-import Highlights from '../components/Highlights';
-import { Row, Container, Col, Nav } from 'react-bootstrap';
-import { NavLink, Link } from 'react-router-dom';
+import { Row, Col, Nav } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 export default function Home() {
   const [allProducts, setAllProducts] = useState([]);
   const [activeProducts, setActiveProducts] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     fetch('https://cryptic-crag-81593.herokuapp.com/api/products')
       .then((res) => res.json())
       .then((data) => {
@@ -40,15 +40,8 @@ export default function Home() {
   }
 
   let shuffledProducts = shuffle(activeProducts).slice(0, 3);
-  // let shuffledProducts5 = shuffle(activeProducts).slice(0, 5);
   let shuffledProducts2 = shuffle(activeProducts);
-  let productComponents = shuffledProducts.map((product) => {
-    return (
-      <Col xs={12} md={12}>
-        <Highlights key={product._id} featuredProp={product} />;
-      </Col>
-    );
-  });
+
   let productComponents2 = shuffledProducts.map((product) => {
     return <Product key={product._id} productProp={product} />;
   });
@@ -84,8 +77,6 @@ export default function Home() {
           </Nav.Link>
         </Row>
       </div>
-
-      {/* <div class=' featured-section'>{productComponents}</div> */}
     </div>
   );
 }

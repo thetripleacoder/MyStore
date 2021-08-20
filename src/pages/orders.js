@@ -5,11 +5,12 @@ import Order from '../components/Order';
 import { Redirect } from 'react-router-dom';
 
 export default function Orders() {
-  const { user } = useContext(UserContext);
+  const { user, update } = useContext(UserContext);
   const [pendingOrders, setPendingOrders] = useState();
   const [completedOrders, setCompletedOrders] = useState();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     user.isAdmin
       ? fetch('https://cryptic-crag-81593.herokuapp.com/api/admin/orders', {
           headers: {
@@ -51,11 +52,11 @@ export default function Orders() {
               : null;
             setCompletedOrders(tempArray2);
           });
-  }, []);
+  }, [update]);
 
   let pendingOrderComponents = pendingOrders
     ? pendingOrders.map((order) => {
-        return <Order orderProp={order} />;
+        return <Order key={order._id} orderProp={order} />;
       })
     : null;
 

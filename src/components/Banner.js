@@ -1,11 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Jumbotron, Carousel } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import UserContext from '../userContext';
+import React, { useEffect, useState } from 'react';
+import { Carousel } from 'react-bootstrap';
 import '../App.css';
-
-// export default function Banner({ bannerProp, bannerContent }) {
-//   const { user } = useContext(UserContext);
 
 export default function Banner() {
   const [allProducts, setAllProducts] = useState([]);
@@ -38,7 +33,7 @@ export default function Banner() {
     }
     return array;
   }
-  let shuffledProducts = shuffle(activeProducts).slice(0, 3);
+
   let shuffledProducts2 = shuffle(activeProducts);
 
   return (

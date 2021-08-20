@@ -5,21 +5,15 @@
 }
 
 .nav-dropdown-link {
-
   color: black;
-  ;
-
 }
 
 .nav-dropdown-link:hover {
-
   color: white;
   background-color: rgb(163, 163, 163);
-
 }
 
 .img-fluid {
-  /* width: 100%; */
   height: 5rem;
 }
 
@@ -35,7 +29,6 @@
 
 .cardImageDetail {
   height: 50vh;
-
   object-fit: cover;
   object-position: 50% 50%;
 }
@@ -72,11 +65,6 @@
   box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
 }
 
-/* .carouselBanner {
-  box-shadow: 0 50px 50px rgb(0 0 0 / 0.2);
-
-} */
-
 .carouselImg {
   height: 100vh;
   object-fit: cover;
@@ -92,18 +80,6 @@
   background-position: 50%;
 }
 
-/* .homeContainer {
-  background-color: #ffe6004b;
-} */
-
-/* .featured-section {
-
-  background-image: linear-gradient(rgb(95, 95, 95), white);
-} */
-/* .shop-section {} */
-
-/* .featured-card {} */
-
 .formStyle {
   box-shadow: 0px 30px 40px rgb(0 0 0 / 0.5);
 }
@@ -111,14 +87,6 @@
 .link {
   box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
 }
-
-/* .view {
-  height: 60vh;
-}
-
-.viewFull {
-  height: 100vh;
-} */
 
 .loginCard {
   border-radius: 10rem;
@@ -129,7 +97,6 @@
 .cardAnimate {
   width: 100%;
   height: auto;
-  /* border-radius: 50%; */
   transform: scale(0.95);
   transition: transform .3s;
   color: black;

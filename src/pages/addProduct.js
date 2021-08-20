@@ -78,7 +78,6 @@ export default function AddProduct() {
                 placeholder='Enter URL'
                 value={picture}
                 onChange={(event) => {
-                  // console.log(event.target);
                   setPicture(event.target.value);
                 }}
                 required
