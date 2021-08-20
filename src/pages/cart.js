@@ -178,7 +178,7 @@ export default function Cart() {
           <Card className='mt-5 px-4 py-4' bg='light'>
             <h3 className='text-center'>
               {' '}
-              You haven't added any products to cart.
+              You haven't added any product to cart yet.
             </h3>
           </Card>
         </Row>

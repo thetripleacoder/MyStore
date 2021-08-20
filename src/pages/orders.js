@@ -75,7 +75,7 @@ export default function Orders() {
           <Card className='mt-5 px-4 py-4' bg='light'>
             <h3 className='text-center'>
               {' '}
-              You haven't checked out any orders yet.
+              You haven't checked out any order yet.
             </h3>
           </Card>
         </Row>
