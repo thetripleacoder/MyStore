@@ -1,5 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Row, Card, Table, Button, Form, InputGroup } from 'react-bootstrap';
+import {
+  Row,
+  Card,
+  Table,
+  Button,
+  Form,
+  InputGroup,
+  Container,
+} from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import UserContext from '../userContext';
 import Swal from 'sweetalert2';
@@ -164,8 +172,19 @@ export default function Cart() {
   }
 
   return user.email && user.isAdmin === false ? (
-    <>
-      <Card className='viewFull'>
+    cartComponents.length < 1 ? (
+      <Container>
+        <Row className='rowCenter'>
+          <Card className='mt-5 px-4 py-4' bg='light'>
+            <h3 className='text-center'>
+              {' '}
+              You haven't added any products to cart.
+            </h3>
+          </Card>
+        </Row>
+      </Container>
+    ) : (
+      <Container>
         <Row className='rowCenter'>
           <Card className='mt-5 px-4 py-4' bg='light'>
             <Card className='mx-3 my-3'>
@@ -205,8 +224,8 @@ export default function Cart() {
             </Button>
           </Card>
         </Row>
-      </Card>
-    </>
+      </Container>
+    )
   ) : (
     <Redirect to='/login' />
   );

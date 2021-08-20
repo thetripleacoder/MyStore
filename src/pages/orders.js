@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Row, Col, Container } from 'react-bootstrap';
+import { Row, Col, Container, Card } from 'react-bootstrap';
 import UserContext from '../userContext';
 import Order from '../components/Order';
 import { Redirect } from 'react-router-dom';
 
 export default function Orders() {
   const { user, update } = useContext(UserContext);
+  const [orders, setOrders] = useState();
   const [pendingOrders, setPendingOrders] = useState();
   const [completedOrders, setCompletedOrders] = useState();
 
@@ -20,6 +21,7 @@ export default function Orders() {
           .then((res) => res.json())
           .then((data) => {
             let ordersTemp = data.data;
+            setOrders(ordersTemp);
             let tempArray = ordersTemp.filter((order) => {
               return order.isPending === true;
             });
@@ -38,7 +40,7 @@ export default function Orders() {
           .then((res) => res.json())
           .then((data) => {
             let ordersTemp = data.data;
-
+            setOrders(ordersTemp);
             let tempArray = ordersTemp
               ? ordersTemp.filter((order) => {
                   return order.isPending === true;
@@ -67,22 +69,35 @@ export default function Orders() {
     : null;
 
   return user.isAdmin || user.email ? (
-    <Container>
-      <Row className='mt-5 rowCenter'>
-        {user.isAdmin ? <h1>Customer Orders</h1> : <h1>User Orders</h1>}
-      </Row>
-      <Row>
-        <Col xs={12} md={6}>
-          <h4 className='textCenter'>Pending Orders</h4>
-          {pendingOrderComponents}
-        </Col>
+    pendingOrderComponents < 1 && completedOrderComponents < 1 ? (
+      <Container>
+        <Row className='rowCenter'>
+          <Card className='mt-5 px-4 py-4' bg='light'>
+            <h3 className='text-center'>
+              {' '}
+              You haven't checked out any orders yet.
+            </h3>
+          </Card>
+        </Row>
+      </Container>
+    ) : (
+      <Container>
+        <Row className='mt-5 rowCenter'>
+          {user.isAdmin ? <h1>Customer Orders</h1> : <h1>User Orders</h1>}
+        </Row>
+        <Row>
+          <Col xs={12} md={6}>
+            <h4 className='textCenter'>Pending Orders</h4>
+            {pendingOrderComponents}
+          </Col>
 
-        <Col xs={12} md={6}>
-          <h4 className='textCenter'>Completed Orders</h4>
-          {completedOrderComponents}
-        </Col>
-      </Row>
-    </Container>
+          <Col xs={12} md={6}>
+            <h4 className='textCenter'>Completed Orders</h4>
+            {completedOrderComponents}
+          </Col>
+        </Row>
+      </Container>
+    )
   ) : (
     <Redirect to='/login' />
   );
