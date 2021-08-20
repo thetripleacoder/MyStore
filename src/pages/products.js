@@ -110,7 +110,7 @@ export default function Products() {
       <tr key={product._id}>
         <td>{product._id}</td>
         <td>{product.name}</td>
-        <td>{product.price}</td>
+        <td>₱{parseFloat(product.price).toFixed(2)}</td>
         <td className={product.isActive ? 'text-success' : 'text-danger'}>
           {product.isActive ? 'Active' : 'Inactive'}
         </td>

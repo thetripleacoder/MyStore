@@ -63,7 +63,7 @@ export default function Cart() {
     return (
       <tr key={product._id}>
         <td>{product.name}</td>
-        <td>{parseFloat(product.price).toFixed(2)}</td>
+        <td>₱{parseFloat(product.price).toFixed(2)}</td>
         <td>
           <InputGroup>
             <Button
@@ -89,7 +89,7 @@ export default function Cart() {
             </Button>
           </InputGroup>
         </td>
-        <td>{parseFloat(subTotal).toFixed(2)}</td>
+        <td>₱{parseFloat(subTotal).toFixed(2)}</td>
 
         <td>
           <Button
@@ -187,14 +187,14 @@ export default function Cart() {
                   <th>Shipping Fee</th>
                   <th></th>
                   <th></th>
-                  <th>{shippingFee.toFixed(2)}</th>
+                  <th>₱{shippingFee.toFixed(2)}</th>
                   <th></th>
                 </tr>
                 <tr>
                   <th>Total</th>
                   <th></th>
                   <th></th>
-                  <th>{total.toFixed(2)}</th>
+                  <th>₱{total.toFixed(2)}</th>
                   <th></th>
                 </tr>
               </tbody>

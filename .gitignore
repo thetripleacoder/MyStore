@@ -5,8 +5,10 @@
 /.pnp
 .pnp.js
 notes.txt
-favicon4.svg
-CartTable.js
+src/components/Highlights.js
+src/components/ScrollToTop.js
+
+
 
 # testing
 /coverage

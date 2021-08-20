@@ -93,10 +93,10 @@ export default function Order({ orderProp }) {
               <tbody>{products}</tbody>
             </Table>
             <Card.Text>
-              Shipping Fee: {parseFloat(orderProp.shippingFee).toFixed(2)}
+              Shipping Fee: ₱{parseFloat(orderProp.shippingFee).toFixed(2)}
             </Card.Text>
             <Card.Text>
-              Total Amount: {parseFloat(orderProp.totalAmount).toFixed(2)}
+              Total Amount: ₱{parseFloat(orderProp.totalAmount).toFixed(2)}
             </Card.Text>
             <Card>
               {user.isAdmin === true ? (

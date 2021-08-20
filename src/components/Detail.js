@@ -75,9 +75,7 @@ export default function Detail({ detailProp }) {
       <Card.Body>
         <Card.Title>{detailProp.name}</Card.Title>
         <Card.Text>{detailProp.description}</Card.Text>
-        <Card.Text>
-          Price: {parseFloat(detailProp.price).toFixed(2)} PHP
-        </Card.Text>
+        <Card.Text>Price: ₱{parseFloat(detailProp.price).toFixed(2)}</Card.Text>
         <InputGroup className='mb-3'>
           <Button
             variant='outline-secondary'
