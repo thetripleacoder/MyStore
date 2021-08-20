@@ -129,6 +129,7 @@ export default function Updates() {
             <Form.Control
               type='number'
               placeholder='Enter Price'
+              min='1'
               value={price}
               onChange={(event) => {
                 setPrice(event.target.value);

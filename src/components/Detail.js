@@ -88,6 +88,7 @@ export default function Detail({ detailProp }) {
             className='inputValue'
             type='number'
             placeholder='Enter Quantity'
+            min='1'
             value={quantity}
             onChange={(event) => {
               setQuantity(event.target.value);
