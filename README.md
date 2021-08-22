@@ -1,6 +1,10 @@
+<p align="center" style="padding-top:2rem;"><img src="https://raw.githubusercontent.com/aldousalde/MyStore/master/public/favicon.ico"  height="400" ></p>
+
 # MyStore
 
 A Full Stack E-Commerce Website developed with MERN (MongoDB, Express.js, React.js, Node.js) Technology Stack
+
+<p align="center" style="padding-top:2rem;"><img src="https://github.com/aldousalde/Developer-Portfolio/blob/master/images/csp3.jpg"  height="600" ></p>
 
 ## About
 
