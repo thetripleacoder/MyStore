@@ -12,7 +12,7 @@ import Cart from './pages/cart';
 import Orders from './pages/orders';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
-import NotFound from './components/notFound';
+import NotFound from './components/NotFound';
 
 /*import pages here*/
 import Register from './pages/register';

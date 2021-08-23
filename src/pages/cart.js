@@ -82,7 +82,7 @@ export default function Cart() {
               -
             </Button>
             <Form.Control
-              className='inputValue'
+              className='text-center'
               size=''
               type='number'
               value={product.quantity}
@@ -174,7 +174,7 @@ export default function Cart() {
   return user.email && user.isAdmin === false ? (
     cartComponents.length < 1 ? (
       <Container>
-        <Row className='rowCenter'>
+        <Row className='justify-content-center'>
           <Card className='mt-5 px-4 py-4' bg='light'>
             <h3 className='text-center'>
               {' '}
@@ -185,14 +185,14 @@ export default function Cart() {
       </Container>
     ) : (
       <Container>
-        <Row className='rowCenter'>
+        <Row className='justify-content-center'>
           <Card className='mt-5 px-4 py-4' bg='light'>
             <Card className='mx-3 my-3'>
               <h3 className='text-center'>Cart</h3>
             </Card>
             <Table striped bordered hover variant='light'>
               <thead>
-                <tr className='textCenter'>
+                <tr className='text-center'>
                   <th>Name</th>
                   <th>Price</th>
                   <th>Quantity</th>

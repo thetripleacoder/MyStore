@@ -4,141 +4,35 @@
   box-sizing: border-box;
 }
 
-.nav-dropdown-link {
-  color: black;
+.main-container {
+  min-height: 100vh;
 }
 
-.nav-dropdown-link:hover {
-  color: white;
-  background-color: rgb(163, 163, 163);
-}
 
-.img-fluid {
-  height: 5rem;
-}
+/* Components */
 
-.cardProduct {
-  min-height: 100%;
-}
+/* BannerCarousel */
 
-.cardImage {
-  height: 20rem;
+.carousel-image {
+  height: 100vh;
   object-fit: cover;
-  object-position: 50% 100%;
 }
 
-.cardImageDetail {
-  height: 50vh;
-  object-fit: cover;
-  object-position: 50% 50%;
-}
+/* BannerJumbotron */
 
-.rowCenter {
-  justify-content: center;
-}
-
-.textCenter {
-  text-align: center;
-}
-
-.cardImageUpdate {
-  object-fit: cover;
-  object-position: 50% 100%;
-}
-
-.inputValue {
-  text-align: center;
-}
-
-.bannerButton {
+.jumbotron-button {
   border-radius: 50px;
+  box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
 }
 
-.orderCard {
-  width: 1;
-}
+/* Details */
 
-.carouselImg {
-  height: 100vh;
+.detail-card-image {
   object-fit: cover;
+  object-position: 50% 100%;
 }
 
-.jumbotron-home {
-  background-image: url("https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80");
-  background-size: cover;
-  padding-top: 10rem;
-  box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
-}
-
-.jumbotron-not-found {
-  background: linear-gradient(rgba(255, 255, 255, 0.678), rgba(255, 255, 255, .5)), url("https://images.unsplash.com/photo-1518306896927-d58c59c07b82?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=967&q=80");
-
-  background-size: cover;
-  padding-top: 10rem;
-  box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
-  background-position: 50% 25%;
-
-}
-
-
-.jumbotron-shop {
-  background-image: url("https://images.unsplash.com/photo-1585792180666-f7347c490ee2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1056&q=80");
-  height: 100vh;
-  background-size: cover;
-  padding-bottom: 35rem;
-  padding-top: 4rem;
-  box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
-  background-position: 50%;
-}
-
-.formStyle {
-  box-shadow: 0px 30px 40px rgb(0 0 0 / 0.5);
-}
-
-.link {
-  box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
-}
-
-.loginCard {
-  border-radius: 10rem;
-  height: 15rem;
-  object-position: 50% 50%;
-}
-
-.cardAnimate {
-  width: 100%;
-  height: auto;
-  transform: scale(0.95);
-  transition: transform .3s;
-  color: black;
-}
-
-.cardAnimate:hover {
-  transform: scale(1);
-  box-shadow: 0 0 50px 5px black;
-}
-
-.cardLink:hover {
-  text-decoration: none;
-}
-
-.align-left {
-  text-align: left;
-  align-items: center;
-}
-
-.align-right {
-  justify-content: right;
-  text-align: right;
-  align-items: right;
-
-}
-
-.view-more-link {
-  color: black;
-  font-size: 1.25rem;
-
-}
+/* Footer */
 
 .main-footer {
   color: rgb(255, 255, 255);
@@ -161,10 +55,123 @@
 
 }
 
-.main-container {
-  min-height: 100vh;
+.footer-button-links {
+  margin: 0 1rem 1rem 1rem;
 }
 
-.socMedLinks {
-  margin: 0 1rem 1rem 1rem;
+/* Highlights */
+
+.highlights-card-image {
+  height: 50vh;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* NavBar */
+
+.nav-dropdown-link {
+  color: black;
+}
+
+.nav-dropdown-link:hover {
+  color: white;
+  background-color: rgb(163, 163, 163);
+}
+
+/* NotFound */
+
+.notfound-jumbotron {
+  background: linear-gradient(rgba(255, 255, 255, 0.678), rgba(255, 255, 255, .5)), url("https://images.unsplash.com/photo-1518306896927-d58c59c07b82?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=967&q=80");
+
+  background-size: cover;
+  padding-top: 10rem;
+  box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
+  background-position: 50% 25%;
+}
+
+/* Product */
+
+.product-card-link:hover {
+  text-decoration: none;
+}
+
+.product-card {
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  transform: scale(0.95);
+  transition: transform .3s;
+  color: black;
+}
+
+.product-card:hover {
+  transform: scale(1);
+  box-shadow: 0 0 50px 5px black;
+}
+
+.product-card-image {
+  height: 20rem;
+  object-fit: cover;
+  object-position: 50% 100%;
+}
+
+/* Pages */
+
+/* addProduct */
+
+.addproduct-card-image {
+  object-fit: cover;
+  object-position: 50% 100%;
+}
+
+/* cart */
+
+/* details */
+
+/* home */
+
+.home-jumbotron {
+  background-image: url("https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80");
+  background-size: cover;
+  padding-top: 10rem;
+  box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
+}
+
+.home-view-more-link {
+  color: black;
+  font-size: 1.25rem;
+
+}
+
+/* login */
+
+.login-card {
+  box-shadow: 0px 30px 40px rgb(0 0 0 / 0.5);
+}
+
+/* orders */
+
+/* products */
+
+.shop-jumbotron {
+  background-image: url("https://images.unsplash.com/photo-1585792180666-f7347c490ee2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1056&q=80");
+  height: 100vh;
+  background-size: cover;
+  padding-bottom: 35rem;
+  padding-top: 4rem;
+  box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
+  background-position: 50%;
+}
+
+/* register */
+
+.register-card {
+  box-shadow: 0px 30px 40px rgb(0 0 0 / 0.5);
+}
+
+/* updates */
+
+.updates-card-image {
+  object-fit: cover;
+  object-position: 50% 100%;
 }

@@ -16,14 +16,14 @@ export default function BannerJumbotron({ bannerProp }) {
           {!user.email ? (
             <Link
               to={bannerProp.destination}
-              className='btn btn-outline-dark bannerButton px-4 py-2 link'
+              className='btn btn-outline-dark jumbotron-button px-4 py-2'
             >
               {bannerProp.label}
             </Link>
           ) : bannerProp.destination2 && bannerProp.label2 ? (
             <Link
               to={bannerProp.destination2}
-              className='btn btn-outline-dark bannerButton px-4 py-2 link'
+              className='btn btn-outline-dark jumbotron-button px-4 py-2'
             >
               {bannerProp.label2}
             </Link>

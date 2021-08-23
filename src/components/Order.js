@@ -69,7 +69,7 @@ export default function Order({ orderProp }) {
   }
 
   return (
-    <Card className=''>
+    <Card>
       <Button variant='dark' onClick={toggle} style={{ width: '100%' }}>
         Order ID : {orderProp._id}{' '}
       </Button>
@@ -104,7 +104,6 @@ export default function Order({ orderProp }) {
                   orderProp.isPending === true ? (
                     <Button
                       variant='success'
-                      className='alignItem'
                       onClick={() => setAsCompletedOrder(orderProp._id)}
                     >
                       Set as Completed
@@ -112,7 +111,6 @@ export default function Order({ orderProp }) {
                   ) : (
                     <Button
                       variant='danger'
-                      className='alignItem'
                       onClick={() => setAsPendingOrder(orderProp._id)}
                     >
                       Set as Pending

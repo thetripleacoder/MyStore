@@ -1,5 +1,5 @@
 import React from 'react';
-import BannerJumbotron from '../components/BannerJumbotron';
+import BannerJumbotron from './BannerJumbotron';
 
 export default function NotFound() {
   let bannerContent = {
@@ -9,7 +9,7 @@ export default function NotFound() {
     destination: '/',
     label2: 'MyStore',
     destination2: '/',
-    image: 'jumbotron-not-found',
+    image: 'notfound-jumbotron',
   };
 
   return (

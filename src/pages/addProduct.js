@@ -63,13 +63,17 @@ export default function AddProduct() {
     <Redirect to='/login' />
   ) : (
     <Container>
-      <Row xs={12} md={2} className='rowCenter'>
+      <Row xs={12} md={2} className='justify-content-center'>
         <Card className='my-5 '>
           {picture ===
           'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80' ? (
             <h3 className='text-center'>Sample Product Image</h3>
           ) : null}
-          <Card.Img variant='top' className='cardImageUpdate' src={picture} />
+          <Card.Img
+            variant='top'
+            className='addproduct-card-image'
+            src={picture}
+          />
           <Card.Body>
             <Form.Group>
               <Form.Label>Image:</Form.Label>
@@ -123,11 +127,11 @@ export default function AddProduct() {
           </Card.Body>
 
           {isActive ? (
-            <Button variant='success' className='' onClick={() => addProduct()}>
+            <Button variant='success' onClick={() => addProduct()}>
               Add Product
             </Button>
           ) : (
-            <Button variant='success' className='' disabled>
+            <Button variant='success' disabled>
               Add Product
             </Button>
           )}

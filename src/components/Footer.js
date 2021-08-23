@@ -140,7 +140,7 @@ const Footer = () => (
         <Col>
           <p>Follow Us</p>
           <a
-            class='btn btn-outline-secondary rounded-circle socMedLinks'
+            class='btn btn-outline-secondary rounded-circle footer-button-links'
             href='#'
             role='button'
             target='_blank'
@@ -148,7 +148,7 @@ const Footer = () => (
             <i class='fab fa-facebook'></i>
           </a>
           <a
-            class='btn btn-outline-secondary rounded-circle socMedLinks'
+            class='btn btn-outline-secondary rounded-circle footer-button-links'
             href='#'
             role='button'
             target='_blank'
@@ -156,7 +156,7 @@ const Footer = () => (
             <i class='fab fa-instagram'></i>
           </a>
           <a
-            class='btn btn-outline-secondary rounded-circle socMedLinks'
+            class='btn btn-outline-secondary rounded-circle footer-button-links'
             href='#'
             role='button'
             target='_blank'

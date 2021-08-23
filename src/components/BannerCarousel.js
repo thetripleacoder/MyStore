@@ -37,11 +37,11 @@ export default function BannerCarousel() {
   let shuffledProducts2 = shuffle(activeProducts);
 
   return (
-    <Carousel className='carouselBanner'>
+    <Carousel>
       {shuffledProducts2.map((product) => (
         <Carousel.Item interval={4000}>
           <img
-            className='d-block w-100 carouselImg'
+            className='d-block w-100 carousel-image'
             src={product.picture}
             alt='First slide'
           />

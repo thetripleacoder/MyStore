@@ -87,9 +87,9 @@ export default function Login() {
     <Redirect to='/products' />
   ) : (
     <Container>
-      <Row xs={12} md={2} className='rowCenter'>
-        <Card className='my-5 px-5 py-5 formStyle'>
-          <Form className='' onSubmit={(e) => loginUser(e)}>
+      <Row xs={12} md={2} className='justify-content-center'>
+        <Card className='my-5 px-5 py-5 login-card'>
+          <Form onSubmit={(e) => loginUser(e)}>
             <Form.Group>
               <Form.Label>Email:</Form.Label>
               <Form.Control

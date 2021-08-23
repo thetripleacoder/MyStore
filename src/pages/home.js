@@ -53,28 +53,32 @@ export default function Home() {
     destination: '/register',
     label2: 'Browse All Products',
     destination2: '/products',
-    image: 'jumbotron-home',
+    image: 'home-jumbotron',
   };
   return (
-    <div className='homeContainer'>
+    <div>
       <BannerCarousel />
       <div className='mt-5'>
         <BannerJumbotron bannerProp={bannerContent} />
       </div>
       <div className='d-flex justify-content-center mt-5 '>
-        <Row className=''>
-          <h1 className=''>Today's Picks</h1>
+        <Row>
+          <h1>Today's Picks</h1>
         </Row>
       </div>
-      <div class='d-flex justify-content-center shop-section'>
+      <div class='d-flex justify-content-center'>
         <Col xs={12} md={9}>
-          <Row className=' alignItem '>{productComponents}</Row>
+          <Row>{productComponents}</Row>
         </Col>
       </div>
 
       <div className='d-flex justify-content-center'>
-        <Row className=''>
-          <Nav.Link as={NavLink} to={'/products'} className='view-more-link'>
+        <Row>
+          <Nav.Link
+            as={NavLink}
+            to={'/products'}
+            className='home-view-more-link'
+          >
             View More >>>
           </Nav.Link>
         </Row>

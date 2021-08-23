@@ -9,16 +9,16 @@ export default function Product({ productProp }) {
       <Link
         to={`/products/${productProp._id}`}
         onClick={() => localStorage.setItem('productId', productProp._id)}
-        className='cardLink'
+        className='product-card-link'
       >
         <Card
           to={`/products/${productProp._id}`}
           onClick={() => localStorage.setItem('productId', productProp._id)}
-          className='my-2 cardProduct cardAnimate'
+          className='my-2 product-card'
         >
           <Card.Img
             variant='top'
-            className='cardImage'
+            className='product-card-image'
             src={productProp.picture}
           />
           <Card.Body>

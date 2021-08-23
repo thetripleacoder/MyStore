@@ -69,7 +69,7 @@ export default function Detail({ detailProp }) {
     <Card>
       <Card.Img
         variant='top'
-        className='cardImageUpdate'
+        className='detail-card-image'
         src={detailProp.picture}
       />
       <Card.Body>
@@ -85,7 +85,7 @@ export default function Detail({ detailProp }) {
             -
           </Button>
           <Form.Control
-            className='inputValue'
+            className='text-center'
             type='number'
             placeholder='Enter Quantity'
             min='1'
@@ -113,7 +113,7 @@ export default function Detail({ detailProp }) {
           </Button>
         )
       ) : (
-        <Link to={'/login'} className='btn btn-dark px-4 py-2 link'>
+        <Link to={'/login'} className='btn btn-dark px-4 py-2 '>
           {' '}
           Login to Order
         </Link>

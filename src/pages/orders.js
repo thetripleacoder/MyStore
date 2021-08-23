@@ -71,7 +71,7 @@ export default function Orders() {
   return user.isAdmin || user.email ? (
     pendingOrderComponents < 1 && completedOrderComponents < 1 ? (
       <Container>
-        <Row className='rowCenter'>
+        <Row className='justify-content-center'>
           <Card className='mt-5 px-4 py-4' bg='light'>
             <h3 className='text-center'>
               {' '}
@@ -82,17 +82,17 @@ export default function Orders() {
       </Container>
     ) : (
       <Container>
-        <Row className='mt-5 rowCenter'>
+        <Row className='mt-5 justify-content-center'>
           {user.isAdmin ? <h1>Customer Orders</h1> : <h1>User Orders</h1>}
         </Row>
         <Row>
           <Col xs={12} md={6}>
-            <h4 className='textCenter'>Pending Orders</h4>
+            <h4 className='text-center'>Pending Orders</h4>
             {pendingOrderComponents}
           </Col>
 
           <Col xs={12} md={6}>
-            <h4 className='textCenter'>Completed Orders</h4>
+            <h4 className='text-center'>Completed Orders</h4>
             {completedOrderComponents}
           </Col>
         </Row>

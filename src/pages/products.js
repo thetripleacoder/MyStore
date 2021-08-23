@@ -151,19 +151,19 @@ export default function Products() {
     destination: '/login',
     label2: 'Go to cart',
     destination2: '/cart',
-    image: 'jumbotron-shop',
+    image: 'shop-jumbotron',
   };
 
   return user.isAdmin === true ? (
     <Container>
-      <Row className='rowCenter'>
+      <Row className='justify-content-center'>
         <Card className='my-5 px-4 py-4' bg='light'>
           <Card className='mx-3 my-3'>
             <h3 className='text-center'>Admin Dashboard</h3>
           </Card>
           <Table striped bordered hover variant='light'>
             <thead>
-              <tr className='textCenter'>
+              <tr className='text-center'>
                 <th>Product ID</th>
                 <th>Name</th>
                 <th>Price</th>

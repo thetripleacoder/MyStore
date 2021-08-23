@@ -90,8 +90,8 @@ export default function Register() {
     <Redirect to='/login' />
   ) : (
     <Container>
-      <Row xs={12} md={2} className='rowCenter'>
-        <Card className='mt-5 px-5 py-5 formStyle '>
+      <Row xs={12} md={2} className='justify-content-center'>
+        <Card className='mt-5 px-5 py-5 register-card'>
           <Form onSubmit={(e) => registerUser(e)}>
             <Form.Group>
               <Form.Label>First Name:</Form.Label>

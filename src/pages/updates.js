@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Button, Form, Row } from 'react-bootstrap';
+import { Card, Button, Form, Row, Container } from 'react-bootstrap';
 import '../App.css';
 import Swal from 'sweetalert2';
 
@@ -84,75 +84,80 @@ export default function Updates() {
   }
 
   return (
-    <Row xs={12} md={2} className='rowCenter'>
-      <Card className='mt-5 '>
-        <Card.Img variant='top' className='cardImageUpdate' src={picture} />
-        <Card.Body>
-          <Form.Group>
-            <Form.Label>Picture:</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Enter URL'
-              value={picture}
-              onChange={(event) => {
-                setPicture(event.target.value);
-              }}
-              required
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Product Name:</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Enter Name'
-              value={name}
-              onChange={(event) => {
-                setProductName(event.target.value);
-              }}
-              required
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Description:</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Enter Description'
-              value={description}
-              onChange={(event) => {
-                setDescription(event.target.value);
-              }}
-              required
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Price:</Form.Label>
-            <Form.Control
-              type='number'
-              placeholder='Enter Price'
-              min='1'
-              value={price}
-              onChange={(event) => {
-                setPrice(event.target.value);
-              }}
-              required
-            />
-          </Form.Group>
-        </Card.Body>
+    <Container>
+      <Row xs={12} md={2} className='justify-content-center'>
+        <Card className='mt-5 '>
+          <Card.Img
+            variant='top'
+            className='updates-card-image'
+            src={picture}
+          />
+          <Card.Body>
+            <Form.Group>
+              <Form.Label>Picture:</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Enter URL'
+                value={picture}
+                onChange={(event) => {
+                  setPicture(event.target.value);
+                }}
+                required
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Product Name:</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Enter Name'
+                value={name}
+                onChange={(event) => {
+                  setProductName(event.target.value);
+                }}
+                required
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Description:</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Enter Description'
+                value={description}
+                onChange={(event) => {
+                  setDescription(event.target.value);
+                }}
+                required
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Price:</Form.Label>
+              <Form.Control
+                type='number'
+                placeholder='Enter Price'
+                min='1'
+                value={price}
+                onChange={(event) => {
+                  setPrice(event.target.value);
+                }}
+                required
+              />
+            </Form.Group>
+          </Card.Body>
 
-        {isActive ? (
-          <Button
-            variant='success'
-            className=''
-            onClick={() => updateProduct(localStorage.productId)}
-          >
-            Update Product Information
-          </Button>
-        ) : (
-          <Button variant='success' className='' disabled>
-            Update Product Information
-          </Button>
-        )}
-      </Card>
-    </Row>
+          {isActive ? (
+            <Button
+              variant='success'
+              onClick={() => updateProduct(localStorage.productId)}
+            >
+              Update Product Information
+            </Button>
+          ) : (
+            <Button variant='success' disabled>
+              Update Product Information
+            </Button>
+          )}
+        </Card>
+      </Row>
+    </Container>
   );
 }
