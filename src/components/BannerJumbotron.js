@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import UserContext from '../userContext';
 import '../App.css';
 
-export default function Banner2({ bannerProp }) {
+export default function BannerJumbotron({ bannerProp }) {
   const { user } = useContext(UserContext);
 
   return (
     <Row className='mx-5 justify-content-center'>
       <Col xs={12} md={10}>
-        <Jumbotron className='mt-4 jumbotron-footer'>
+        <Jumbotron className={bannerProp.image}>
           <h1>{bannerProp.title}</h1>
           <p>{bannerProp.description}</p>
           {!user.email ? (

@@ -1,17 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
-import {
-  Table,
-  Button,
-  Card,
-  Row,
-  Jumbotron,
-  Container,
-  Col,
-} from 'react-bootstrap';
+import { Table, Button, Card, Row, Container, Col } from 'react-bootstrap';
 import UserContext from '../userContext';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Product from '../components/Product';
+import BannerJumbotron from '../components/BannerJumbotron';
 
 export default function Products() {
   const [allProducts, setAllProducts] = useState([]);
@@ -156,6 +149,9 @@ export default function Products() {
     description: 'Premium High Quality Products',
     label: 'Login to Buy',
     destination: '/login',
+    label2: 'Go to cart',
+    destination2: '/cart',
+    image: 'jumbotron-shop',
   };
 
   return user.isAdmin === true ? (
@@ -182,25 +178,7 @@ export default function Products() {
     </Container>
   ) : (
     <>
-      <Jumbotron className=' jumbotron-shop'>
-        <h1>{bannerContent.title}</h1>
-        <p>{bannerContent.description}</p>
-        {!user.email ? (
-          <Link
-            to={bannerContent.destination}
-            className='btn btn-outline-dark bannerButton px-4 py-2 link'
-          >
-            {bannerContent.label}
-          </Link>
-        ) : bannerContent.destination2 && bannerContent.label2 ? (
-          <Link
-            to={bannerContent.destination2}
-            className='btn btn-outline-dark bannerButton px-4 py-2 link'
-          >
-            {bannerContent.label2}
-          </Link>
-        ) : null}
-      </Jumbotron>
+      <BannerJumbotron bannerProp={bannerContent} />
 
       <div class='d-flex justify-content-center'>
         <Col xs={12} md={9}>

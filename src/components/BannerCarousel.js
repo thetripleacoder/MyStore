@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import '../App.css';
 
-export default function Banner() {
+export default function BannerCarousel() {
   const [allProducts, setAllProducts] = useState([]);
   const [activeProducts, setActiveProducts] = useState([]);
   useEffect(() => {

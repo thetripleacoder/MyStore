@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Banner from '../components/Banner';
-import Banner2 from '../components/Banner2';
+import BannerCarousel from '../components/BannerCarousel';
+import BannerJumbotron from '../components/BannerJumbotron';
 import Product from '../components/Product';
 import { Row, Col, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
@@ -40,9 +40,8 @@ export default function Home() {
   }
 
   let shuffledProducts = shuffle(activeProducts).slice(0, 3);
-  let shuffledProducts2 = shuffle(activeProducts);
 
-  let productComponents2 = shuffledProducts.map((product) => {
+  let productComponents = shuffledProducts.map((product) => {
     return <Product key={product._id} productProp={product} />;
   });
   console.log(shuffledProducts);
@@ -54,11 +53,14 @@ export default function Home() {
     destination: '/register',
     label2: 'Browse All Products',
     destination2: '/products',
+    image: 'jumbotron-home',
   };
   return (
     <div className='homeContainer'>
-      <Banner bannerProp={shuffledProducts2} />
-      <Banner2 bannerProp={bannerContent} />
+      <BannerCarousel />
+      <div className='mt-5'>
+        <BannerJumbotron bannerProp={bannerContent} />
+      </div>
       <div className='d-flex justify-content-center mt-5 '>
         <Row className=''>
           <h1 className=''>Today's Picks</h1>
@@ -66,7 +68,7 @@ export default function Home() {
       </div>
       <div class='d-flex justify-content-center shop-section'>
         <Col xs={12} md={9}>
-          <Row className=' alignItem '>{productComponents2}</Row>
+          <Row className=' alignItem '>{productComponents}</Row>
         </Col>
       </div>
 

@@ -1,17 +1,20 @@
 import React from 'react';
-import Banner from '../components/Banner';
+import BannerJumbotron from '../components/BannerJumbotron';
 
 export default function NotFound() {
   let bannerContent = {
-    title: 'Page cannot be found!',
-    description: 'Buy Now! Die Later!',
-    label: 'Go back to home page',
+    title: 'Page not found!',
+    description: 'Go Back to Home Page',
+    label: 'MyStore',
     destination: '/',
+    label2: 'MyStore',
+    destination2: '/',
+    image: 'jumbotron-not-found',
   };
 
   return (
     <>
-      <Banner bannerProp={bannerContent} />
+      <BannerJumbotron bannerProp={bannerContent} />
     </>
   );
 }
