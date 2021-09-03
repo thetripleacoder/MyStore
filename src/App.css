@@ -191,7 +191,7 @@ input[type=number] {
 }
 
 .login-card:focus-within {
-  box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.452);
+  box-shadow: 0px 20px 30px 10px rgba(0, 0, 0, 0.452);
   transform: scale(1.025);
   transition-timing-function: ease-out;
 }
@@ -231,7 +231,7 @@ input[type=number] {
 }
 
 .register-card:focus-within {
-  box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.452);
+  box-shadow: 0px 30px 40px 20px rgba(0, 0, 0, 0.466);
   transform: scale(1.025);
   transition-timing-function: ease-out;
 }
