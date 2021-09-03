@@ -143,11 +143,11 @@ input[type=number] {
   color: transparent;
   text-shadow: 0 0 0 #000000;
 
-  &:focus {
-    outline: none;
-  }
 }
 
+#cart-quantity-input:focus {
+  outline: none;
+}
 
 
 /* details */
