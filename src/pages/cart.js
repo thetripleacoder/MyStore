@@ -36,7 +36,7 @@ export default function Cart() {
     let index = cart.findIndex(
       (obj) => obj.name === element.name && obj.date === element.date
     );
-    cart[index].quantity = element.quantity + 1;
+    cart[index].quantity = parseFloat(element.quantity) + parseFloat(1);
     localStorage.setItem('session', JSON.stringify(cart));
     setUpdate({});
   }
@@ -46,7 +46,7 @@ export default function Cart() {
       (obj) => obj._id === element._id && obj.date === element.date
     );
     if (cart[index].quantity > 1) {
-      cart[index].quantity = element.quantity - 1;
+      cart[index].quantity = parseFloat(element.quantity) - parseFloat(1);
       localStorage.setItem('session', JSON.stringify(cart));
     }
     setUpdate({});
@@ -82,10 +82,11 @@ export default function Cart() {
               -
             </Button>
             <Form.Control
-              className='text-center'
+              className='text-center cart-quantity-input'
+              id='cart-quantity-input'
               size=''
               type='number'
-              value={product.quantity}
+              value={parseFloat(product.quantity)}
               required
             />
             <Button

@@ -149,8 +149,9 @@ export default function Register() {
               <Form.Label>Mobile No:</Form.Label>
               <Form.Control
                 class='register-input-field'
-                type='number'
-                placeholder='Enter 11-Digit Mobile No'
+                type='tel'
+                pattern='[0-9]{11}'
+                placeholder='Enter 11-digit Mobile No '
                 value={mobileNo}
                 onChange={(event) => {
                   setMobileNo(event.target.value);

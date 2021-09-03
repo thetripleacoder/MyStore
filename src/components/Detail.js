@@ -11,11 +11,11 @@ export default function Detail({ detailProp }) {
   const [update, setUpdate] = useState(0);
 
   function add() {
-    setQuantity(quantity + 1);
+    setQuantity(parseFloat(quantity) + parseFloat(1));
   }
   function subtract() {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
+      setQuantity(parseFloat(quantity) - parseFloat(1));
     }
   }
 
