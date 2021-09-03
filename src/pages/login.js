@@ -125,12 +125,12 @@ export default function Login() {
             </Form.Group>
 
             {isActive ? (
-              <Button variant='primary' type='submit'>
+              <Button variant='dark' type='submit'>
                 {' '}
                 Submit
               </Button>
             ) : (
-              <Button variant='primary' disabled>
+              <Button variant='dark' disabled>
                 {' '}
                 Submit
               </Button>

@@ -185,12 +185,12 @@ export default function Register() {
               />
             </Form.Group>
             {isActive ? (
-              <Button variant='primary' type='submit'>
+              <Button variant='dark' type='submit'>
                 {' '}
                 Submit
               </Button>
             ) : (
-              <Button variant='primary' disabled>
+              <Button variant='dark' disabled>
                 {' '}
                 Submit
               </Button>
