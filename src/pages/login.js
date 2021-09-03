@@ -124,17 +124,10 @@ export default function Login() {
               />
             </Form.Group>
 
-            {isActive ? (
-              <Button variant='dark' type='submit'>
-                {' '}
-                Submit
-              </Button>
-            ) : (
-              <Button variant='dark' disabled>
-                {' '}
-                Submit
-              </Button>
-            )}
+            <Button variant='dark' type='submit'>
+              {' '}
+              Submit
+            </Button>
           </Form>
         </Card>
       </Row>

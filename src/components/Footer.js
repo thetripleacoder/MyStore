@@ -125,7 +125,7 @@ const Footer = () => (
               // }}
               required
             />
-            <Button className='mt-3' variant='primary' type='submit'>
+            <Button className='mt-3' variant='dark' type='submit'>
               {' '}
               Submit
             </Button>
