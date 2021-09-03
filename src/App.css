@@ -39,7 +39,6 @@
   background-color: rgb(22, 22, 22);
   padding-top: 3em;
   position: relative;
-
   bottom: 0;
   width: 100%;
   display: flex;
@@ -131,17 +130,35 @@
 
 /* home */
 
+.home-jumbotron-section {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
 .home-jumbotron {
   background-image: url("https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80");
   background-size: cover;
-  padding-top: 10rem;
+
   box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
+}
+
+.home-todays-picks-section {
+  background-color: rgba(218, 218, 218, 0.438);
+  border-top: 0.5rem dashed;
+  /* border-bottom: 0.5rem dashed; */
+}
+
+#home-todays-picks-header {
+  font-family: cursive;
+  text-decoration: underline;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .home-view-more-link {
   color: black;
   font-size: 1.25rem;
-
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* login */
@@ -166,6 +183,20 @@
   padding-top: 4rem;
   box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
   background-position: 50%;
+}
+
+.products-list-section {
+  background-color: rgba(218, 218, 218, 0.438);
+  border-top: 0.5rem dashed;
+  padding-top: 5rem;
+  padding-bottom: 10rem;
+}
+
+.products-list-header {
+  font-family: cursive;
+  text-decoration: underline;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 /* register */

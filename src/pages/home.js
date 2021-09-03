@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BannerCarousel from '../components/BannerCarousel';
 import BannerJumbotron from '../components/BannerJumbotron';
 import Product from '../components/Product';
-import { Row, Col, Nav } from 'react-bootstrap';
+import { Row, Col, Nav, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 export default function Home() {
@@ -58,29 +58,34 @@ export default function Home() {
   return (
     <div>
       <BannerCarousel />
-
-      <BannerJumbotron bannerProp={bannerContent} />
-      <div className='d-flex justify-content-center mt-5 '>
-        <Row>
-          <h1>Today's Picks</h1>
-        </Row>
+      <div className=' home-jumbotron-section text-center'>
+        <Container>
+          <BannerJumbotron bannerProp={bannerContent} />
+        </Container>
       </div>
-      <div class='d-flex justify-content-center'>
-        <Col xs={12} md={9}>
-          <Row>{productComponents}</Row>
-        </Col>
-      </div>
+      <div className='home-todays-picks-section py-5 '>
+        <div className='d-flex justify-content-center '>
+          <Row>
+            <h1 id='home-todays-picks-header'>Today's Picks</h1>
+          </Row>
+        </div>
+        <div class='d-flex justify-content-center'>
+          <Col xs={12} md={9}>
+            <Row>{productComponents}</Row>
+          </Col>
+        </div>
 
-      <div className='d-flex justify-content-center'>
-        <Row>
-          <Nav.Link
-            as={NavLink}
-            to={'/products'}
-            className='home-view-more-link'
-          >
-            View More >>>
-          </Nav.Link>
-        </Row>
+        <div className='d-flex justify-content-center py-3'>
+          <Row>
+            <Nav.Link
+              as={NavLink}
+              to={'/products'}
+              className='home-view-more-link'
+            >
+              View More
+            </Nav.Link>
+          </Row>
+        </div>
       </div>
     </div>
   );
