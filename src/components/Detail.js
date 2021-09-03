@@ -104,11 +104,11 @@ export default function Detail({ detailProp }) {
 
       {user.email ? (
         quantity >= 1 ? (
-          <Button variant='primary' onClick={addToCart}>
+          <Button variant='dark' onClick={addToCart}>
             Add To Cart
           </Button>
         ) : (
-          <Button variant='primary' disabled>
+          <Button variant='dark' disabled>
             Add To Cart
           </Button>
         )
