@@ -179,8 +179,8 @@ export default function Products() {
   ) : (
     <>
       <BannerJumbotron bannerProp={bannerContent} />
-      <div className='text-center products-list-section'>
-        <div class='d-flex justify-content-center products-list-header my-5'>
+      <div className='products-list-section'>
+        <div class='d-flex justify-content-center text-center products-list-header my-5'>
           <Col xs={12} md={9}>
             <h1>Add to Cart</h1>
           </Col>
