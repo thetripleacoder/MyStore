@@ -58,9 +58,8 @@ export default function Home() {
   return (
     <div>
       <BannerCarousel />
-      <div className='mt-5'>
-        <BannerJumbotron bannerProp={bannerContent} />
-      </div>
+
+      <BannerJumbotron bannerProp={bannerContent} />
       <div className='d-flex justify-content-center mt-5 '>
         <Row>
           <h1>Today's Picks</h1>

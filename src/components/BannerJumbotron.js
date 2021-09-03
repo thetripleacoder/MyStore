@@ -8,7 +8,7 @@ export default function BannerJumbotron({ bannerProp }) {
   const { user } = useContext(UserContext);
 
   return (
-    <Row className='mx-5 justify-content-center'>
+    <Row className='mt-5 justify-content-center'>
       <Col xs={12} md={10}>
         <Jumbotron className={bannerProp.image}>
           <h1>{bannerProp.title}</h1>
