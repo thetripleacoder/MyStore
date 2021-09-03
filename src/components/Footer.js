@@ -4,7 +4,7 @@ import '../App.css';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 
 const Footer = () => (
-  <div className='main-footer'>
+  <div className='main-footer mt-5'>
     <Col xs={12} md={10}>
       <Row className='mx-5'>
         <Col>
