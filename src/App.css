@@ -242,11 +242,15 @@ input[type=number] {
   outline: none;
 }
 
-
-
 /* updates */
 
 .updates-card-image {
   object-fit: cover;
   object-position: 50% 100%;
+}
+
+/* global classes */
+
+.form-container {
+  background-color: rgb(22, 22, 22);
 }
