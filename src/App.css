@@ -107,7 +107,7 @@
 
 .product-card:hover {
   transform: scale(1);
-  box-shadow: 0 0 50px 5px black;
+
 }
 
 .product-card-image {
@@ -146,8 +146,12 @@
 
 /* login */
 
-.login-card {
-  box-shadow: 0px 30px 40px rgb(0 0 0 / 0.5);
+.login-card {}
+
+.login-card:focus-within {
+  box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.452);
+  transform: scale(1.025);
+  transition-timing-function: ease-out;
 }
 
 /* orders */
@@ -166,9 +170,21 @@
 
 /* register */
 
-.register-card {
-  box-shadow: 0px 30px 40px rgb(0 0 0 / 0.5);
+.register-card {}
+
+.register-card:focus-within {
+  box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.452);
+  transform: scale(1.025);
+  transition-timing-function: ease-out;
 }
+
+.register-input-field {
+  border: 0;
+  border-bottom: 1.75px solid gray;
+  outline: none;
+}
+
+
 
 /* updates */
 

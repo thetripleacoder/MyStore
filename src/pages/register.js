@@ -96,6 +96,7 @@ export default function Register() {
             <Form.Group>
               <Form.Label>First Name:</Form.Label>
               <Form.Control
+                class='register-input-field'
                 type='text'
                 placeholder='Enter First Name'
                 value={firstName}
@@ -108,6 +109,7 @@ export default function Register() {
             <Form.Group>
               <Form.Label>Last Name:</Form.Label>
               <Form.Control
+                class='register-input-field'
                 type='text'
                 placeholder='Enter Last Name'
                 value={lastName}
@@ -120,6 +122,7 @@ export default function Register() {
             <Form.Group>
               <Form.Label>Address:</Form.Label>
               <Form.Control
+                class='register-input-field'
                 type='text'
                 placeholder='Enter Address'
                 value={address}
@@ -132,6 +135,7 @@ export default function Register() {
             <Form.Group>
               <Form.Label>Email:</Form.Label>
               <Form.Control
+                class='register-input-field'
                 type='email'
                 placeholder='Enter Email'
                 value={email}
@@ -144,6 +148,7 @@ export default function Register() {
             <Form.Group>
               <Form.Label>Mobile No:</Form.Label>
               <Form.Control
+                class='register-input-field'
                 type='number'
                 placeholder='Enter 11-Digit Mobile No'
                 value={mobileNo}
@@ -156,6 +161,7 @@ export default function Register() {
             <Form.Group>
               <Form.Label>Password:</Form.Label>
               <Form.Control
+                class='register-input-field'
                 type='text'
                 placeholder='Enter Password'
                 value={password}
@@ -168,6 +174,7 @@ export default function Register() {
             <Form.Group>
               <Form.Label>Confirm Password:</Form.Label>
               <Form.Control
+                class='register-input-field'
                 type='text'
                 placeholder='Confirm Password'
                 value={confirmPassword}
