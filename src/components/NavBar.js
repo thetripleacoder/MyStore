@@ -19,7 +19,14 @@ export default function NavBar() {
     <Navbar sticky='top' bg='light' variant='light' expand='lg'>
       <Container fluid>
         <Navbar.Brand as={NavLink} to={'/'}>
-          MyStore
+          <img
+            src='/images/logo.png'
+            width='30'
+            height='30'
+            className='d-inline-block align-top'
+            alt='logo'
+          />
+          yStore
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
