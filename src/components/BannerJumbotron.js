@@ -9,7 +9,7 @@ export default function BannerJumbotron({ bannerProp }) {
 
   return (
     <Jumbotron className={bannerProp.image}>
-      <h1>{bannerProp.title}</h1>
+      <h1 className='jumbotron-title'>{bannerProp.title}</h1>
       <p>{bannerProp.description}</p>
       {!user.email ? (
         <Link

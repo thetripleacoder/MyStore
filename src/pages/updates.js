@@ -85,7 +85,7 @@ export default function Updates() {
 
   return (
     <Container>
-      <Row xs={12} md={2} className='justify-content-center'>
+      <Row xs={12} md={2} className='justify-content-center mb-5'>
         <Card className='mt-5 '>
           <Card.Img
             variant='top'

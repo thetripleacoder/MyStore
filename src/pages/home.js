@@ -82,7 +82,7 @@ export default function Home() {
               to={'/products'}
               className='home-view-more-link'
             >
-              View More
+              Go To Shop Page
             </Nav.Link>
           </Row>
         </div>

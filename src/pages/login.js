@@ -87,6 +87,20 @@ export default function Login() {
     <Redirect to='/products' />
   ) : (
     <Container>
+      <Row xs={12} className='justify-content-center mt-5'>
+        <h1>
+          {' '}
+          Login to your{' '}
+          <img
+            src='/images/logo.png'
+            width='50'
+            height='50'
+            className='d-inline-block align-top'
+            alt='logo'
+          />
+          yAccount
+        </h1>
+      </Row>
       <Row xs={12} md={2} className='justify-content-center'>
         <Card className='my-5 px-5 py-5 login-card'>
           <Form onSubmit={(e) => loginUser(e)}>

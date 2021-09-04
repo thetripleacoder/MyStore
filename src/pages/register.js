@@ -90,7 +90,21 @@ export default function Register() {
     <Redirect to='/login' />
   ) : (
     <Container>
-      <Row xs={12} md={2} className='justify-content-center'>
+      <Row xs={12} className='justify-content-center mt-5'>
+        <h1>
+          {' '}
+          Create a{' '}
+          <img
+            src='/images/logo.png'
+            width='50'
+            height='50'
+            className='d-inline-block align-top'
+            alt='logo'
+          />
+          yAccount
+        </h1>
+      </Row>
+      <Row xs={12} md={2} className='justify-content-center mb-5'>
         <Card className='mt-5 px-5 py-5 register-card'>
           <Form onSubmit={(e) => registerUser(e)}>
             <Form.Group>

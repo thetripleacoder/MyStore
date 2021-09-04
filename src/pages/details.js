@@ -37,8 +37,8 @@ export default function Details() {
 
   return (
     <Container>
-      <Row xs={12} md={2} className='justify-content-center'>
-        <Card className='my-5 '>
+      <Row xs={12} md={2} className='justify-content-center '>
+        <Card className='my-5'>
           <Detail detailProp={detailContent} />
         </Card>
       </Row>

@@ -85,7 +85,7 @@ export default function Orders() {
         <Row className='mt-5 justify-content-center'>
           {user.isAdmin ? <h1>Customer Orders</h1> : <h1>User Orders</h1>}
         </Row>
-        <Row>
+        <Row className='mb-5'>
           <Col xs={12} md={6}>
             <h4 className='text-center'>Pending Orders</h4>
             {pendingOrderComponents}

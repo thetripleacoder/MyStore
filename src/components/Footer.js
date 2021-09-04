@@ -4,39 +4,22 @@ import '../App.css';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 
 const Footer = () => (
-  <div className='main-footer mt-5'>
+  <div className='main-footer'>
     <Col xs={12} md={10}>
-      <Row className='mx-5'>
-        <Col>
-          <h4>SHOP MYSTORE</h4>
-          <ul className='list-unstyled'>
-            <li>
-              <a href='#' target='_blank'>
-                Computer
-              </a>
-            </li>
-            <li>
-              <a href='#' target='_blank'>
-                Phone
-              </a>
-            </li>
-            <li>
-              <a href='#' target='_blank'>
-                Watch
-              </a>
-            </li>
-            <li>
-              <a href='#' target='_blank'>
-                Drone
-              </a>
-            </li>
-            <li>
-              <a href='#' target='_blank'>
-                Mic
-              </a>
-            </li>
-          </ul>
+      <Row className=''>
+        <Col
+          xs={12}
+          md={4}
+          lg={2}
+          className='align-self-center text-center mr-5'
+        >
+          <img
+            src='/images/logo.png'
+            className='d-inline-block align-top mystore-logo'
+            alt='logo'
+          />
         </Col>
+
         <Col>
           <h4>SUPPORT</h4>
           <ul className='list-unstyled'>
@@ -107,7 +90,7 @@ const Footer = () => (
             </li>
           </ul>
         </Col>
-        <Col md={3}>
+        <Col>
           <h4>GET UPDATES</h4>
 
           <p>
@@ -132,11 +115,7 @@ const Footer = () => (
           </Form>
         </Col>
       </Row>
-
-      <Row className='mt-3 mx-5 pb-5'>
-        <Col>
-          <p>&copy;{new Date().getFullYear()} MyStore | All rights reserved</p>
-        </Col>
+      <Row className='text-center'>
         <Col>
           <p>Follow Us</p>
           <a
@@ -163,6 +142,11 @@ const Footer = () => (
           >
             <i class='far fa-envelope'></i>
           </a>
+        </Col>
+      </Row>
+      <Row className='text-center'>
+        <Col>
+          <p>&copy;{new Date().getFullYear()} MyStore | All rights reserved</p>
         </Col>
       </Row>
     </Col>
