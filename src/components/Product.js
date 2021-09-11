@@ -23,7 +23,7 @@ export default function Product({ productProp }) {
           />
           <Card.Body>
             <Card.Title>{productProp.name}</Card.Title>
-            <Card.Text>Price: ₱{productProp.price.toFixed(2)}</Card.Text>
+            <Card.Text>PHP {productProp.price.toFixed(2)}</Card.Text>
           </Card.Body>
         </Card>
       </Link>
