@@ -59,10 +59,8 @@ export default function Home() {
     <div>
       <BannerCarousel />
       <div className=' home-jumbotron-section text-center'>
-        <Container fluid class='d-flex justify-content-center'>
-          <Col xs={12} md={9}>
-            <BannerJumbotron bannerProp={bannerContent} />
-          </Col>
+        <Container>
+          <BannerJumbotron bannerProp={bannerContent} />
         </Container>
       </div>
       <div className='home-todays-picks-section py-5 '>
