@@ -6,7 +6,7 @@ export default function BannerCarousel() {
   const [allProducts, setAllProducts] = useState([]);
   const [activeProducts, setActiveProducts] = useState([]);
   useEffect(() => {
-    fetch('https://cryptic-crag-81593.herokuapp.com/api/products')
+    fetch('https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/products')
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data.data);

@@ -13,11 +13,14 @@ export default function Orders() {
   useEffect(() => {
     window.scrollTo(0, 0);
     user.isAdmin
-      ? fetch('https://cryptic-crag-81593.herokuapp.com/api/admin/orders', {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
-        })
+      ? fetch(
+          'https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/admin/orders',
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             let ordersTemp = data.data;
@@ -32,11 +35,14 @@ export default function Orders() {
             });
             setCompletedOrders(tempArray2);
           })
-      : fetch('https://cryptic-crag-81593.herokuapp.com/api/user/orders', {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
-        })
+      : fetch(
+          'https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/user/orders',
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             let ordersTemp = data.data;

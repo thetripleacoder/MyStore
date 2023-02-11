@@ -13,7 +13,7 @@ export default function Updates() {
 
   useEffect(() => {
     fetch(
-      `https://cryptic-crag-81593.herokuapp.com/api/products/${localStorage.getItem(
+      `https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/products/${localStorage.getItem(
         'productId'
       )}`
     )
@@ -50,7 +50,7 @@ export default function Updates() {
 
   function updateProduct(productId) {
     fetch(
-      `https://cryptic-crag-81593.herokuapp.com/api/products/${productId}`,
+      `https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/products/${productId}`,
       {
         method: 'PUT',
         headers: {

@@ -27,7 +27,7 @@ export default function Order({ orderProp }) {
 
   function setAsCompletedOrder(orderId) {
     fetch(
-      `https://cryptic-crag-81593.herokuapp.com/api/admin/orders/completed/${orderId}`,
+      `https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/admin/orders/completed/${orderId}`,
       {
         method: 'PUT',
         headers: {
@@ -48,7 +48,7 @@ export default function Order({ orderProp }) {
   }
   function setAsPendingOrder(orderId) {
     fetch(
-      `https://cryptic-crag-81593.herokuapp.com/api/admin/orders/pending/${orderId}`,
+      `https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/admin/orders/pending/${orderId}`,
       {
         method: 'PUT',
         headers: {

@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 notes.txt
+notes.md
 src/components/Highlights.js
 src/components/ScrollToTop.js
 
@@ -27,3 +28,8 @@ src/components/ScrollToTop.js
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Local Netlify folder
+.netlify
+
+

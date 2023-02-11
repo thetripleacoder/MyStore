@@ -19,7 +19,7 @@ export default function Cart() {
   const { user } = useContext(UserContext);
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetch('https://cryptic-crag-81593.herokuapp.com/api/profile', {
+    fetch('https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/profile', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
@@ -134,23 +134,26 @@ export default function Cart() {
   total += shippingFee;
 
   function checkout() {
-    fetch('https://cryptic-crag-81593.herokuapp.com/api/users/checkout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-      body: JSON.stringify({
-        totalAmount: total,
-        shippingFee: shippingFee,
-        products: cart.length >= 1 ? cart : null,
-        firstName: userOrder.firstName,
-        lastName: userOrder.lastName,
-        email: userOrder.email,
-        address: userOrder.address,
-        mobileNo: userOrder.mobileNo,
-      }),
-    })
+    fetch(
+      'https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/users/checkout',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify({
+          totalAmount: total,
+          shippingFee: shippingFee,
+          products: cart.length >= 1 ? cart : null,
+          firstName: userOrder.firstName,
+          lastName: userOrder.lastName,
+          email: userOrder.email,
+          address: userOrder.address,
+          mobileNo: userOrder.mobileNo,
+        }),
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

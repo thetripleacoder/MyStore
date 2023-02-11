@@ -24,19 +24,22 @@ export default function AddProduct() {
   }, [name, description, price]);
 
   function addProduct(e) {
-    fetch('https://cryptic-crag-81593.herokuapp.com/api/products', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-      body: JSON.stringify({
-        picture: picture,
-        name: name,
-        description: description,
-        price: price,
-      }),
-    })
+    fetch(
+      'https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/products',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify({
+          picture: picture,
+          name: name,
+          description: description,
+          price: price,
+        }),
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         // console.log(data);

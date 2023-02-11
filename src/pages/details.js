@@ -10,7 +10,7 @@ export default function Details() {
   useEffect(() => {
     window.scrollTo(0, 0);
     fetch(
-      `https://cryptic-crag-81593.herokuapp.com/api/products/${localStorage.getItem(
+      `https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/products/${localStorage.getItem(
         'productId'
       )}`
     )

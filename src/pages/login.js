@@ -34,7 +34,7 @@ export default function Login() {
   function loginUser(e) {
     e.preventDefault();
 
-    fetch('https://cryptic-crag-81593.herokuapp.com/api/login', {
+    fetch('https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -55,11 +55,14 @@ export default function Login() {
         } else {
           localStorage.setItem('token', data.accessToken);
 
-          fetch('https://cryptic-crag-81593.herokuapp.com/api/profile', {
-            headers: {
-              Authorization: `Bearer ${data.accessToken}`,
-            },
-          })
+          fetch(
+            'https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/profile',
+            {
+              headers: {
+                Authorization: `Bearer ${data.accessToken}`,
+              },
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               localStorage.setItem('email', data.email);

@@ -46,20 +46,23 @@ export default function Register() {
   function registerUser(e) {
     e.preventDefault();
 
-    fetch('https://cryptic-crag-81593.herokuapp.com/api/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        firstName: firstName,
-        lastName: lastName,
-        address: address,
-        email: email,
-        password: password,
-        mobileNo: mobileNo,
-      }),
-    })
+    fetch(
+      'https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/register',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: firstName,
+          lastName: lastName,
+          address: address,
+          email: email,
+          password: password,
+          mobileNo: mobileNo,
+        }),
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         if (data.message) {

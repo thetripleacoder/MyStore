@@ -14,7 +14,7 @@ export default function Products() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetch('https://cryptic-crag-81593.herokuapp.com/api/products')
+    fetch('https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/products')
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data.data);
@@ -34,7 +34,7 @@ export default function Products() {
 
   function archive(productId) {
     fetch(
-      `https://cryptic-crag-81593.herokuapp.com/api/products/archive/${productId}`,
+      `https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/products/archive/${productId}`,
       {
         method: 'PUT',
         headers: {
@@ -56,7 +56,7 @@ export default function Products() {
 
   function activate(productId) {
     fetch(
-      `https://cryptic-crag-81593.herokuapp.com/api/products/activate/${productId}`,
+      `https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/products/activate/${productId}`,
       {
         method: 'PUT',
         headers: {
@@ -78,7 +78,7 @@ export default function Products() {
 
   function deleteProduct(productId) {
     fetch(
-      `https://cryptic-crag-81593.herokuapp.com/api/products/delete/${productId}`,
+      `https://my-store-cy0mjb04g-thetripleacoder.vercel.app/api/products/delete/${productId}`,
       {
         method: 'DELETE',
         headers: {
